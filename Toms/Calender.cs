@@ -153,7 +153,7 @@ namespace Toms
         }
 
         private void LbDate_Load(object sender, EventArgs e)
-        {
+        { //test
             year = Convert.ToInt32(DateTime.Now.Year);
             month = Convert.ToInt32(DateTime.Now.Month);
             MonthCalendarView();
