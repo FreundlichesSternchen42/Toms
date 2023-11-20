@@ -8,18 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace Toms
 {
-    public partial class lbDate : Form
+    public partial class Calendar : Form
     {
 
         // Variabendeklaration für den Zeitraum des Kalenders
         public int year;
         public int month;
-        
+        LinkedList<Event> test = new LinkedList<Event>();
 
-        public lbDate()
+        public Calendar()
         {
             InitializeComponent();           
         }
@@ -157,8 +158,18 @@ namespace Toms
             year = Convert.ToInt32(DateTime.Now.Year);
             month = Convert.ToInt32(DateTime.Now.Month);
             MonthCalendarView();
+            Event ev = new Event();
+            ev.date = "";
+            ev.eventtitle = "";
+            ev.category = "";
+            test.AddFirst(ev);
+            giveCalendarObject(10).Text = test.ElementAt(0).eventtitle;
         }
-
-       
+    }
+    public class Event
+    {
+        public string date;
+        public string eventtitle;
+        public string category;
     }
 }
