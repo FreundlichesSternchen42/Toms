@@ -160,7 +160,7 @@ namespace Toms
             MonthCalendarView();
             Event ev = new Event();
             ev.date = "";
-            ev.eventtitle = "";
+            ev.eventtitle = "Titel";
             ev.category = "";
             test.AddFirst(ev);
             giveCalendarObject(10).Text = test.ElementAt(0).eventtitle;

@@ -23,5 +23,17 @@ namespace Toms
             menu.Show();
             this.Hide();
         }
+
+        private void Events_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btAddEvent_Click(object sender, EventArgs e)
+        {
+            Event ev = new Event();
+            ev.eventtitle = tbEventTitle.Text;
+
+        }
     }
 }
