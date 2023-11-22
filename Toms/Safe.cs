@@ -21,6 +21,7 @@ namespace Toms
             InitializeComponent();
         }
 
+        public static LinkedList<Event> sus = new LinkedList<Event>();
         private void bt_backToMenu_Click(object sender, EventArgs e)
         {
             Menu menu = new Menu();
@@ -78,6 +79,11 @@ namespace Toms
             */
 
             
+        }
+
+        private void Safe_Load(object sender, EventArgs e)
+        {
+
         }
     }
     

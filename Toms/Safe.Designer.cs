@@ -38,10 +38,9 @@
             this.btBackToMenu.BackColor = System.Drawing.Color.Transparent;
             this.btBackToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btBackToMenu.ForeColor = System.Drawing.Color.Black;
-            this.btBackToMenu.Location = new System.Drawing.Point(605, 401);
-            this.btBackToMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btBackToMenu.Location = new System.Drawing.Point(454, 326);
             this.btBackToMenu.Name = "btBackToMenu";
-            this.btBackToMenu.Size = new System.Drawing.Size(183, 36);
+            this.btBackToMenu.Size = new System.Drawing.Size(137, 29);
             this.btBackToMenu.TabIndex = 1;
             this.btBackToMenu.Text = "Back to Menu";
             this.btBackToMenu.UseVisualStyleBackColor = false;
@@ -50,10 +49,10 @@
             // btSafe
             // 
             this.btSafe.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSafe.Location = new System.Drawing.Point(331, 263);
-            this.btSafe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btSafe.Location = new System.Drawing.Point(248, 214);
+            this.btSafe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btSafe.Name = "btSafe";
-            this.btSafe.Size = new System.Drawing.Size(99, 38);
+            this.btSafe.Size = new System.Drawing.Size(74, 31);
             this.btSafe.TabIndex = 2;
             this.btSafe.Text = "Safe";
             this.btSafe.UseVisualStyleBackColor = true;
@@ -63,24 +62,26 @@
             // 
             this.lbSafe.AutoSize = true;
             this.lbSafe.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSafe.Location = new System.Drawing.Point(337, 9);
+            this.lbSafe.Location = new System.Drawing.Point(253, 7);
+            this.lbSafe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSafe.Name = "lbSafe";
-            this.lbSafe.Size = new System.Drawing.Size(106, 46);
+            this.lbSafe.Size = new System.Drawing.Size(86, 37);
             this.lbSafe.TabIndex = 3;
             this.lbSafe.Text = "Safe";
             // 
             // Safe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.lbSafe);
             this.Controls.Add(this.btSafe);
             this.Controls.Add(this.btBackToMenu);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Safe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Safe";
+            this.Load += new System.EventHandler(this.Safe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

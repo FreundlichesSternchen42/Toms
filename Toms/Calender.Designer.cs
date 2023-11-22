@@ -693,7 +693,7 @@
             this.btPrevious.TabIndex = 16;
             this.btPrevious.Text = "<--- Previous";
             this.btPrevious.UseVisualStyleBackColor = true;
-            this.btPrevious.Click += new System.EventHandler(this.BtPrevious_Click_1);
+            this.btPrevious.Click += new System.EventHandler(this.BtPrevious_Click);
             // 
             // btNext
             // 
@@ -705,12 +705,12 @@
             this.btNext.TabIndex = 17;
             this.btNext.Text = "Next --->";
             this.btNext.UseVisualStyleBackColor = true;
-            this.btNext.Click += new System.EventHandler(this.BtNext_Click_1);
+            this.btNext.Click += new System.EventHandler(this.BtNext_Click);
             // 
             // tmUpdate
             // 
             this.tmUpdate.Enabled = true;
-            this.tmUpdate.Tick += new System.EventHandler(this.TmUpdate_Tick_1);
+            this.tmUpdate.Tick += new System.EventHandler(this.TmUpdate_Tick);
             // 
             // lbDate
             // 
@@ -727,7 +727,7 @@
             this.Name = "lbDate";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calender";
-            this.Load += new System.EventHandler(this.LbDate_Load);
+            this.Load += new System.EventHandler(this.Calendar_Load);
             this.tlpCalendar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

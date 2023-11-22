@@ -44,7 +44,7 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(222, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 64);
+            this.label1.Size = new System.Drawing.Size(166, 64);
             this.label1.TabIndex = 2;
             this.label1.Text = "Menu";
             // 
@@ -52,7 +52,7 @@
             // 
             this.btCalender.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCalender.Location = new System.Drawing.Point(232, 120);
-            this.btCalender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btCalender.Margin = new System.Windows.Forms.Padding(2);
             this.btCalender.Name = "btCalender";
             this.btCalender.Size = new System.Drawing.Size(112, 31);
             this.btCalender.TabIndex = 3;
@@ -64,19 +64,19 @@
             // 
             this.btEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEvents.Location = new System.Drawing.Point(232, 166);
-            this.btEvents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btEvents.Margin = new System.Windows.Forms.Padding(2);
             this.btEvents.Name = "btEvents";
             this.btEvents.Size = new System.Drawing.Size(112, 32);
             this.btEvents.TabIndex = 4;
             this.btEvents.Text = "Events ";
             this.btEvents.UseVisualStyleBackColor = true;
-            this.btEvents.Click += new System.EventHandler(this.BtEvents_Click);
+            this.btEvents.Click += new System.EventHandler(this.BtEvent_Click);
             // 
             // btCategories
             // 
             this.btCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCategories.Location = new System.Drawing.Point(232, 211);
-            this.btCategories.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btCategories.Margin = new System.Windows.Forms.Padding(2);
             this.btCategories.Name = "btCategories";
             this.btCategories.Size = new System.Drawing.Size(112, 31);
             this.btCategories.TabIndex = 5;
@@ -88,7 +88,7 @@
             // 
             this.btSafe.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btSafe.Location = new System.Drawing.Point(232, 260);
-            this.btSafe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btSafe.Margin = new System.Windows.Forms.Padding(2);
             this.btSafe.Name = "btSafe";
             this.btSafe.Size = new System.Drawing.Size(112, 29);
             this.btSafe.TabIndex = 6;
@@ -100,7 +100,7 @@
             // 
             this.btEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEnd.Location = new System.Drawing.Point(514, 323);
-            this.btEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btEnd.Name = "btEnd";
             this.btEnd.Size = new System.Drawing.Size(77, 33);
             this.btEnd.TabIndex = 7;
@@ -119,10 +119,11 @@
             this.Controls.Add(this.btEvents);
             this.Controls.Add(this.btCalender);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

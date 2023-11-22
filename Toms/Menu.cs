@@ -16,7 +16,6 @@ namespace Toms
         {
             InitializeComponent();
         }
-
         private void bt_safe_Click(object sender, EventArgs e)
         {
             Safe safe = new Safe();
@@ -38,11 +37,10 @@ namespace Toms
 
         }
 
-        private void BtEvents_Click(object sender, EventArgs e)
+        private void BtEvent_Click(object sender, EventArgs e)
         {
-            Events events = new Events();
+            Event events = new Event();
             events.Show();
-            this.Hide();
         }
 
         private void BtCategories_Click(object sender, EventArgs e)
@@ -50,6 +48,10 @@ namespace Toms
             Categories categories = new Categories();
             categories.Show();
             this.Hide();
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
         }
     }
 }

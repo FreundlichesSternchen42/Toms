@@ -64,12 +64,6 @@
     <Compile Include="Event.Designer.cs">
       <DependentUpon>Event.cs</DependentUpon>
     </Compile>
-    <Compile Include="Events.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Events.Designer.cs">
-      <DependentUpon>Events.cs</DependentUpon>
-    </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,9 +86,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Event.resx">
       <DependentUpon>Event.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Events.resx">
-      <DependentUpon>Events.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

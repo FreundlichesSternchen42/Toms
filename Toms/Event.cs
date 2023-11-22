@@ -12,6 +12,9 @@ namespace Toms
 {
     public partial class Event : Form
     {
+        public DateTime date;
+        public string eventtitle;
+        public string category;
         public Event()
         {
             InitializeComponent();
@@ -20,6 +23,18 @@ namespace Toms
         private void btCancel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Event_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            Event ev = new Event();
+            ev.eventtitle = tbEvent.Text;
+            Safe.sus.AddLast(ev);
         }
     }
 }

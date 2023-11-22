@@ -18,7 +18,6 @@ namespace Toms
         // Variabendeklaration für den Zeitraum des Kalenders
         public int year;
         public int month;
-        LinkedList<Event> test = new LinkedList<Event>();
 
         public Calendar()
         {
@@ -32,9 +31,7 @@ namespace Toms
             this.Hide();
         }
 
-        
-
-        private void BtNext_Click_1(object sender, EventArgs e)
+        private void BtNext_Click(object sender, EventArgs e)
         {
             month++;
             if (month == 13)
@@ -45,7 +42,7 @@ namespace Toms
             MonthCalendarView();
         }
 
-        private void BtPrevious_Click_1(object sender, EventArgs e)
+        private void BtPrevious_Click(object sender, EventArgs e)
         {
             month--;
             if (month == 0)
@@ -97,6 +94,7 @@ namespace Toms
             }
         }
 
+        // Kalenderansteuerungsmethode: Gibt die RTB mit der jeweiligen ID weiter
         public RichTextBox giveCalendarObject(int id)
         {
             switch (id)
@@ -147,29 +145,19 @@ namespace Toms
             }
         }
 
-        private void TmUpdate_Tick_1(object sender, EventArgs e)
+        // Automatischer Resize mit Timer
+        private void TmUpdate_Tick(object sender, EventArgs e)
         {
             tlpCalendar.Width = this.Width - 300;
             tlpCalendar.Height = this.Height - 250;
         }
 
-        private void LbDate_Load(object sender, EventArgs e)
-        { //test
+        private void Calendar_Load(object sender, EventArgs e)
+        { 
             year = Convert.ToInt32(DateTime.Now.Year);
             month = Convert.ToInt32(DateTime.Now.Month);
             MonthCalendarView();
-            Event ev = new Event();
-            ev.date = "";
-            ev.eventtitle = "Titel";
-            ev.category = "";
-            test.AddFirst(ev);
-            giveCalendarObject(10).Text = test.ElementAt(0).eventtitle;
+            giveCalendarObject(10).Text = Safe.sus.ElementAt(0).eventtitle;
         }
-    }
-    public class Event
-    {
-        public string date;
-        public string eventtitle;
-        public string category;
     }
 }
