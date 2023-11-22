@@ -34,7 +34,8 @@ namespace Toms
         {
             Event ev = new Event();
             ev.eventtitle = tbEvent.Text;
-            Safe.sus.AddLast(ev);
+            ev.category = cbCategory.SelectedItem.ToString();
+            Safe.savedDates.AddLast(ev);
         }
     }
 }

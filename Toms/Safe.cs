@@ -21,18 +21,16 @@ namespace Toms
             InitializeComponent();
         }
 
-        public static LinkedList<Event> sus = new LinkedList<Event>();
+        public static LinkedList<Event> savedDates = new LinkedList<Event>();
         private void bt_backToMenu_Click(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void bt_safe_Click(object sender, EventArgs e)
         {
             /*
-
+ 
             private Kunde KundeEinlesen()
             {
                 XmlSerializer ser = new XmlSerializer(typeof(Kunde));
@@ -77,8 +75,6 @@ namespace Toms
                 set { _Nachname = value; }
 
             */
-
-            
         }
 
         private void Safe_Load(object sender, EventArgs e)

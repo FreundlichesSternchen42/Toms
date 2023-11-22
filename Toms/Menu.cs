@@ -20,7 +20,6 @@ namespace Toms
         {
             Safe safe = new Safe();
             safe.Show();
-            this.Hide();
         }
 
         private void bt_end_Click(object sender, EventArgs e)
@@ -32,9 +31,6 @@ namespace Toms
         {
             Calendar calender = new Calendar();
             calender.Show();
-            this.Hide();
-           
-
         }
 
         private void BtEvent_Click(object sender, EventArgs e)
@@ -47,11 +43,6 @@ namespace Toms
         {
             Categories categories = new Categories();
             categories.Show();
-            this.Hide();
-        }
-
-        private void Menu_Load(object sender, EventArgs e)
-        {
         }
     }
 }

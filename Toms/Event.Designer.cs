@@ -30,12 +30,12 @@
         {
             this.btCancel = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbEvent = new System.Windows.Forms.TextBox();
-            this.tbDate = new System.Windows.Forms.TextBox();
+            this.dtbDate = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btCancel
@@ -54,7 +54,7 @@
             // btSave
             // 
             this.btSave.Location = new System.Drawing.Point(350, 123);
-            this.btSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btSave.Margin = new System.Windows.Forms.Padding(2);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(82, 34);
             this.btSave.TabIndex = 14;
@@ -62,14 +62,14 @@
             this.btSave.UseVisualStyleBackColor = true;
             this.btSave.Click += new System.EventHandler(this.btSave_Click);
             // 
-            // comboBox1
+            // cbCategory
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(25, 205);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(226, 21);
-            this.comboBox1.TabIndex = 13;
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Location = new System.Drawing.Point(25, 205);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(226, 21);
+            this.cbCategory.TabIndex = 13;
             // 
             // label3
             // 
@@ -77,9 +77,9 @@
             this.label3.Location = new System.Drawing.Point(25, 188);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Categorie";
+            this.label3.Text = "Category";
             // 
             // label2
             // 
@@ -105,35 +105,32 @@
             // 
             this.tbEvent.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEvent.Location = new System.Drawing.Point(25, 130);
-            this.tbEvent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEvent.Margin = new System.Windows.Forms.Padding(2);
             this.tbEvent.Name = "tbEvent";
             this.tbEvent.Size = new System.Drawing.Size(226, 28);
             this.tbEvent.TabIndex = 9;
             // 
-            // tbDate
+            // dtbDate
             // 
-            this.tbDate.Enabled = false;
-            this.tbDate.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDate.Location = new System.Drawing.Point(25, 58);
-            this.tbDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbDate.Name = "tbDate";
-            this.tbDate.Size = new System.Drawing.Size(226, 28);
-            this.tbDate.TabIndex = 8;
+            this.dtbDate.Location = new System.Drawing.Point(25, 56);
+            this.dtbDate.Name = "dtbDate";
+            this.dtbDate.Size = new System.Drawing.Size(226, 20);
+            this.dtbDate.TabIndex = 16;
             // 
             // Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 279);
+            this.Controls.Add(this.dtbDate);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btSave);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbCategory);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbEvent);
-            this.Controls.Add(this.tbDate);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Event";
             this.Text = "Event";
             this.Load += new System.EventHandler(this.Event_Load);
@@ -146,11 +143,11 @@
 
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Button btSave;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbCategory;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbEvent;
-        private System.Windows.Forms.TextBox tbDate;
+        private System.Windows.Forms.DateTimePicker dtbDate;
     }
 }

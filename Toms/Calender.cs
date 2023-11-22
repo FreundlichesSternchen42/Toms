@@ -26,9 +26,7 @@ namespace Toms
 
         private void BtBackToMenu_Click(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void BtNext_Click(object sender, EventArgs e)
@@ -157,7 +155,7 @@ namespace Toms
             year = Convert.ToInt32(DateTime.Now.Year);
             month = Convert.ToInt32(DateTime.Now.Month);
             MonthCalendarView();
-            giveCalendarObject(10).Text = Safe.sus.ElementAt(0).eventtitle;
+            giveCalendarObject(10).Text = Safe.savedDates.ElementAt(0).eventtitle;
         }
     }
 }
