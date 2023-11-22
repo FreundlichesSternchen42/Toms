@@ -1,6 +1,6 @@
 ﻿namespace Toms
 {
-    partial class lbDate
+    partial class Calendar
     {
         /// <summary>
         /// Required designer variable.
@@ -103,7 +103,7 @@
             // 
             // lbCDate
             // 
-            this.lbCDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.lbCDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbCDate.AutoSize = true;
             this.lbCDate.Location = new System.Drawing.Point(562, 103);

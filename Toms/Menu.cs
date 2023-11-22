@@ -31,7 +31,7 @@ namespace Toms
 
         private void BtCalender_Click(object sender, EventArgs e)
         {
-            lbDate calender = new lbDate();
+            Calendar calender = new Calendar();
             calender.Show();
             this.Hide();
            
