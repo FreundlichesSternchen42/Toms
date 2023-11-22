@@ -89,6 +89,15 @@ namespace Toms
                 DateTime dt = Convert.ToDateTime(i.ToString() + "." + month.ToString() + "." + year.ToString());
                 giveCalendarObject(id).SelectionFont = new Font(giveCalendarObject(id).Font, FontStyle.Bold);
                 giveCalendarObject(id).Text = i.ToString();
+
+                if(getEventofDate(dt).Count > 0)
+                {
+                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n "+ getEventofDate(dt).First().eventtitle;
+                    if(getEventofDate(dt).Count > 1)
+                    {
+                        giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n +" + (getEventofDate(dt).Count - 1) + " more";
+                    }
+                }
             }
         }
 
@@ -155,7 +164,20 @@ namespace Toms
             year = Convert.ToInt32(DateTime.Now.Year);
             month = Convert.ToInt32(DateTime.Now.Month);
             MonthCalendarView();
-            giveCalendarObject(10).Text = Safe.savedDates.ElementAt(0).eventtitle;
+        }
+
+        public LinkedList<Event> getEventofDate(DateTime date)
+        {
+            LinkedList<Event> events = new LinkedList<Event>();
+            for (int i = 0; i < Safe.savedDates.Count; i++)
+            {
+                if(DateTime.Compare(date, Safe.savedDates.ElementAt(i).date) == 0)
+                {
+                    events.AddLast(Safe.savedDates.ElementAt(i));
+                    giveCalendarObject(10).Text = "hi";
+                }
+            }
+            return events;
         }
     }
 }
