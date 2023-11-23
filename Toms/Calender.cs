@@ -97,11 +97,15 @@ namespace Toms
                 if(events.Count > 0)
                 {
                     giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n "+ events.First().eventtitle;
-                    giveCalendarObject(id).ForeColor = getCategoryofName(events.First().category).categoryColor;
                     if(events.Count > 1)
                     {
                         giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n +" + (events.Count - 1) + " more";
                         
+                    }
+                    
+                    if (getCategoryofName(events.First().category) != null)
+                    {
+                        giveCalendarObject(id).ForeColor = getCategoryofName(events.First().category).categoryColor;
                     }
                 }
             }
@@ -187,7 +191,7 @@ namespace Toms
             return events;
         }
 
-        public Categories getCategoryofName(string name)
+        public static Categories getCategoryofName(string name)
         {
             for (int i = 0; i < Safe.savedCategories.Count; i++)
             {

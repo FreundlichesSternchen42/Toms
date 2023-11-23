@@ -27,31 +27,87 @@ namespace Toms
 
         public void changeColor()
         {
-            categoryColor = Color.FromArgb(tbRed.Value, tbGreen.Value, tbBlue.Value);
+            categoryColor = Color.FromArgb(trbRed.Value, trbGreen.Value, trbBlue.Value);
             pbColorView.BackColor = categoryColor;
         }
 
-        private void tbRed_Scroll(object sender, EventArgs e)
+        private void trbRed_Scroll(object sender, EventArgs e)
         {
             changeColor();
+            tbRed.Text = trbRed.Value.ToString();
         }
 
-        private void tbGreen_Scroll(object sender, EventArgs e)
+        private void trbGreen_Scroll(object sender, EventArgs e)
         {
             changeColor();
+            tbGreen.Text = trbGreen.Value.ToString();
         }
 
-        private void tbBlue_Scroll(object sender, EventArgs e)
+        private void trbBlue_Scroll(object sender, EventArgs e)
         {
             changeColor();
+            tbBlue.Text = trbBlue.Value.ToString();
         }
 
         private void btSafe_Click(object sender, EventArgs e)
         {
+            if (tbName.Text != "")
+            {
             Categories cat = new Categories();
             cat.categoryName = tbName.Text;
             cat.categoryColor = categoryColor;
-            Safe.savedCategories.AddLast(cat);
+            Safe.savedCategories.AddLast(cat);                
+            }
+        }
+
+        private void tmUpdate_Tick(object sender, EventArgs e)
+        {
+
+            if (tbName.Text == "")
+            {
+                btSafe.Text = "Error: Name is needed!";
+            }
+            else if (Calendar.getCategoryofName(tbName.Text) != null || tbName.Text == "Default")
+            {
+                btSafe.Text = "Error: Known name!";
+            }
+            else
+            {
+                btSafe.Text = "Save Category";
+            }
+        }
+
+        private void tbGreen_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                trbGreen.Value = Int32.Parse(tbGreen.Text);
+            }
+            catch (FormatException)
+            {
+            }
+        }
+
+        private void tbBlue_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                trbBlue.Value = Int32.Parse(tbBlue.Text);
+            }
+            catch (FormatException)
+            { 
+            }
+        }
+
+        private void tbRed_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                trbBlue.Value = Int32.Parse(tbRed.Text);
+            }
+            catch (FormatException)
+            {
+            }
         }
     }
 }
