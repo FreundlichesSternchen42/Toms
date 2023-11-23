@@ -43,11 +43,27 @@ namespace Toms
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (tbEvent.Text != "")
+            {
             Event ev = new Event();
             ev.eventtitle = tbEvent.Text;
             ev.date = dtbDate.Value.Date;
             ev.category = cbCategory.SelectedItem.ToString();
             Safe.savedDates.AddLast(ev);
+            }
+
+        }
+
+        private void tmUpdate_Tick(object sender, EventArgs e)
+        {
+            if (tbEvent.Text == "")
+            {
+                btSave.Text = "Event needs a name!";
+            }
+            else
+            {
+                btSave.Text = "Save event";
+            }
         }
     }
 }

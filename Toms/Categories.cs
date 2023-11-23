@@ -81,7 +81,7 @@ namespace Toms
         {
             try
             {
-                trbGreen.Value = Int32.Parse(tbGreen.Text);
+                trbGreen.Value = limitInt(Int32.Parse(tbGreen.Text), 255);
             }
             catch (FormatException)
             {
@@ -92,7 +92,7 @@ namespace Toms
         {
             try
             {
-                trbBlue.Value = Int32.Parse(tbBlue.Text);
+                trbBlue.Value = limitInt(Int32.Parse(tbBlue.Text), 255);
             }
             catch (FormatException)
             { 
@@ -103,10 +103,22 @@ namespace Toms
         {
             try
             {
-                trbRed.Value = Int32.Parse(tbRed.Text);
+                trbRed.Value = limitInt(Int32.Parse(tbRed.Text), 255);
             }
             catch (FormatException)
             {
+            }
+        }
+
+        public int limitInt(int value, int max)
+        {
+            if (value <= max)
+            {
+                return value;
+            }
+            else
+            {
+                return max;
             }
         }
     }

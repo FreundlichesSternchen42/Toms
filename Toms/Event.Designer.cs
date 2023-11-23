@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btCancel = new System.Windows.Forms.Button();
             this.btSave = new System.Windows.Forms.Button();
             this.cbCategory = new System.Windows.Forms.ComboBox();
@@ -36,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbEvent = new System.Windows.Forms.TextBox();
             this.dtbDate = new System.Windows.Forms.DateTimePicker();
+            this.tmUpdate = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // btCancel
@@ -53,10 +55,10 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(350, 123);
+            this.btSave.Location = new System.Drawing.Point(329, 123);
             this.btSave.Margin = new System.Windows.Forms.Padding(2);
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(82, 34);
+            this.btSave.Size = new System.Drawing.Size(103, 34);
             this.btSave.TabIndex = 14;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
@@ -117,6 +119,11 @@
             this.dtbDate.Size = new System.Drawing.Size(226, 20);
             this.dtbDate.TabIndex = 16;
             // 
+            // tmUpdate
+            // 
+            this.tmUpdate.Enabled = true;
+            this.tmUpdate.Tick += new System.EventHandler(this.tmUpdate_Tick);
+            // 
             // Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,5 +156,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbEvent;
         private System.Windows.Forms.DateTimePicker dtbDate;
+        private System.Windows.Forms.Timer tmUpdate;
     }
 }
