@@ -90,6 +90,7 @@ namespace Toms
                 giveCalendarObject(id).SelectionFont = new Font(giveCalendarObject(id).Font, FontStyle.Bold);
                 giveCalendarObject(id).Text = i.ToString();
 
+                // Anzeige der Events (Termine)
                 if(getEventofDate(dt).Count > 0)
                 {
                     giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n "+ getEventofDate(dt).First().eventtitle;
@@ -166,6 +167,7 @@ namespace Toms
             MonthCalendarView();
         }
 
+        // findet alle Events mit gesuchtem Datum
         public LinkedList<Event> getEventofDate(DateTime date)
         {
             LinkedList<Event> events = new LinkedList<Event>();
@@ -174,7 +176,6 @@ namespace Toms
                 if(DateTime.Compare(date, Safe.savedDates.ElementAt(i).date) == 0)
                 {
                     events.AddLast(Safe.savedDates.ElementAt(i));
-                    giveCalendarObject(10).Text = "hi";
                 }
             }
             return events;
