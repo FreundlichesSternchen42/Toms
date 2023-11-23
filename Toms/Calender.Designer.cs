@@ -93,7 +93,7 @@
             this.btBackToMenu.BackColor = System.Drawing.Color.Transparent;
             this.btBackToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btBackToMenu.ForeColor = System.Drawing.Color.Black;
-            this.btBackToMenu.Location = new System.Drawing.Point(1125, 788);
+            this.btBackToMenu.Location = new System.Drawing.Point(1125, 736);
             this.btBackToMenu.Name = "btBackToMenu";
             this.btBackToMenu.Size = new System.Drawing.Size(137, 29);
             this.btBackToMenu.TabIndex = 2;
@@ -195,7 +195,7 @@
             this.rtbCalendar38.Size = new System.Drawing.Size(168, 81);
             this.rtbCalendar38.TabIndex = 48;
             this.rtbCalendar38.Text = "";
-            this.rtbCalendar38.Click += new System.EventHandler(this.rtbCalendar38_Click);
+            this.rtbCalendar38.Click += new System.EventHandler(this.rtbCalendar36_Click);
             // 
             // rtbCalendar37
             // 
@@ -217,7 +217,6 @@
             this.rtbCalendar36.Size = new System.Drawing.Size(168, 81);
             this.rtbCalendar36.TabIndex = 46;
             this.rtbCalendar36.Text = "";
-            this.rtbCalendar38.Click += new System.EventHandler(this.rtbCalendar36_Click);
             // 
             // rtbCalendar39
             // 
@@ -480,7 +479,7 @@
             this.rtbCalendar16.ReadOnly = true;
             this.rtbCalendar16.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar16.TabIndex = 22;
-            this.rtbCalendar16.Text = ""; 
+            this.rtbCalendar16.Text = "";
             this.rtbCalendar16.Click += new System.EventHandler(this.rtbCalendar16_Click);
             // 
             // rtbCalendar15
@@ -491,7 +490,7 @@
             this.rtbCalendar15.ReadOnly = true;
             this.rtbCalendar15.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar15.TabIndex = 21;
-            this.rtbCalendar15.Text = ""; 
+            this.rtbCalendar15.Text = "";
             this.rtbCalendar15.Click += new System.EventHandler(this.rtbCalendar15_Click);
             // 
             // rtbCalendar14
@@ -758,13 +757,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1311, 850);
+            this.ClientSize = new System.Drawing.Size(1311, 794);
             this.Controls.Add(this.btNext);
             this.Controls.Add(this.btPrevious);
             this.Controls.Add(this.lbCDate);
             this.Controls.Add(this.tlpCalendar);
             this.Controls.Add(this.btBackToMenu);
+            this.MinimumSize = new System.Drawing.Size(1000, 750);
             this.Name = "Calendar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calender";

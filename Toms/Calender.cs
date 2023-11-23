@@ -156,7 +156,7 @@ namespace Toms
         // Automatischer Resize mit Timer
         private void TmUpdate_Tick(object sender, EventArgs e)
         {
-            tlpCalendar.Width = this.Width - 300;
+            tlpCalendar.Width = this.Width - 100;
             tlpCalendar.Height = this.Height - 250;
         }
 
