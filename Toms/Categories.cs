@@ -17,9 +17,41 @@ namespace Toms
             InitializeComponent();
         }
 
+        public Color categoryColor;
+        public string categoryName;
+
         private void BtBackToMenu_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void changeColor()
+        {
+            categoryColor = Color.FromArgb(tbRed.Value, tbGreen.Value, tbBlue.Value);
+            pbColorView.BackColor = categoryColor;
+        }
+
+        private void tbRed_Scroll(object sender, EventArgs e)
+        {
+            changeColor();
+        }
+
+        private void tbGreen_Scroll(object sender, EventArgs e)
+        {
+            changeColor();
+        }
+
+        private void tbBlue_Scroll(object sender, EventArgs e)
+        {
+            changeColor();
+        }
+
+        private void btSafe_Click(object sender, EventArgs e)
+        {
+            Categories cat = new Categories();
+            cat.categoryName = tbName.Text;
+            cat.categoryColor = categoryColor;
+            Safe.savedCategories.AddLast(cat);
         }
     }
 }
