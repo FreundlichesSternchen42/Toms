@@ -180,5 +180,181 @@ namespace Toms
             }
             return events;
         }
+
+        // zusammengefasste Methode aller Buttonauslösemethoden mit Übergabe der jeweiligen ID
+        public void pressedCalendar(int id)
+        {
+            giveCalendarObject(id).Text = "This Click was tracked!";
+        }
+
+        // Methoden welche durch die einzelnen Buttons ausgelöst werden:
+        private void rtbCalendar01_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(1);
+        }
+        private void rtbCalendar02_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(2);
+        }
+        private void rtbCalendar03_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(3);
+        }
+        private void rtbCalendar04_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(4);
+        }
+        private void rtbCalendar05_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(5);
+        }
+        private void rtbCalendar06_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(6);
+        }
+        private void rtbCalendar07_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(7);
+        }
+        private void rtbCalendar08_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(8);
+        }
+        private void rtbCalendar09_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(9);
+        }
+        private void rtbCalendar10_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(10);
+        }
+        private void rtbCalendar11_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(11);
+        }
+        private void rtbCalendar12_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(12);
+        }
+        private void rtbCalendar13_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(13);
+        }
+        private void rtbCalendar14_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(14);
+        }
+        private void rtbCalendar15_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(15);
+        }
+        private void rtbCalendar16_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(16);
+        }
+        private void rtbCalendar17_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(17);
+        }
+        private void rtbCalendar18_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(18);
+        }
+        private void rtbCalendar19_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(19);
+        }
+        private void rtbCalendar20_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(20);
+        }
+        private void rtbCalendar21_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(21);
+        }
+        private void rtbCalendar22_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(22);
+        }
+        private void rtbCalendar23_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(23);
+        }
+        private void rtbCalendar24_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(24);
+        }
+        private void rtbCalendar25_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(25);
+        }
+        private void rtbCalendar26_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(26);
+        }
+        private void rtbCalendar27_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(27);
+        }
+        private void rtbCalendar28_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(28);
+        }
+        private void rtbCalendar29_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(29);
+        }
+        private void rtbCalendar30_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(30);
+        }
+        private void rtbCalendar31_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(31);
+        }
+        private void rtbCalendar32_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(32);
+        }
+        private void rtbCalendar33_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(33);
+        }
+        private void rtbCalendar34_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(34);
+        }
+        private void rtbCalendar35_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(35);
+        }
+        private void rtbCalendar36_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(36);
+        }
+        private void rtbCalendar37_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(37);
+        }
+        private void rtbCalendar38_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(38);
+        }
+        private void rtbCalendar39_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(39);
+        }
+        private void rtbCalendar40_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(40);
+        }
+        private void rtbCalendar41_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(41);
+        }
+        private void rtbCalendar42_Click(object sender, EventArgs e)
+        {
+            pressedCalendar(42);
+        }
     }
 }

@@ -103,7 +103,7 @@
             // 
             // lbCDate
             // 
-            this.lbCDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.lbCDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbCDate.AutoSize = true;
             this.lbCDate.Location = new System.Drawing.Point(562, 103);
@@ -195,6 +195,7 @@
             this.rtbCalendar38.Size = new System.Drawing.Size(168, 81);
             this.rtbCalendar38.TabIndex = 48;
             this.rtbCalendar38.Text = "";
+            this.rtbCalendar38.Click += new System.EventHandler(this.rtbCalendar38_Click);
             // 
             // rtbCalendar37
             // 
@@ -205,6 +206,7 @@
             this.rtbCalendar37.Size = new System.Drawing.Size(168, 81);
             this.rtbCalendar37.TabIndex = 47;
             this.rtbCalendar37.Text = "";
+            this.rtbCalendar37.Click += new System.EventHandler(this.rtbCalendar37_Click);
             // 
             // rtbCalendar36
             // 
@@ -215,6 +217,7 @@
             this.rtbCalendar36.Size = new System.Drawing.Size(168, 81);
             this.rtbCalendar36.TabIndex = 46;
             this.rtbCalendar36.Text = "";
+            this.rtbCalendar38.Click += new System.EventHandler(this.rtbCalendar36_Click);
             // 
             // rtbCalendar39
             // 
@@ -225,6 +228,7 @@
             this.rtbCalendar39.Size = new System.Drawing.Size(168, 81);
             this.rtbCalendar39.TabIndex = 45;
             this.rtbCalendar39.Text = "";
+            this.rtbCalendar39.Click += new System.EventHandler(this.rtbCalendar39_Click);
             // 
             // rtbCalendar42
             // 
@@ -235,6 +239,7 @@
             this.rtbCalendar42.Size = new System.Drawing.Size(172, 81);
             this.rtbCalendar42.TabIndex = 44;
             this.rtbCalendar42.Text = "";
+            this.rtbCalendar42.Click += new System.EventHandler(this.rtbCalendar42_Click);
             // 
             // rtbCalendar41
             // 
@@ -245,6 +250,7 @@
             this.rtbCalendar41.Size = new System.Drawing.Size(168, 81);
             this.rtbCalendar41.TabIndex = 43;
             this.rtbCalendar41.Text = "";
+            this.rtbCalendar41.Click += new System.EventHandler(this.rtbCalendar41_Click);
             // 
             // rtbCalendar40
             // 
@@ -255,6 +261,7 @@
             this.rtbCalendar40.Size = new System.Drawing.Size(168, 81);
             this.rtbCalendar40.TabIndex = 42;
             this.rtbCalendar40.Text = "";
+            this.rtbCalendar40.Click += new System.EventHandler(this.rtbCalendar40_Click);
             // 
             // rtbCalendar35
             // 
@@ -265,6 +272,7 @@
             this.rtbCalendar35.Size = new System.Drawing.Size(172, 80);
             this.rtbCalendar35.TabIndex = 41;
             this.rtbCalendar35.Text = "";
+            this.rtbCalendar35.Click += new System.EventHandler(this.rtbCalendar35_Click);
             // 
             // rtbCalendar34
             // 
@@ -275,6 +283,7 @@
             this.rtbCalendar34.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar34.TabIndex = 40;
             this.rtbCalendar34.Text = "";
+            this.rtbCalendar34.Click += new System.EventHandler(this.rtbCalendar34_Click);
             // 
             // rtbCalendar33
             // 
@@ -285,6 +294,7 @@
             this.rtbCalendar33.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar33.TabIndex = 39;
             this.rtbCalendar33.Text = "";
+            this.rtbCalendar33.Click += new System.EventHandler(this.rtbCalendar33_Click);
             // 
             // rtbCalendar32
             // 
@@ -295,6 +305,7 @@
             this.rtbCalendar32.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar32.TabIndex = 38;
             this.rtbCalendar32.Text = "";
+            this.rtbCalendar32.Click += new System.EventHandler(this.rtbCalendar32_Click);
             // 
             // rtbCalendar31
             // 
@@ -305,6 +316,7 @@
             this.rtbCalendar31.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar31.TabIndex = 37;
             this.rtbCalendar31.Text = "";
+            this.rtbCalendar31.Click += new System.EventHandler(this.rtbCalendar31_Click);
             // 
             // rtbCalendar30
             // 
@@ -315,6 +327,7 @@
             this.rtbCalendar30.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar30.TabIndex = 36;
             this.rtbCalendar30.Text = "";
+            this.rtbCalendar30.Click += new System.EventHandler(this.rtbCalendar30_Click);
             // 
             // rtbCalendar29
             // 
@@ -325,6 +338,7 @@
             this.rtbCalendar29.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar29.TabIndex = 35;
             this.rtbCalendar29.Text = "";
+            this.rtbCalendar29.Click += new System.EventHandler(this.rtbCalendar29_Click);
             // 
             // rtbCalendar28
             // 
@@ -335,6 +349,7 @@
             this.rtbCalendar28.Size = new System.Drawing.Size(172, 80);
             this.rtbCalendar28.TabIndex = 34;
             this.rtbCalendar28.Text = "";
+            this.rtbCalendar28.Click += new System.EventHandler(this.rtbCalendar28_Click);
             // 
             // rtbCalendar27
             // 
@@ -345,6 +360,7 @@
             this.rtbCalendar27.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar27.TabIndex = 33;
             this.rtbCalendar27.Text = "";
+            this.rtbCalendar27.Click += new System.EventHandler(this.rtbCalendar27_Click);
             // 
             // rtbCalendar26
             // 
@@ -355,6 +371,7 @@
             this.rtbCalendar26.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar26.TabIndex = 32;
             this.rtbCalendar26.Text = "";
+            this.rtbCalendar26.Click += new System.EventHandler(this.rtbCalendar26_Click);
             // 
             // rtbCalendar25
             // 
@@ -365,6 +382,7 @@
             this.rtbCalendar25.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar25.TabIndex = 31;
             this.rtbCalendar25.Text = "";
+            this.rtbCalendar25.Click += new System.EventHandler(this.rtbCalendar25_Click);
             // 
             // rtbCalendar24
             // 
@@ -375,6 +393,7 @@
             this.rtbCalendar24.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar24.TabIndex = 30;
             this.rtbCalendar24.Text = "";
+            this.rtbCalendar24.Click += new System.EventHandler(this.rtbCalendar24_Click);
             // 
             // rtbCalendar23
             // 
@@ -385,6 +404,7 @@
             this.rtbCalendar23.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar23.TabIndex = 29;
             this.rtbCalendar23.Text = "";
+            this.rtbCalendar23.Click += new System.EventHandler(this.rtbCalendar23_Click);
             // 
             // rtbCalendar22
             // 
@@ -395,6 +415,7 @@
             this.rtbCalendar22.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar22.TabIndex = 28;
             this.rtbCalendar22.Text = "";
+            this.rtbCalendar22.Click += new System.EventHandler(this.rtbCalendar22_Click);
             // 
             // rtbCalendar21
             // 
@@ -405,6 +426,7 @@
             this.rtbCalendar21.Size = new System.Drawing.Size(172, 80);
             this.rtbCalendar21.TabIndex = 27;
             this.rtbCalendar21.Text = "";
+            this.rtbCalendar21.Click += new System.EventHandler(this.rtbCalendar21_Click);
             // 
             // rtbCalendar20
             // 
@@ -415,6 +437,7 @@
             this.rtbCalendar20.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar20.TabIndex = 26;
             this.rtbCalendar20.Text = "";
+            this.rtbCalendar20.Click += new System.EventHandler(this.rtbCalendar20_Click);
             // 
             // rtbCalendar19
             // 
@@ -425,6 +448,7 @@
             this.rtbCalendar19.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar19.TabIndex = 25;
             this.rtbCalendar19.Text = "";
+            this.rtbCalendar19.Click += new System.EventHandler(this.rtbCalendar19_Click);
             // 
             // rtbCalendar18
             // 
@@ -435,6 +459,7 @@
             this.rtbCalendar18.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar18.TabIndex = 24;
             this.rtbCalendar18.Text = "";
+            this.rtbCalendar18.Click += new System.EventHandler(this.rtbCalendar18_Click);
             // 
             // rtbCalendar17
             // 
@@ -445,6 +470,7 @@
             this.rtbCalendar17.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar17.TabIndex = 23;
             this.rtbCalendar17.Text = "";
+            this.rtbCalendar17.Click += new System.EventHandler(this.rtbCalendar17_Click);
             // 
             // rtbCalendar16
             // 
@@ -454,7 +480,8 @@
             this.rtbCalendar16.ReadOnly = true;
             this.rtbCalendar16.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar16.TabIndex = 22;
-            this.rtbCalendar16.Text = "";
+            this.rtbCalendar16.Text = ""; 
+            this.rtbCalendar16.Click += new System.EventHandler(this.rtbCalendar16_Click);
             // 
             // rtbCalendar15
             // 
@@ -464,7 +491,8 @@
             this.rtbCalendar15.ReadOnly = true;
             this.rtbCalendar15.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar15.TabIndex = 21;
-            this.rtbCalendar15.Text = "";
+            this.rtbCalendar15.Text = ""; 
+            this.rtbCalendar15.Click += new System.EventHandler(this.rtbCalendar15_Click);
             // 
             // rtbCalendar14
             // 
@@ -475,6 +503,7 @@
             this.rtbCalendar14.Size = new System.Drawing.Size(172, 80);
             this.rtbCalendar14.TabIndex = 20;
             this.rtbCalendar14.Text = "";
+            this.rtbCalendar14.Click += new System.EventHandler(this.rtbCalendar14_Click);
             // 
             // rtbCalendar13
             // 
@@ -485,6 +514,7 @@
             this.rtbCalendar13.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar13.TabIndex = 19;
             this.rtbCalendar13.Text = "";
+            this.rtbCalendar13.Click += new System.EventHandler(this.rtbCalendar13_Click);
             // 
             // rtbCalendar12
             // 
@@ -495,6 +525,7 @@
             this.rtbCalendar12.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar12.TabIndex = 18;
             this.rtbCalendar12.Text = "";
+            this.rtbCalendar12.Click += new System.EventHandler(this.rtbCalendar12_Click);
             // 
             // rtbCalendar11
             // 
@@ -505,6 +536,7 @@
             this.rtbCalendar11.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar11.TabIndex = 17;
             this.rtbCalendar11.Text = "";
+            this.rtbCalendar11.Click += new System.EventHandler(this.rtbCalendar11_Click);
             // 
             // rtbCalendar10
             // 
@@ -515,6 +547,7 @@
             this.rtbCalendar10.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar10.TabIndex = 16;
             this.rtbCalendar10.Text = "";
+            this.rtbCalendar10.Click += new System.EventHandler(this.rtbCalendar10_Click);
             // 
             // rtbCalendar09
             // 
@@ -525,6 +558,7 @@
             this.rtbCalendar09.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar09.TabIndex = 15;
             this.rtbCalendar09.Text = "";
+            this.rtbCalendar09.Click += new System.EventHandler(this.rtbCalendar09_Click);
             // 
             // rtbCalendar08
             // 
@@ -535,6 +569,7 @@
             this.rtbCalendar08.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar08.TabIndex = 14;
             this.rtbCalendar08.Text = "";
+            this.rtbCalendar08.Click += new System.EventHandler(this.rtbCalendar08_Click);
             // 
             // rtbCalendar07
             // 
@@ -545,6 +580,7 @@
             this.rtbCalendar07.Size = new System.Drawing.Size(172, 80);
             this.rtbCalendar07.TabIndex = 13;
             this.rtbCalendar07.Text = "";
+            this.rtbCalendar07.Click += new System.EventHandler(this.rtbCalendar07_Click);
             // 
             // rtbCalendar06
             // 
@@ -555,6 +591,7 @@
             this.rtbCalendar06.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar06.TabIndex = 12;
             this.rtbCalendar06.Text = "";
+            this.rtbCalendar06.Click += new System.EventHandler(this.rtbCalendar06_Click);
             // 
             // rtbCalendar05
             // 
@@ -565,6 +602,7 @@
             this.rtbCalendar05.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar05.TabIndex = 11;
             this.rtbCalendar05.Text = "";
+            this.rtbCalendar05.Click += new System.EventHandler(this.rtbCalendar05_Click);
             // 
             // rtbCalendar04
             // 
@@ -575,6 +613,7 @@
             this.rtbCalendar04.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar04.TabIndex = 10;
             this.rtbCalendar04.Text = "";
+            this.rtbCalendar04.Click += new System.EventHandler(this.rtbCalendar04_Click);
             // 
             // rtbCalendar03
             // 
@@ -585,6 +624,7 @@
             this.rtbCalendar03.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar03.TabIndex = 9;
             this.rtbCalendar03.Text = "";
+            this.rtbCalendar03.Click += new System.EventHandler(this.rtbCalendar03_Click);
             // 
             // rtbCalendar02
             // 
@@ -595,6 +635,7 @@
             this.rtbCalendar02.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar02.TabIndex = 8;
             this.rtbCalendar02.Text = "";
+            this.rtbCalendar02.Click += new System.EventHandler(this.rtbCalendar02_Click);
             // 
             // rtbCalendar01
             // 
@@ -605,6 +646,7 @@
             this.rtbCalendar01.Size = new System.Drawing.Size(168, 80);
             this.rtbCalendar01.TabIndex = 7;
             this.rtbCalendar01.Text = "";
+            this.rtbCalendar01.Click += new System.EventHandler(this.rtbCalendar01_Click);
             // 
             // rtbHead7
             // 
@@ -712,7 +754,7 @@
             this.tmUpdate.Enabled = true;
             this.tmUpdate.Tick += new System.EventHandler(this.TmUpdate_Tick);
             // 
-            // lbDate
+            // Calendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -723,8 +765,7 @@
             this.Controls.Add(this.lbCDate);
             this.Controls.Add(this.tlpCalendar);
             this.Controls.Add(this.btBackToMenu);
-            this.MinimizeBox = false;
-            this.Name = "lbDate";
+            this.Name = "Calendar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calender";
             this.Load += new System.EventHandler(this.Calendar_Load);

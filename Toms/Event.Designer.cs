@@ -43,9 +43,9 @@
             this.btCancel.BackColor = System.Drawing.Color.Transparent;
             this.btCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancel.ForeColor = System.Drawing.Color.Black;
-            this.btCancel.Location = new System.Drawing.Point(425, 239);
+            this.btCancel.Location = new System.Drawing.Point(411, 239);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(72, 29);
+            this.btCancel.Size = new System.Drawing.Size(86, 29);
             this.btCancel.TabIndex = 15;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = false;

@@ -19,9 +19,7 @@ namespace Toms
 
         private void BtBackToMenu_Click(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }
