@@ -20,7 +20,8 @@ namespace Toms
         public int month;
         public int startDay;
         public int lastDay;
-        public bool mode;
+        public bool addmode;
+        public bool view;
 
         public Calendar()
         {
@@ -40,7 +41,7 @@ namespace Toms
                 month = 1;
                 year++;
             }
-            MonthCalendarView();
+            showMonthCalendarView();
         }
 
         private void BtPrevious_Click(object sender, EventArgs e)
@@ -51,11 +52,12 @@ namespace Toms
                 month = 12;
                 year--;
             }
-            MonthCalendarView();
+            showMonthCalendarView();
         }
 
-        public void MonthCalendarView()
+        public void showMonthCalendarView()
         {
+            view = false;
             // frägt Anfangstag ab / frägt Anzahl der Tage ab
             startDay = Convert.ToInt16(DateTime.Parse(new DateTime(year, month, 1).ToString()).DayOfWeek) - 1;
             lastDay = Convert.ToInt16(DateTime.DaysInMonth(year, month));
@@ -111,6 +113,24 @@ namespace Toms
             }
         }
 
+        public void WeekCalendarView(int day)
+        {
+            int firstDayOfWeek = day - ((day + startDay) % 7);
+            for (int x = 0; x < 7; x++)
+            {
+                for (int y = 0; y < 6; y++)
+                {
+                    give2DCalendarObject(x, y).Text = (firstDayOfWeek + x).ToString();
+                    give2DCalendarObject(x, y).Visible = true;
+                }
+
+            }
+        }
+
+        public RichTextBox give2DCalendarObject(int x, int y)
+        {
+            return giveCalendarObject(x + 7 * y);
+        }
         // Kalenderansteuerungsmethode: Gibt die RTB mit der jeweiligen ID weiter
         public RichTextBox giveCalendarObject(int id)
         {
@@ -173,8 +193,8 @@ namespace Toms
         { 
             year = Convert.ToInt32(DateTime.Now.Year);
             month = Convert.ToInt32(DateTime.Now.Month);
-            mode = false;
-            MonthCalendarView();
+            addmode = false;
+            showMonthCalendarView();
         }
 
         // findet alle Events mit gesuchtem Datum
@@ -206,7 +226,7 @@ namespace Toms
         // zusammengefasste Methode aller Buttonauslösemethoden mit Übergabe der jeweiligen ID
         public void pressedCalendar(int id)
         {
-            if (mode == true)
+            if (addmode == true)
             {
                 DateTime dt = Convert.ToDateTime((id - startDay).ToString() + "." + month.ToString() + "." + year.ToString());
                 Event @event = new Event();
@@ -216,7 +236,7 @@ namespace Toms
             }
             else
             {
-            giveCalendarObject(id).Text = "This Click was tracked!";
+                WeekCalendarView(id - startDay);
             }
         }
 
@@ -392,7 +412,7 @@ namespace Toms
 
         private void btAddMode_Click(object sender, EventArgs e)
         {
-            mode = true;
+            addmode = true;
         }
     }
 }
