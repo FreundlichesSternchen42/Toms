@@ -22,11 +22,14 @@ namespace Toms
 
         private void btCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void Event_Load(object sender, EventArgs e)
         {
+            cbCategory.Items.Clear();
+            cbCategory.Items.Add("Default");
+            cbCategory.SelectedIndex = 0;
             for (int i = 0; i < Safe.savedCategories.Count; i++)
             {
                 cbCategory.Items.Add(Safe.savedCategories.ElementAt(i).categoryName);
@@ -39,8 +42,7 @@ namespace Toms
             Event ev = new Event();
             ev.eventtitle = tbEvent.Text;
             ev.date = dtbDate.Value.Date;
-            cbCategory.Text = ev.date.Millisecond.ToString();
-            //ev.category = cbCategory.SelectedItem.ToString();
+            ev.category = cbCategory.SelectedItem.ToString();
             Safe.savedDates.AddLast(ev);
         }
     }

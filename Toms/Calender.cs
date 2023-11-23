@@ -89,14 +89,16 @@ namespace Toms
                 DateTime dt = Convert.ToDateTime(i.ToString() + "." + month.ToString() + "." + year.ToString());
                 giveCalendarObject(id).SelectionFont = new Font(giveCalendarObject(id).Font, FontStyle.Bold);
                 giveCalendarObject(id).Text = i.ToString();
-
+                LinkedList<Event> events = getEventofDate(dt);
                 // Anzeige der Events (Termine)
-                if(getEventofDate(dt).Count > 0)
+                if(events.Count > 0)
                 {
-                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n "+ getEventofDate(dt).First().eventtitle;
-                    if(getEventofDate(dt).Count > 1)
+                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n "+ events.First().eventtitle;
+                    giveCalendarObject(id).ForeColor = getCategoryofName(events.First().category).categoryColor;
+                    if(events.Count > 1)
                     {
-                        giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n +" + (getEventofDate(dt).Count - 1) + " more";
+                        giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n +" + (events.Count - 1) + " more";
+                        
                     }
                 }
             }
@@ -179,6 +181,18 @@ namespace Toms
                 }
             }
             return events;
+        }
+
+        public Categories getCategoryofName(string name)
+        {
+            for (int i = 0; i < Safe.savedCategories.Count; i++)
+            {
+                if (name == Safe.savedCategories.ElementAt(i).categoryName)
+                {
+                    return Safe.savedCategories.ElementAt(i);
+                }
+            }
+            return null;
         }
 
         // zusammengefasste Methode aller Buttonauslösemethoden mit Übergabe der jeweiligen ID
