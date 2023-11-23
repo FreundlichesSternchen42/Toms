@@ -103,7 +103,7 @@ namespace Toms
         {
             try
             {
-                trbBlue.Value = Int32.Parse(tbRed.Text);
+                trbRed.Value = Int32.Parse(tbRed.Text);
             }
             catch (FormatException)
             {
