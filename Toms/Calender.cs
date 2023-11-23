@@ -18,6 +18,9 @@ namespace Toms
         // Variabendeklaration für den Zeitraum des Kalenders
         public int year;
         public int month;
+        public int startDay;
+        public int lastDay;
+        public bool mode;
 
         public Calendar()
         {
@@ -54,8 +57,8 @@ namespace Toms
         public void MonthCalendarView()
         {
             // frägt Anfangstag ab / frägt Anzahl der Tage ab
-            int startDay = Convert.ToInt16(DateTime.Parse(new DateTime(year, month, 1).ToString()).DayOfWeek) - 1;
-            int lastDay = Convert.ToInt16(DateTime.DaysInMonth(year, month));
+            startDay = Convert.ToInt16(DateTime.Parse(new DateTime(year, month, 1).ToString()).DayOfWeek) - 1;
+            lastDay = Convert.ToInt16(DateTime.DaysInMonth(year, month));
 
             // Da Kalender standardmäßig mit Sonntag anfängt muss bei Sonntag (-1) der Wert auf 6 gesetzt werden um auch in Reihenfolge Mo-So zu sein
             if (startDay == -1)
@@ -166,6 +169,7 @@ namespace Toms
         { 
             year = Convert.ToInt32(DateTime.Now.Year);
             month = Convert.ToInt32(DateTime.Now.Month);
+            mode = false;
             MonthCalendarView();
         }
 
@@ -198,7 +202,18 @@ namespace Toms
         // zusammengefasste Methode aller Buttonauslösemethoden mit Übergabe der jeweiligen ID
         public void pressedCalendar(int id)
         {
+            if (mode == true)
+            {
+                DateTime dt = Convert.ToDateTime((id - startDay).ToString() + "." + month.ToString() + "." + year.ToString());
+                Event @event = new Event();
+                @event.eventtitle = "from Calendar";
+                @event.date = dt;
+                @event.Show();
+            }
+            else
+            {
             giveCalendarObject(id).Text = "This Click was tracked!";
+            }
         }
 
         // Methoden welche durch die einzelnen Buttons ausgelöst werden:
@@ -369,6 +384,11 @@ namespace Toms
         private void rtbCalendar42_Click(object sender, EventArgs e)
         {
             pressedCalendar(42);
+        }
+
+        private void btAddMode_Click(object sender, EventArgs e)
+        {
+            mode = true;
         }
     }
 }

@@ -30,6 +30,10 @@ namespace Toms
             cbCategory.Items.Clear();
             cbCategory.Items.Add("Default");
             cbCategory.SelectedIndex = 0;
+            if(eventtitle == "from Calendar")
+            {
+                dtbDate.Value = date;
+            }
             for (int i = 0; i < Safe.savedCategories.Count; i++)
             {
                 cbCategory.Items.Add(Safe.savedCategories.ElementAt(i).categoryName);

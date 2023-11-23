@@ -84,6 +84,7 @@
             this.btPrevious = new System.Windows.Forms.Button();
             this.btNext = new System.Windows.Forms.Button();
             this.tmUpdate = new System.Windows.Forms.Timer(this.components);
+            this.btAddMode = new System.Windows.Forms.Button();
             this.tlpCalendar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -753,11 +754,24 @@
             this.tmUpdate.Enabled = true;
             this.tmUpdate.Tick += new System.EventHandler(this.TmUpdate_Tick);
             // 
+            // btAddMode
+            // 
+            this.btAddMode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btAddMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAddMode.Location = new System.Drawing.Point(40, 727);
+            this.btAddMode.Name = "btAddMode";
+            this.btAddMode.Size = new System.Drawing.Size(66, 38);
+            this.btAddMode.TabIndex = 18;
+            this.btAddMode.Text = "+";
+            this.btAddMode.UseVisualStyleBackColor = true;
+            this.btAddMode.Click += new System.EventHandler(this.btAddMode_Click);
+            // 
             // Calendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1311, 794);
+            this.Controls.Add(this.btAddMode);
             this.Controls.Add(this.btNext);
             this.Controls.Add(this.btPrevious);
             this.Controls.Add(this.lbCDate);
@@ -831,5 +845,6 @@
         private System.Windows.Forms.Button btPrevious;
         private System.Windows.Forms.Button btNext;
         private System.Windows.Forms.Timer tmUpdate;
+        private System.Windows.Forms.Button btAddMode;
     }
 }
