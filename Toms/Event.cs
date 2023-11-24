@@ -15,6 +15,7 @@ namespace Toms
         public DateTime date;
         public string eventtitle;
         public string category;
+        public int repeation;
         public Event()
         {
             InitializeComponent();
@@ -44,14 +45,14 @@ namespace Toms
         private void btSave_Click(object sender, EventArgs e)
         {
             if (tbEvent.Text != "")
-            {
-            Event ev = new Event();
-            ev.eventtitle = tbEvent.Text;
-            ev.date = dtbDate.Value.Date;
-            ev.category = cbCategory.SelectedItem.ToString();
-            Safe.savedDates.AddLast(ev);
+            {                    
+                Event ev = new Event();
+                ev.eventtitle = tbEvent.Text;
+                ev.date = dtbDate.Value.Date;
+                ev.category = cbCategory.SelectedItem.ToString();
+                ev.repeation = cbRepeat.SelectedIndex;
+                Safe.savedDates.AddLast(ev);
             }
-
         }
 
         private void tmUpdate_Tick(object sender, EventArgs e)

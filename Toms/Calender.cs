@@ -115,15 +115,20 @@ namespace Toms
 
         public void WeekCalendarView(int day)
         {
-            int firstDayOfWeek = day - ((day + startDay) % 7);
-            for (int x = 0; x < 7; x++)
+            int firstDayOfWeek = day - ((day + startDay - 1) % 7) - 1;
+            for (int x = 1; x < 8; x++)
             {
-                for (int y = 0; y < 6; y++)
+                int date = firstDayOfWeek + x;
+                for (int y = 0; y < 5; y++)
                 {
-                    give2DCalendarObject(x, y).Text = (firstDayOfWeek + x).ToString();
+                    give2DCalendarObject(x, y).Text = (date).ToString();
                     give2DCalendarObject(x, y).Visible = true;
+                   if (date <= 0 || date > lastDay)
+                   {
+                    give2DCalendarObject(x,y).Visible = false;
+                   }
                 }
-
+                give2DCalendarObject(x, 6).Visible = false;
             }
         }
 
@@ -131,6 +136,7 @@ namespace Toms
         {
             return giveCalendarObject(x + 7 * y);
         }
+
         // Kalenderansteuerungsmethode: Gibt die RTB mit der jeweiligen ID weiter
         public RichTextBox giveCalendarObject(int id)
         {
@@ -203,11 +209,23 @@ namespace Toms
             LinkedList<Event> events = new LinkedList<Event>();
             for (int i = 0; i < Safe.savedDates.Count; i++)
             {
-                if(DateTime.Compare(date, Safe.savedDates.ElementAt(i).date) == 0)
+                // keine Wiederholung (repeation == 0)
+                if(Safe.savedDates.ElementAt(i).repeation == 0 && date == Safe.savedDates.ElementAt(i).date)
+                {
+                    events.AddLast(Safe.savedDates.ElementAt(i));
+                }
+                // Jährliche Wiederholung (repeation == 1)
+                else if(Safe.savedDates.ElementAt(i).repeation == 1 && Safe.savedDates.ElementAt(i).date.Day == date.Day && Safe.savedDates.ElementAt(i).date.Month == date.Month)
+                {
+                    events.AddLast(Safe.savedDates.ElementAt(i));
+                }
+                // Monatliche Wiederholung (repeation == 2)
+                else if (Safe.savedDates.ElementAt(i).repeation == 2 && Safe.savedDates.ElementAt(i).date.Day == date.Day)
                 {
                     events.AddLast(Safe.savedDates.ElementAt(i));
                 }
             }
+
             return events;
         }
 

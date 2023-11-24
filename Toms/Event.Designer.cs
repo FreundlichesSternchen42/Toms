@@ -38,6 +38,8 @@
             this.tbEvent = new System.Windows.Forms.TextBox();
             this.dtbDate = new System.Windows.Forms.DateTimePicker();
             this.tmUpdate = new System.Windows.Forms.Timer(this.components);
+            this.label = new System.Windows.Forms.Label();
+            this.cbRepeat = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btCancel
@@ -67,7 +69,7 @@
             // cbCategory
             // 
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(25, 205);
+            this.cbCategory.Location = new System.Drawing.Point(25, 188);
             this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(226, 21);
@@ -76,7 +78,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 188);
+            this.label3.Location = new System.Drawing.Point(25, 173);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
@@ -124,11 +126,35 @@
             this.tmUpdate.Enabled = true;
             this.tmUpdate.Tick += new System.EventHandler(this.tmUpdate_Tick);
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(25, 225);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(76, 13);
+            this.label.TabIndex = 17;
+            this.label.Text = "Repeat Event:";
+            // 
+            // cbRepeat
+            // 
+            this.cbRepeat.FormattingEnabled = true;
+            this.cbRepeat.Items.AddRange(new object[] {
+            "None",
+            "Yearly",
+            "Monthly"});
+            this.cbRepeat.Location = new System.Drawing.Point(25, 246);
+            this.cbRepeat.Name = "cbRepeat";
+            this.cbRepeat.Size = new System.Drawing.Size(226, 21);
+            this.cbRepeat.TabIndex = 18;
+            this.cbRepeat.Text = "None";
+            // 
             // Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(507, 279);
+            this.Controls.Add(this.cbRepeat);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.dtbDate);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.btSave);
@@ -157,5 +183,7 @@
         private System.Windows.Forms.TextBox tbEvent;
         private System.Windows.Forms.DateTimePicker dtbDate;
         private System.Windows.Forms.Timer tmUpdate;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.ComboBox cbRepeat;
     }
 }
