@@ -20,6 +20,7 @@ namespace Toms
         public int month;
         public int startDay;
         public int lastDay;
+        public int week;
         public bool addmode;
         public bool view;
 
@@ -115,20 +116,21 @@ namespace Toms
 
         public void WeekCalendarView(int day)
         {
-            int firstDayOfWeek = day - ((day + startDay - 1) % 7) - 1;
+            view = true;
+            week = day - ((day + startDay - 1) % 7) - 1;
             for (int x = 1; x < 8; x++)
-            {
-                int date = firstDayOfWeek + x;
+            {                int date = week + x;
+                giveCalendarObject(-x).Text = giveCalendarObject(-x).Text + ", " + date.ToString() + "." + month.ToString();
                 for (int y = 0; y < 5; y++)
                 {
-                    give2DCalendarObject(x, y).Text = (date).ToString();
+                    give2DCalendarObject(x, y).Text = (y*5) + "-" + (y*5 + 5) + " Uhr";
                     give2DCalendarObject(x, y).Visible = true;
-                   if (date <= 0 || date > lastDay)
-                   {
-                    give2DCalendarObject(x,y).Visible = false;
-                   }
+                    if (date <= 0 || date > lastDay)
+                    {
+                        give2DCalendarObject(x,y).Visible = false;
+                    }
                 }
-                give2DCalendarObject(x, 6).Visible = false;
+                give2DCalendarObject(x, 5).Visible = false;
             }
         }
 
@@ -143,6 +145,13 @@ namespace Toms
             switch (id)
             {
                 default: return rtbCalendar01; break;
+                case -7: return rtbHead7; break;
+                case -6: return rtbHead6; break;
+                case -5: return rtbHead5; break;
+                case -4: return rtbHead4; break;
+                case -3: return rtbHead3; break;
+                case -2: return rtbHead2; break;
+                case -1: return rtbHead1; break;
                 case 01: return rtbCalendar01; break;
                 case 02: return rtbCalendar02; break;
                 case 03: return rtbCalendar03; break;
@@ -241,12 +250,24 @@ namespace Toms
             return null;
         }
 
-        // zusammengefasste Methode aller Buttonauslösemethoden mit Übergabe der jeweiligen ID
+        public DateTime getDate(int id)
+        {
+            if (view == false)
+            {
+                return Convert.ToDateTime((id - startDay).ToString() + "." + month.ToString() + "." + year.ToString());
+            }
+            else
+            {
+                int day = id % 7;
+                return Convert.ToDateTime((week + day).ToString() + "." + month.ToString() + "." + year.ToString());
+            }
+        }
+        // Allgemeine Buttonauslösemethode mit Übergabe der jeweiligen ID
         public void pressedCalendar(int id)
         {
             if (addmode == true)
             {
-                DateTime dt = Convert.ToDateTime((id - startDay).ToString() + "." + month.ToString() + "." + year.ToString());
+                DateTime dt = getDate(id);
                 Event @event = new Event();
                 @event.eventtitle = "from Calendar";
                 @event.date = dt;
