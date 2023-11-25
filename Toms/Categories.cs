@@ -19,6 +19,7 @@ namespace Toms
 
         public Color categoryColor;
         public string categoryName;
+        public string action;
 
         private void BtBackToMenu_Click(object sender, EventArgs e)
         {
@@ -53,10 +54,12 @@ namespace Toms
         {
             if (tbName.Text != "")
             {
-            Categories cat = new Categories();
-            cat.categoryName = tbName.Text;
-            cat.categoryColor = categoryColor;
-            Safe.savedCategories.AddLast(cat);                
+                Categories cat = new Categories();
+                cat.categoryName = tbName.Text;
+                cat.categoryColor = categoryColor;
+                Safe.savedCategories.AddLast(cat);
+                cat.action = "create category";
+                Safe.everythingYouEverDidOnThisProject.Push(cat);
             }
         }
 
@@ -65,15 +68,19 @@ namespace Toms
 
             if (tbName.Text == "")
             {
-                btSafe.Text = "Error: Name is needed!";
+              //  btSafe.Text = "Error: Name is needed!";
             }
             else if (Calendar.getCategoryofName(tbName.Text) != null || tbName.Text == "Default")
             {
-                btSafe.Text = "Error: Known name!";
+                btSafe.Text = "Error: Known name!";;
             }
             else
             {
                 btSafe.Text = "Save Category";
+            }
+            if (true)
+            {
+
             }
         }
 
@@ -119,6 +126,26 @@ namespace Toms
             else
             {
                 return max;
+            }
+        }
+
+        private void Categories_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Z)
+            {
+                object lastModification = Safe.everythingYouEverDidOnThisProject.Pop();
+                if (lastModification != null)
+                {
+                    if (lastModification.GetType() == typeof(Categories))
+                    {
+                        Categories cat = (Categories)lastModification;
+                        if (cat.action == "create category")
+                        {
+                            Safe.savedCategories.Remove(cat);
+                            btSafe.Text = "last Category deleted";
+                        }
+                    } 
+                }
             }
         }
     }

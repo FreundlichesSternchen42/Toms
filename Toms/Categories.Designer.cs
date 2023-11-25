@@ -229,9 +229,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbCategories);
             this.Controls.Add(this.btBackToMenu);
+            this.KeyPreview = true;
             this.Name = "Categories";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categories";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Categories_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.trbRed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trbBlue)).EndInit();

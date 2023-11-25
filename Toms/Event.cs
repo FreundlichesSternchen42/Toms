@@ -16,6 +16,7 @@ namespace Toms
         public string eventtitle;
         public string category;
         public int repeation;
+        public string action;
         public Event()
         {
             InitializeComponent();
@@ -39,7 +40,6 @@ namespace Toms
             {
                 cbCategory.Items.Add(Safe.savedCategories.ElementAt(i).categoryName);
             }
-            
         }
 
         private void btSave_Click(object sender, EventArgs e)
@@ -52,6 +52,8 @@ namespace Toms
                 ev.category = cbCategory.SelectedItem.ToString();
                 ev.repeation = cbRepeat.SelectedIndex;
                 Safe.savedDates.AddLast(ev);
+                ev.action = "create event";
+                Safe.everythingYouEverDidOnThisProject.Push(ev);
             }
         }
 

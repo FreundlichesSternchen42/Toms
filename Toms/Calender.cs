@@ -15,7 +15,7 @@ namespace Toms
     public partial class Calendar : Form
     {
 
-        // Variabendeklaration für den Zeitraum des Kalenders
+        // Variabendeklarationen
         public int year;
         public int month;
         public int startDay;
@@ -23,6 +23,7 @@ namespace Toms
         public int week;
         public bool addmode;
         public bool view;
+        public static int position;
 
         public Calendar()
         {
@@ -114,7 +115,7 @@ namespace Toms
             }
         }
 
-        public void WeekCalendarView(int day)
+        public void showWeekCalendarView(int day)
         {
             view = true;
             week = day - ((day + startDay - 1) % 7) - 1;
@@ -244,6 +245,7 @@ namespace Toms
             {
                 if (name == Safe.savedCategories.ElementAt(i).categoryName)
                 {
+                    position = i;
                     return Safe.savedCategories.ElementAt(i);
                 }
             }
@@ -275,7 +277,14 @@ namespace Toms
             }
             else
             {
-                WeekCalendarView(id - startDay);
+                if (view)
+                {
+                    showMonthCalendarView();
+                }
+                else
+                {
+                    showWeekCalendarView(id - startDay);
+                }
             }
         }
 
