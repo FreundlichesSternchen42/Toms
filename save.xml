@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <events>
+        <event>
+            <ID>1</ID>
+            <eventName>BeispielEvent</eventName>
+            <time>
+                <hour>14</hour>
+                <minute>30</minute>
+            </time>
+            <date>
+                <year>2023</year>
+                <month>11</month>
+                <day>26</day>
+            </date>
+            <deleteflag>true</deleteflag>
+        </event>
+        <!-- Weitere Events können hier hinzugefügt werden -->
+    </events>
+
+    <categories>
+        <category>
+            <ID>1</ID>
+            <name>Kategorie A</name>
+            <color>
+                <R>255</R>
+                <G>0</G>
+                <B>0</B>
+            </color>
+            <deleteFlag>true</deleteFlag>
+        </category>
+        <!-- Weitere Kategorien können hier hinzugefügt werden -->
+    </categories>
+</data>

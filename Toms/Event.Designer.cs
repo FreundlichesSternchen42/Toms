@@ -40,6 +40,8 @@
             this.tmUpdate = new System.Windows.Forms.Timer(this.components);
             this.label = new System.Windows.Forms.Label();
             this.cbRepeat = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbTime = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btCancel
@@ -47,9 +49,10 @@
             this.btCancel.BackColor = System.Drawing.Color.Transparent;
             this.btCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancel.ForeColor = System.Drawing.Color.Black;
-            this.btCancel.Location = new System.Drawing.Point(411, 239);
+            this.btCancel.Location = new System.Drawing.Point(574, 357);
+            this.btCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btCancel.Name = "btCancel";
-            this.btCancel.Size = new System.Drawing.Size(86, 29);
+            this.btCancel.Size = new System.Drawing.Size(115, 36);
             this.btCancel.TabIndex = 15;
             this.btCancel.Text = "Cancel";
             this.btCancel.UseVisualStyleBackColor = false;
@@ -57,10 +60,10 @@
             // 
             // btSave
             // 
-            this.btSave.Location = new System.Drawing.Point(329, 123);
-            this.btSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btSave.Location = new System.Drawing.Point(445, 187);
+            this.btSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btSave.Name = "btSave";
-            this.btSave.Size = new System.Drawing.Size(103, 34);
+            this.btSave.Size = new System.Drawing.Size(137, 42);
             this.btSave.TabIndex = 14;
             this.btSave.Text = "Save";
             this.btSave.UseVisualStyleBackColor = true;
@@ -69,56 +72,54 @@
             // cbCategory
             // 
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(25, 188);
-            this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
+            this.cbCategory.Location = new System.Drawing.Point(33, 275);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(226, 21);
+            this.cbCategory.Size = new System.Drawing.Size(300, 24);
             this.cbCategory.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 173);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(33, 257);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(62, 16);
             this.label3.TabIndex = 12;
             this.label3.Text = "Category";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 115);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(36, 178);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(41, 16);
             this.label2.TabIndex = 11;
             this.label2.Text = "Event";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 40);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(33, 49);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.Size = new System.Drawing.Size(36, 16);
             this.label1.TabIndex = 10;
             this.label1.Text = "Date";
             // 
             // tbEvent
             // 
             this.tbEvent.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEvent.Location = new System.Drawing.Point(25, 130);
-            this.tbEvent.Margin = new System.Windows.Forms.Padding(2);
+            this.tbEvent.Location = new System.Drawing.Point(36, 196);
+            this.tbEvent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbEvent.Name = "tbEvent";
-            this.tbEvent.Size = new System.Drawing.Size(226, 28);
+            this.tbEvent.Size = new System.Drawing.Size(300, 33);
             this.tbEvent.TabIndex = 9;
             // 
             // dtbDate
             // 
-            this.dtbDate.Location = new System.Drawing.Point(25, 56);
+            this.dtbDate.Location = new System.Drawing.Point(33, 69);
+            this.dtbDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtbDate.Name = "dtbDate";
-            this.dtbDate.Size = new System.Drawing.Size(226, 20);
+            this.dtbDate.Size = new System.Drawing.Size(300, 22);
             this.dtbDate.TabIndex = 16;
             // 
             // tmUpdate
@@ -129,9 +130,10 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(25, 225);
+            this.label.Location = new System.Drawing.Point(33, 321);
+            this.label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(76, 13);
+            this.label.Size = new System.Drawing.Size(92, 16);
             this.label.TabIndex = 17;
             this.label.Text = "Repeat Event:";
             // 
@@ -142,17 +144,38 @@
             "None",
             "Yearly",
             "Monthly"});
-            this.cbRepeat.Location = new System.Drawing.Point(25, 246);
+            this.cbRepeat.Location = new System.Drawing.Point(33, 347);
+            this.cbRepeat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbRepeat.Name = "cbRepeat";
-            this.cbRepeat.Size = new System.Drawing.Size(226, 21);
+            this.cbRepeat.Size = new System.Drawing.Size(300, 24);
             this.cbRepeat.TabIndex = 18;
             this.cbRepeat.Text = "None";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 113);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 16);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Time";
+            // 
+            // tbTime
+            // 
+            this.tbTime.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTime.Location = new System.Drawing.Point(33, 131);
+            this.tbTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbTime.Name = "tbTime";
+            this.tbTime.Size = new System.Drawing.Size(300, 33);
+            this.tbTime.TabIndex = 21;
+            // 
             // Event
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 279);
+            this.ClientSize = new System.Drawing.Size(702, 406);
+            this.Controls.Add(this.tbTime);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cbRepeat);
             this.Controls.Add(this.label);
             this.Controls.Add(this.dtbDate);
@@ -163,7 +186,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbEvent);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Event";
             this.Text = "Event";
             this.Load += new System.EventHandler(this.Event_Load);
@@ -185,5 +208,7 @@
         private System.Windows.Forms.Timer tmUpdate;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.ComboBox cbRepeat;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbTime;
     }
 }
