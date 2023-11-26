@@ -72,11 +72,11 @@ namespace Toms
             }
             else if (Calendar.getCategoryofName(tbName.Text) != null || tbName.Text == "Default")
             {
-                btSafe.Text = "Error: Known name!";;
+                btSafeC.Text = "Error: Known name!";;
             }
             else
             {
-                btSafe.Text = "Save Category";
+                btSafeC.Text = "Save Category";
             }
             if (true)
             {
@@ -142,7 +142,7 @@ namespace Toms
                         if (cat.action == "create category")
                         {
                             Safe.savedCategories.Remove(cat);
-                            btSafe.Text = "last Category deleted";
+                            btSafeC.Text = "last Category deleted";
                         }
                     } 
                 }
