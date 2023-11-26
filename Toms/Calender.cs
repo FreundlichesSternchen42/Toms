@@ -23,7 +23,6 @@ namespace Toms
         public int week;
         public bool addmode;
         public bool view;
-        public static int position;
 
         public Calendar()
         {
@@ -245,7 +244,6 @@ namespace Toms
             {
                 if (name == Safe.savedCategories.ElementAt(i).categoryName)
                 {
-                    position = i;
                     return Safe.savedCategories.ElementAt(i);
                 }
             }
