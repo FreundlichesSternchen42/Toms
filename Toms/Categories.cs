@@ -68,7 +68,7 @@ namespace Toms
 
             if (tbName.Text == "")
             { 
-                btSafe.Text = "Error: Name is needed!";
+                btSafeC.Text = "Error: Name is needed!";
             }
             else if (Calendar.getCategoryofName(tbName.Text) != null || tbName.Text == "Default")
             {
