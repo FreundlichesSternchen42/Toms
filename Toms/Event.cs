@@ -54,6 +54,7 @@ namespace Toms
                 Safe.savedDates.AddLast(ev);
                 ev.action = "create event";
                 Safe.everythingYouEverDidOnThisProject.Push(ev);
+                MessageBox.Show("Your Event has been created", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

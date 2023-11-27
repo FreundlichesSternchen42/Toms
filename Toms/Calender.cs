@@ -458,7 +458,14 @@ namespace Toms
 
         private void btAddMode_Click(object sender, EventArgs e)
         {
-            addmode = true;
+            if (addmode)
+            {
+                addmode = false;
+            }
+            else
+            {
+                addmode = true;
+            }
         }
     }
 }

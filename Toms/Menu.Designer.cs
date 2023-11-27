@@ -32,7 +32,7 @@
             this.btCalender = new System.Windows.Forms.Button();
             this.btEvents = new System.Windows.Forms.Button();
             this.btCategories = new System.Windows.Forms.Button();
-            this.btSafe = new System.Windows.Forms.Button();
+            this.btNextE = new System.Windows.Forms.Button();
             this.btEnd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -42,19 +42,20 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(222, 11);
+            this.label1.Location = new System.Drawing.Point(444, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 64);
+            this.label1.Size = new System.Drawing.Size(333, 128);
             this.label1.TabIndex = 2;
             this.label1.Text = "Menu";
             // 
             // btCalender
             // 
             this.btCalender.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCalender.Location = new System.Drawing.Point(232, 120);
-            this.btCalender.Margin = new System.Windows.Forms.Padding(2);
+            this.btCalender.Location = new System.Drawing.Point(464, 231);
+            this.btCalender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btCalender.Name = "btCalender";
-            this.btCalender.Size = new System.Drawing.Size(112, 31);
+            this.btCalender.Size = new System.Drawing.Size(254, 60);
             this.btCalender.TabIndex = 3;
             this.btCalender.Text = "Calender ";
             this.btCalender.UseVisualStyleBackColor = true;
@@ -63,10 +64,10 @@
             // btEvents
             // 
             this.btEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEvents.Location = new System.Drawing.Point(232, 166);
-            this.btEvents.Margin = new System.Windows.Forms.Padding(2);
+            this.btEvents.Location = new System.Drawing.Point(464, 319);
+            this.btEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btEvents.Name = "btEvents";
-            this.btEvents.Size = new System.Drawing.Size(112, 32);
+            this.btEvents.Size = new System.Drawing.Size(254, 62);
             this.btEvents.TabIndex = 4;
             this.btEvents.Text = "Events ";
             this.btEvents.UseVisualStyleBackColor = true;
@@ -75,34 +76,34 @@
             // btCategories
             // 
             this.btCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCategories.Location = new System.Drawing.Point(232, 211);
-            this.btCategories.Margin = new System.Windows.Forms.Padding(2);
+            this.btCategories.Location = new System.Drawing.Point(464, 406);
+            this.btCategories.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btCategories.Name = "btCategories";
-            this.btCategories.Size = new System.Drawing.Size(112, 31);
+            this.btCategories.Size = new System.Drawing.Size(254, 60);
             this.btCategories.TabIndex = 5;
             this.btCategories.Text = "Categories";
             this.btCategories.UseVisualStyleBackColor = true;
             this.btCategories.Click += new System.EventHandler(this.BtCategories_Click);
             // 
-            // btSafe
+            // btNextE
             // 
-            this.btSafe.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btSafe.Location = new System.Drawing.Point(232, 260);
-            this.btSafe.Margin = new System.Windows.Forms.Padding(2);
-            this.btSafe.Name = "btSafe";
-            this.btSafe.Size = new System.Drawing.Size(112, 29);
-            this.btSafe.TabIndex = 6;
-            this.btSafe.Text = "Safe";
-            this.btSafe.UseVisualStyleBackColor = true;
-            this.btSafe.Click += new System.EventHandler(this.bt_safe_Click);
+            this.btNextE.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btNextE.Location = new System.Drawing.Point(464, 500);
+            this.btNextE.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btNextE.Name = "btNextE";
+            this.btNextE.Size = new System.Drawing.Size(254, 56);
+            this.btNextE.TabIndex = 6;
+            this.btNextE.Text = "Next Events";
+            this.btNextE.UseVisualStyleBackColor = true;
+            this.btNextE.Click += new System.EventHandler(this.bt_safe_Click);
             // 
             // btEnd
             // 
             this.btEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btEnd.Location = new System.Drawing.Point(514, 323);
-            this.btEnd.Margin = new System.Windows.Forms.Padding(2);
+            this.btEnd.Location = new System.Drawing.Point(1028, 621);
+            this.btEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btEnd.Name = "btEnd";
-            this.btEnd.Size = new System.Drawing.Size(77, 33);
+            this.btEnd.Size = new System.Drawing.Size(154, 63);
             this.btEnd.TabIndex = 7;
             this.btEnd.Text = "END";
             this.btEnd.UseVisualStyleBackColor = true;
@@ -110,16 +111,16 @@
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(1200, 704);
             this.Controls.Add(this.btEnd);
-            this.Controls.Add(this.btSafe);
+            this.Controls.Add(this.btNextE);
             this.Controls.Add(this.btCategories);
             this.Controls.Add(this.btEvents);
             this.Controls.Add(this.btCalender);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
@@ -133,7 +134,7 @@
         private System.Windows.Forms.Button btCalender;
         private System.Windows.Forms.Button btEvents;
         private System.Windows.Forms.Button btCategories;
-        private System.Windows.Forms.Button btSafe;
+        private System.Windows.Forms.Button btNextE;
         private System.Windows.Forms.Button btEnd;
     }
 }

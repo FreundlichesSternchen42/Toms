@@ -58,10 +58,10 @@
             this.btBackToMenu.BackColor = System.Drawing.Color.Transparent;
             this.btBackToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btBackToMenu.ForeColor = System.Drawing.Color.Black;
-            this.btBackToMenu.Location = new System.Drawing.Point(540, 541);
-            this.btBackToMenu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btBackToMenu.Location = new System.Drawing.Point(810, 845);
+            this.btBackToMenu.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btBackToMenu.Name = "btBackToMenu";
-            this.btBackToMenu.Size = new System.Drawing.Size(183, 36);
+            this.btBackToMenu.Size = new System.Drawing.Size(274, 56);
             this.btBackToMenu.TabIndex = 3;
             this.btBackToMenu.Text = "Back to Menu";
             this.btBackToMenu.UseVisualStyleBackColor = false;
@@ -71,29 +71,30 @@
             // 
             this.lbCategories.AutoSize = true;
             this.lbCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategories.Location = new System.Drawing.Point(232, 9);
+            this.lbCategories.Location = new System.Drawing.Point(348, 14);
+            this.lbCategories.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCategories.Name = "lbCategories";
-            this.lbCategories.Size = new System.Drawing.Size(223, 46);
+            this.lbCategories.Size = new System.Drawing.Size(353, 73);
             this.lbCategories.TabIndex = 4;
             this.lbCategories.Text = "Categories";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 73);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(168, 114);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 16);
+            this.label1.Size = new System.Drawing.Size(164, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Category name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(237, 145);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(356, 227);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 16);
+            this.label2.Size = new System.Drawing.Size(69, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Color:";
             // 
@@ -101,11 +102,11 @@
             // 
             this.trbRed.Cursor = System.Windows.Forms.Cursors.Default;
             this.trbRed.LargeChange = 20;
-            this.trbRed.Location = new System.Drawing.Point(104, 196);
-            this.trbRed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trbRed.Location = new System.Drawing.Point(156, 306);
+            this.trbRed.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.trbRed.Maximum = 255;
             this.trbRed.Name = "trbRed";
-            this.trbRed.Size = new System.Drawing.Size(333, 56);
+            this.trbRed.Size = new System.Drawing.Size(500, 90);
             this.trbRed.SmallChange = 10;
             this.trbRed.TabIndex = 7;
             this.trbRed.TickFrequency = 15;
@@ -113,22 +114,22 @@
             // 
             // trbGreen
             // 
-            this.trbGreen.Location = new System.Drawing.Point(104, 274);
-            this.trbGreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trbGreen.Location = new System.Drawing.Point(156, 428);
+            this.trbGreen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.trbGreen.Maximum = 255;
             this.trbGreen.Name = "trbGreen";
-            this.trbGreen.Size = new System.Drawing.Size(333, 56);
+            this.trbGreen.Size = new System.Drawing.Size(500, 90);
             this.trbGreen.TabIndex = 8;
             this.trbGreen.TickFrequency = 15;
             this.trbGreen.Scroll += new System.EventHandler(this.trbGreen_Scroll);
             // 
             // trbBlue
             // 
-            this.trbBlue.Location = new System.Drawing.Point(104, 338);
-            this.trbBlue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.trbBlue.Location = new System.Drawing.Point(156, 528);
+            this.trbBlue.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.trbBlue.Maximum = 255;
             this.trbBlue.Name = "trbBlue";
-            this.trbBlue.Size = new System.Drawing.Size(333, 56);
+            this.trbBlue.Size = new System.Drawing.Size(500, 90);
             this.trbBlue.TabIndex = 9;
             this.trbBlue.TickFrequency = 15;
             this.trbBlue.Scroll += new System.EventHandler(this.trbBlue_Scroll);
@@ -136,56 +137,56 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 196);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(58, 306);
+            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 16);
+            this.label3.Size = new System.Drawing.Size(51, 25);
             this.label3.TabIndex = 10;
             this.label3.Text = "Red";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 274);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(58, 428);
+            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.Size = new System.Drawing.Size(71, 25);
             this.label4.TabIndex = 11;
             this.label4.Text = "Green";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(40, 338);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(60, 528);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 16);
+            this.label5.Size = new System.Drawing.Size(55, 25);
             this.label5.TabIndex = 12;
             this.label5.Text = "Blue";
             // 
             // pbColorView
             // 
-            this.pbColorView.Location = new System.Drawing.Point(521, 262);
-            this.pbColorView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbColorView.Location = new System.Drawing.Point(782, 409);
+            this.pbColorView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pbColorView.Name = "pbColorView";
-            this.pbColorView.Size = new System.Drawing.Size(104, 68);
+            this.pbColorView.Size = new System.Drawing.Size(156, 106);
             this.pbColorView.TabIndex = 13;
             this.pbColorView.TabStop = false;
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(116, 92);
-            this.tbName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbName.Location = new System.Drawing.Point(174, 144);
+            this.tbName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(320, 22);
+            this.tbName.Size = new System.Drawing.Size(478, 31);
             this.tbName.TabIndex = 14;
             // 
             // btSafeC
             // 
-            this.btSafeC.Location = new System.Drawing.Point(104, 402);
-            this.btSafeC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btSafeC.Location = new System.Drawing.Point(156, 628);
+            this.btSafeC.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btSafeC.Name = "btSafeC";
-            this.btSafeC.Size = new System.Drawing.Size(395, 41);
+            this.btSafeC.Size = new System.Drawing.Size(592, 64);
             this.btSafeC.TabIndex = 15;
             this.btSafeC.Text = "Save Category";
             this.btSafeC.UseVisualStyleBackColor = true;
@@ -198,46 +199,47 @@
             // 
             // tbRed
             // 
-            this.tbRed.Location = new System.Drawing.Point(445, 196);
-            this.tbRed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbRed.Location = new System.Drawing.Point(668, 306);
+            this.tbRed.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbRed.Name = "tbRed";
-            this.tbRed.Size = new System.Drawing.Size(55, 22);
+            this.tbRed.Size = new System.Drawing.Size(80, 31);
             this.tbRed.TabIndex = 16;
             this.tbRed.TextChanged += new System.EventHandler(this.tbRed_TextChanged);
             // 
             // tbGreen
             // 
-            this.tbGreen.Location = new System.Drawing.Point(447, 274);
-            this.tbGreen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbGreen.Location = new System.Drawing.Point(670, 428);
+            this.tbGreen.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbGreen.Name = "tbGreen";
-            this.tbGreen.Size = new System.Drawing.Size(53, 22);
+            this.tbGreen.Size = new System.Drawing.Size(78, 31);
             this.tbGreen.TabIndex = 17;
             this.tbGreen.TextChanged += new System.EventHandler(this.tbGreen_TextChanged);
             // 
             // tbBlue
             // 
-            this.tbBlue.Location = new System.Drawing.Point(445, 338);
-            this.tbBlue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbBlue.Location = new System.Drawing.Point(668, 528);
+            this.tbBlue.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.tbBlue.Name = "tbBlue";
-            this.tbBlue.Size = new System.Drawing.Size(55, 22);
+            this.tbBlue.Size = new System.Drawing.Size(80, 31);
             this.tbBlue.TabIndex = 18;
             this.tbBlue.TextChanged += new System.EventHandler(this.tbBlue_TextChanged);
             // 
             // btDeleteC
             // 
-            this.btDeleteC.Location = new System.Drawing.Point(104, 471);
-            this.btDeleteC.Margin = new System.Windows.Forms.Padding(4);
+            this.btDeleteC.Location = new System.Drawing.Point(156, 736);
+            this.btDeleteC.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btDeleteC.Name = "btDeleteC";
-            this.btDeleteC.Size = new System.Drawing.Size(395, 41);
+            this.btDeleteC.Size = new System.Drawing.Size(592, 64);
             this.btDeleteC.TabIndex = 19;
             this.btDeleteC.Text = "delete Category";
             this.btDeleteC.UseVisualStyleBackColor = true;
+            this.btDeleteC.Click += new System.EventHandler(this.btDeleteC_Click);
             // 
             // Categories
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 590);
+            this.ClientSize = new System.Drawing.Size(1104, 922);
             this.Controls.Add(this.btDeleteC);
             this.Controls.Add(this.tbBlue);
             this.Controls.Add(this.tbGreen);
@@ -256,7 +258,7 @@
             this.Controls.Add(this.lbCategories);
             this.Controls.Add(this.btBackToMenu);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Categories";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categories";

@@ -60,6 +60,7 @@ namespace Toms
                 Safe.savedCategories.AddLast(cat);
                 cat.action = "create category";
                 Safe.everythingYouEverDidOnThisProject.Push(cat);
+                MessageBox.Show("Your category has been created", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -143,6 +144,13 @@ namespace Toms
                     } 
                 }
             }
+        }
+
+        private void btDeleteC_Click(object sender, EventArgs e)
+        {
+         
+            Safe.savedCategories.Remove(Calendar.getCategoryofName(tbName.Text));
+            MessageBox.Show("Your Category: " + tbName.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);  
         }
     }
 }
