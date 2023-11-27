@@ -18,7 +18,7 @@ namespace Toms
         }
         private void bt_safe_Click(object sender, EventArgs e)
         {
-            Safe safe = new Safe();
+            Popup safe = new Popup();
             safe.Show();
         }
 

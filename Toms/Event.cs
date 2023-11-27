@@ -36,9 +36,9 @@ namespace Toms
             {
                 dtbDate.Value = date;
             }
-            for (int i = 0; i < Safe.savedCategories.Count; i++)
+            for (int i = 0; i < Popup.savedCategories.Count; i++)
             {
-                cbCategory.Items.Add(Safe.savedCategories.ElementAt(i).categoryName);
+                cbCategory.Items.Add(Popup.savedCategories.ElementAt(i).categoryName);
             }
         }
 
@@ -51,9 +51,9 @@ namespace Toms
                 ev.date = dtbDate.Value.Date;
                 ev.category = cbCategory.SelectedItem.ToString();
                 ev.repeation = cbRepeat.SelectedIndex;
-                Safe.savedDates.AddLast(ev);
+                Popup.savedDates.AddLast(ev);
                 ev.action = "create event";
-                Safe.everythingYouEverDidOnThisProject.Push(ev);
+                Popup.everythingYouEverDidOnThisProject.Push(ev);
                 MessageBox.Show("Your Event has been created", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

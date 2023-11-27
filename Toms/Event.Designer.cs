@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbTime = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btCancel
@@ -183,11 +184,21 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 31);
             this.dateTimePicker1.TabIndex = 22;
             // 
+            // btDelete
+            // 
+            this.btDelete.Location = new System.Drawing.Point(668, 371);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(206, 82);
+            this.btDelete.TabIndex = 23;
+            this.btDelete.Text = "Delete";
+            this.btDelete.UseVisualStyleBackColor = true;
+            // 
             // Event
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 634);
+            this.Controls.Add(this.btDelete);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.tbTime);
             this.Controls.Add(this.label4);
@@ -203,6 +214,7 @@
             this.Controls.Add(this.tbEvent);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Event";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event";
             this.Load += new System.EventHandler(this.Event_Load);
             this.ResumeLayout(false);
@@ -226,5 +238,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbTime;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btDelete;
     }
 }

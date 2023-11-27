@@ -57,9 +57,9 @@ namespace Toms
                 Categories cat = new Categories();
                 cat.categoryName = tbName.Text;
                 cat.categoryColor = categoryColor;
-                Safe.savedCategories.AddLast(cat);
+                Popup.savedCategories.AddLast(cat);
                 cat.action = "create category";
-                Safe.everythingYouEverDidOnThisProject.Push(cat);
+                Popup.everythingYouEverDidOnThisProject.Push(cat);
                 MessageBox.Show("Your category has been created", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -130,7 +130,7 @@ namespace Toms
         {
             if (e.Control && e.KeyCode == Keys.Z)
             {
-                object lastModification = Safe.everythingYouEverDidOnThisProject.Pop();
+                object lastModification = Popup.everythingYouEverDidOnThisProject.Pop();
                 if (lastModification != null)
                 {
                     if (lastModification.GetType() == typeof(Categories))
@@ -138,7 +138,7 @@ namespace Toms
                         Categories cat = (Categories)lastModification;
                         if (cat.action == "create category")
                         {
-                            Safe.savedCategories.Remove(cat);
+                            Popup.savedCategories.Remove(cat);
                             btSafeC.Text = "last Category deleted";
                         }
                     } 
@@ -149,8 +149,8 @@ namespace Toms
         private void btDeleteC_Click(object sender, EventArgs e)
         {
          
-            Safe.savedCategories.Remove(Calendar.getCategoryofName(tbName.Text));
-            MessageBox.Show("Your Category: " + tbName.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);  
+            Popup.savedCategories.Remove(Calendar.getCategoryofName(tbName.Text));
+            MessageBox.Show("Your Category: " + tbName.Text + " has been deleted!", "Message" , MessageBoxButtons.OK, MessageBoxIcon.Information);  
         }
     }
 }

@@ -216,22 +216,22 @@ namespace Toms
         public LinkedList<Event> getEventofDate(DateTime date)
         {
             LinkedList<Event> events = new LinkedList<Event>();
-            for (int i = 0; i < Safe.savedDates.Count; i++)
+            for (int i = 0; i < Popup.savedDates.Count; i++)
             {
                 // keine Wiederholung (repeation == 0)
-                if(Safe.savedDates.ElementAt(i).repeation == 0 && date == Safe.savedDates.ElementAt(i).date)
+                if(Popup.savedDates.ElementAt(i).repeation == 0 && date == Popup.savedDates.ElementAt(i).date)
                 {
-                    events.AddLast(Safe.savedDates.ElementAt(i));
+                    events.AddLast(Popup.savedDates.ElementAt(i));
                 }
                 // Jährliche Wiederholung (repeation == 1)
-                else if(Safe.savedDates.ElementAt(i).repeation == 1 && Safe.savedDates.ElementAt(i).date.Day == date.Day && Safe.savedDates.ElementAt(i).date.Month == date.Month)
+                else if(Popup.savedDates.ElementAt(i).repeation == 1 && Popup.savedDates.ElementAt(i).date.Day == date.Day && Popup.savedDates.ElementAt(i).date.Month == date.Month)
                 {
-                    events.AddLast(Safe.savedDates.ElementAt(i));
+                    events.AddLast(Popup.savedDates.ElementAt(i));
                 }
                 // Monatliche Wiederholung (repeation == 2)
-                else if (Safe.savedDates.ElementAt(i).repeation == 2 && Safe.savedDates.ElementAt(i).date.Day == date.Day)
+                else if (Popup.savedDates.ElementAt(i).repeation == 2 && Popup.savedDates.ElementAt(i).date.Day == date.Day)
                 {
-                    events.AddLast(Safe.savedDates.ElementAt(i));
+                    events.AddLast(Popup.savedDates.ElementAt(i));
                 }
             }
 
@@ -240,11 +240,11 @@ namespace Toms
 
         public static Categories getCategoryofName(string name)
         {
-            for (int i = 0; i < Safe.savedCategories.Count; i++)
+            for (int i = 0; i < Popup.savedCategories.Count; i++)
             {
-                if (name == Safe.savedCategories.ElementAt(i).categoryName)
+                if (name == Popup.savedCategories.ElementAt(i).categoryName)
                 {
-                    return Safe.savedCategories.ElementAt(i);
+                    return Popup.savedCategories.ElementAt(i);
                 }
             }
             return null;
