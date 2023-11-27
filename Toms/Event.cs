@@ -57,9 +57,9 @@ namespace Toms
                     ev.date = dtbDate.Value.Date + getTime().TimeOfDay;
                     ev.category = cbCategory.SelectedItem.ToString();
                     ev.repeation = cbRepeat.SelectedIndex;
-                    Safe.savedDates.AddLast(ev);
+                    Popup.savedDates.AddLast(ev);
                     ev.action = "create event";
-                    Safe.everythingYouEverDidOnThisProject.Push(ev);
+                    Popup.everythingYouEverDidOnThisProject.Push(ev);
                     MessageBox.Show("Your Event has been created", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

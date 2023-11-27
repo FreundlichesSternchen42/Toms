@@ -60,7 +60,7 @@
             // btSave
             // 
             this.btSave.Location = new System.Drawing.Point(334, 152);
-            this.btSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btSave.Margin = new System.Windows.Forms.Padding(2);
             this.btSave.Name = "btSave";
             this.btSave.Size = new System.Drawing.Size(103, 34);
             this.btSave.TabIndex = 14;
@@ -72,7 +72,7 @@
             // 
             this.cbCategory.FormattingEnabled = true;
             this.cbCategory.Location = new System.Drawing.Point(25, 224);
-            this.cbCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(226, 21);
             this.cbCategory.TabIndex = 13;
@@ -111,7 +111,7 @@
             // 
             this.tbEvent.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbEvent.Location = new System.Drawing.Point(27, 159);
-            this.tbEvent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbEvent.Margin = new System.Windows.Forms.Padding(2);
             this.tbEvent.Name = "tbEvent";
             this.tbEvent.Size = new System.Drawing.Size(226, 28);
             this.tbEvent.TabIndex = 9;
@@ -164,7 +164,7 @@
             // 
             this.tbTime.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTime.Location = new System.Drawing.Point(25, 107);
-            this.tbTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbTime.Margin = new System.Windows.Forms.Padding(2);
             this.tbTime.Name = "tbTime";
             this.tbTime.Size = new System.Drawing.Size(226, 28);
             this.tbTime.TabIndex = 21;
@@ -186,7 +186,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbEvent);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Event";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event";
