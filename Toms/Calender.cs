@@ -99,7 +99,7 @@ namespace Toms
                 // Anzeige der Events (Termine)
                 if(events.Count > 0)
                 {
-                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n "+ events.First().eventtitle;
+                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n " + events.First().date.ToString("hh:mm") + " " + events.First().eventtitle;
                     if(events.Count > 1)
                     {
                         giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n +" + (events.Count - 1) + " more";
@@ -219,7 +219,7 @@ namespace Toms
             for (int i = 0; i < Popup.savedDates.Count; i++)
             {
                 // keine Wiederholung (repeation == 0)
-                if(Popup.savedDates.ElementAt(i).repeation == 0 && date == Popup.savedDates.ElementAt(i).date)
+                if(Popup.savedDates.ElementAt(i).repeation == 0 && date == Popup.savedDates.ElementAt(i).date.Date)
                 {
                     events.AddLast(Popup.savedDates.ElementAt(i));
                 }
