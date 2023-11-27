@@ -461,10 +461,12 @@ namespace Toms
             if (addmode)
             {
                 addmode = false;
+                btAddMode.Text = "+";
             }
             else
             {
                 addmode = true;
+                btAddMode.Text = "-";
             }
         }
     }

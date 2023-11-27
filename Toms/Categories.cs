@@ -54,13 +54,24 @@ namespace Toms
         {
             if (tbName.Text != "")
             {
-                Categories cat = new Categories();
-                cat.categoryName = tbName.Text;
-                cat.categoryColor = categoryColor;
-                Safe.savedCategories.AddLast(cat);
-                cat.action = "create category";
-                Safe.everythingYouEverDidOnThisProject.Push(cat);
-                MessageBox.Show("Your category has been created", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(Calendar.getCategoryofName(tbName.Text) != null)
+                {
+                    MessageBox.Show("The name of your category is already given.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Categories cat = new Categories();
+                    cat.categoryName = tbName.Text;
+                    cat.categoryColor = categoryColor;
+                    Safe.savedCategories.AddLast(cat);
+                    cat.action = "create category";
+                    Safe.everythingYouEverDidOnThisProject.Push(cat);
+                    MessageBox.Show("Your category has been created", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("The category has no name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -130,7 +141,11 @@ namespace Toms
         {
             if (e.Control && e.KeyCode == Keys.Z)
             {
-                object lastModification = Safe.everythingYouEverDidOnThisProject.Pop();
+                undoCategory(Safe.everythingYouEverDidOnThisProject.Pop());
+            }
+        }
+        public void undoCategory(object lastModification)
+        {
                 if (lastModification != null)
                 {
                     if (lastModification.GetType() == typeof(Categories))
@@ -139,18 +154,23 @@ namespace Toms
                         if (cat.action == "create category")
                         {
                             Safe.savedCategories.Remove(cat);
-                            btSafeC.Text = "last Category deleted";
+                            MessageBox.Show("Undo: Your Category: " + tbName.Text + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else if (cat.action == "delete category")
+                        {
+                            Safe.savedCategories.AddLast(cat);
+                            MessageBox.Show("Undo: Your Category: " + tbName.Text + " was successfully recreated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     } 
                 }
-            }
         }
-
         private void btDeleteC_Click(object sender, EventArgs e)
         {
-         
+            Categories cat = Calendar.getCategoryofName(tbName.Text);
+            cat.action = "delete category";
+            Safe.everythingYouEverDidOnThisProject.Push(cat);
             Safe.savedCategories.Remove(Calendar.getCategoryofName(tbName.Text));
-            MessageBox.Show("Your Category: " + tbName.Text, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);  
+            MessageBox.Show("Your Category: " + tbName.Text + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);  
         }
     }
 }
