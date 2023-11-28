@@ -29,11 +29,13 @@ namespace Toms
             InitializeComponent();           
         }
 
+        // Schließt diese Methode
         private void BtBackToMenu_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Springt zum nächsten Monat
         private void BtNext_Click(object sender, EventArgs e)
         {
             month++;
@@ -45,6 +47,7 @@ namespace Toms
             showMonthCalendarView();
         }
 
+        // Springt zum letzten Monat
         private void BtPrevious_Click(object sender, EventArgs e)
         {
             month--;
@@ -56,6 +59,7 @@ namespace Toms
             showMonthCalendarView();
         }
 
+        // Methode für die Monatsansicht
         public void showMonthCalendarView()
         {
             view = false;
@@ -96,6 +100,7 @@ namespace Toms
                 giveCalendarObject(id).SelectionFont = new Font(giveCalendarObject(id).Font, FontStyle.Bold);
                 giveCalendarObject(id).Text = i.ToString();
                 LinkedList<Event> events = getEventofDate(dt);
+
                 // Anzeige der Events (Termine)
                 if(events.Count > 0)
                 {
@@ -114,6 +119,7 @@ namespace Toms
             }
         }
 
+        // zeigt Wochenansicht an
         public void showWeekCalendarView(int day)
         {
             view = true;
@@ -134,6 +140,7 @@ namespace Toms
             }
         }
 
+        // übersetzt Koordinaten zu id
         public RichTextBox give2DCalendarObject(int x, int y)
         {
             return giveCalendarObject(x + 7 * y);
@@ -204,6 +211,7 @@ namespace Toms
             tlpCalendar.Height = this.Height - 250;
         }
 
+        // Startwerte für diese Klasse
         private void Calendar_Load(object sender, EventArgs e)
         { 
             year = Convert.ToInt32(DateTime.Now.Year);
@@ -234,10 +242,10 @@ namespace Toms
                     events.AddLast(Popup.savedDates.ElementAt(i));
                 }
             }
-
             return events;
         }
 
+        // findet Kategorie mit gesuchtem Namen
         public static Categories getCategoryofName(string name)
         {
             for (int i = 0; i < Popup.savedCategories.Count; i++)
@@ -250,6 +258,7 @@ namespace Toms
             return null;
         }
 
+        // findet Event mit gesuchtem Namen
         public static Event getEventofName(string name)
         {
             for (int i = 0; i < Popup.savedDates.Count; i++)
@@ -262,13 +271,14 @@ namespace Toms
             return null;
         }
 
+        // Erzeugt Datum aus gewünschter ID
         public DateTime getDate(int id)
         {
-            if (view == false)
+            if (view == false) // Monatsansicht
             {
                 return Convert.ToDateTime((id - startDay).ToString() + "." + month.ToString() + "." + year.ToString());
             }
-            else
+            else // Jahresansicht
             {
                 int day = id % 7;
                 return Convert.ToDateTime((week + day).ToString() + "." + month.ToString() + "." + year.ToString());
@@ -285,8 +295,8 @@ namespace Toms
                 @event.date = dt;
                 @event.Show();
             }
-            else
-            {
+            else 
+            { // Wechselt Ansicht
                 if (view)
                 {
                     showMonthCalendarView();
@@ -468,6 +478,7 @@ namespace Toms
             pressedCalendar(42);
         }
 
+        // Add-Mode Button 
         private void btAddMode_Click(object sender, EventArgs e)
         {
             if (addmode)
@@ -482,6 +493,7 @@ namespace Toms
             }
         }
 
+        // STRG+Z für Undo-Feature
         private void Calendar_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Z)

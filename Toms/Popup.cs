@@ -21,19 +21,18 @@ namespace Toms
             InitializeComponent();
         }
 
+        // Verkettete Listen + Stacks zur Speicherung aller Daten (Events/Kategorien/Änderungen)
         public static LinkedList<Event> savedDates = new LinkedList<Event>();
         public static LinkedList<Categories> savedCategories = new LinkedList<Categories>();
         public static Stack<object> everythingYouEverDidOnThisProject = new Stack<object>();
+
+        // Ende-Methode
         private void bt_backToMenu_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void Safe_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        // STRG+Z für Undo-Feature
         private void Popup_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Z)
@@ -41,6 +40,8 @@ namespace Toms
                 navigateUndo();
             }
         }        
+
+        // Zentrale Zuordnungsmethode aller Undo-Methoden
         public static void navigateUndo()
         {
             if (Popup.everythingYouEverDidOnThisProject.Count > 0)

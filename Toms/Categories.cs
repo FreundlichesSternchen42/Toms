@@ -32,6 +32,7 @@ namespace Toms
             pbColorView.BackColor = categoryColor;
         }
 
+        // Methoden, falls jemand die Trackbar benutzt
         private void trbRed_Scroll(object sender, EventArgs e)
         {
             changeColor();
@@ -50,6 +51,7 @@ namespace Toms
             tbBlue.Text = trbBlue.Value.ToString();
         }
 
+        // Speichermethode
         private void btSafe_Click(object sender, EventArgs e)
         {
             if (tbName.Text != "")
@@ -75,6 +77,7 @@ namespace Toms
             }
         }
 
+        // Benutzerrückmeldung
         private void tmUpdate_Tick(object sender, EventArgs e)
         {
 
@@ -92,11 +95,12 @@ namespace Toms
             }
         }
 
+        // Feature: Trackbar updatet sich automatisch bei Zahleingabe
         private void tbGreen_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                trbGreen.Value = limitInt(Int32.Parse(tbGreen.Text), 255);
+                trbGreen.Value = limitInt(Int32.Parse(tbGreen.Text), 0, 255);
             }
             catch (FormatException)
             {
@@ -107,7 +111,7 @@ namespace Toms
         {
             try
             {
-                trbBlue.Value = limitInt(Int32.Parse(tbBlue.Text), 255);
+                trbBlue.Value = limitInt(Int32.Parse(tbBlue.Text), 0, 255);
             }
             catch (FormatException)
             { 
@@ -118,16 +122,27 @@ namespace Toms
         {
             try
             {
-                trbRed.Value = limitInt(Int32.Parse(tbRed.Text), 255);
+                trbRed.Value = limitInt(Int32.Parse(tbRed.Text), 0, 255);
             }
             catch (FormatException)
             {
             }
         }
 
-        public int limitInt(int value, int max)
+        /// <summary>
+        /// Methode um einen Wert ein Minimum und Maximum zu geben
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public int limitInt(int value, int min, int max)
         {
-            if (value <= max)
+            if (value < min)
+	        {
+                return min;
+	        }
+            else if (value <= max)
             {
                 return value;
             }
@@ -137,6 +152,7 @@ namespace Toms
             }
         }
 
+        // STRG+Z für Undo-Feature
         private void Categories_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Z)
@@ -145,6 +161,7 @@ namespace Toms
             }
         }
         
+        // Undo-Befehle für alle Kategorien
         public static void undoCategory(object lastModification)
         {
             if (lastModification != null)
@@ -165,6 +182,7 @@ namespace Toms
             }
         }
 
+        // Kategorie löschen
         private void btDeleteC_Click(object sender, EventArgs e)
         {
             if (Calendar.getCategoryofName(tbName.Text) != null)

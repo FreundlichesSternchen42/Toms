@@ -16,40 +16,42 @@ namespace Toms
         {
             InitializeComponent();
         }
-        private void bt_safe_Click(object sender, EventArgs e)
+
+        // Weiterleitung zur Popup-Form
+        private void btPopup_Click(object sender, EventArgs e)
         {
-            Popup safe = new Popup();
-            safe.Show();
+            Popup popup = new Popup();
+            popup.Show();
         }
 
-        private void bt_end_Click(object sender, EventArgs e)
+        // Beendigung des gesamten Programms
+        private void btEnd_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // Weiterleitung zur Kalendar-Form
         private void BtCalender_Click(object sender, EventArgs e)
         {
             Calendar calender = new Calendar();
             calender.Show();
         }
 
+        // Weiterleitung zur Event-Form
         private void BtEvent_Click(object sender, EventArgs e)
         {
             Event events = new Event();
             events.Show();
         }
 
+        // Weiterleitung zur Kategorie-Form
         private void BtCategories_Click(object sender, EventArgs e)
         {
             Categories categories = new Categories();
             categories.Show();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        // STRG+Z für Undo-Feature
         private void Menu_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Z)

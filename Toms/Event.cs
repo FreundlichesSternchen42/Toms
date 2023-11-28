@@ -140,6 +140,7 @@ namespace Toms
             }
         }
 
+        // STRG+Z für Undo-Feature
         private void Event_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Z)

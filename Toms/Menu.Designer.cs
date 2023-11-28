@@ -94,7 +94,7 @@
             this.btNextE.TabIndex = 6;
             this.btNextE.Text = "Next Events";
             this.btNextE.UseVisualStyleBackColor = true;
-            this.btNextE.Click += new System.EventHandler(this.bt_safe_Click);
+            this.btNextE.Click += new System.EventHandler(this.btPopup_Click);
             // 
             // btEnd
             // 
@@ -106,7 +106,7 @@
             this.btEnd.TabIndex = 7;
             this.btEnd.Text = "END";
             this.btEnd.UseVisualStyleBackColor = true;
-            this.btEnd.Click += new System.EventHandler(this.bt_end_Click);
+            this.btEnd.Click += new System.EventHandler(this.btEnd_Click);
             // 
             // Menu
             // 
@@ -125,7 +125,6 @@
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
-            this.Load += new System.EventHandler(this.Menu_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Menu_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();

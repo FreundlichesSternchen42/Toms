@@ -67,7 +67,6 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Popup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Safe_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Popup_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
