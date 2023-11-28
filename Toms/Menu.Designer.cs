@@ -52,7 +52,7 @@
             // 
             this.btCalender.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCalender.Location = new System.Drawing.Point(232, 120);
-            this.btCalender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btCalender.Margin = new System.Windows.Forms.Padding(2);
             this.btCalender.Name = "btCalender";
             this.btCalender.Size = new System.Drawing.Size(127, 31);
             this.btCalender.TabIndex = 3;
@@ -64,7 +64,7 @@
             // 
             this.btEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEvents.Location = new System.Drawing.Point(232, 166);
-            this.btEvents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btEvents.Margin = new System.Windows.Forms.Padding(2);
             this.btEvents.Name = "btEvents";
             this.btEvents.Size = new System.Drawing.Size(127, 32);
             this.btEvents.TabIndex = 4;
@@ -76,7 +76,7 @@
             // 
             this.btCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCategories.Location = new System.Drawing.Point(232, 211);
-            this.btCategories.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btCategories.Margin = new System.Windows.Forms.Padding(2);
             this.btCategories.Name = "btCategories";
             this.btCategories.Size = new System.Drawing.Size(127, 31);
             this.btCategories.TabIndex = 5;
@@ -88,7 +88,7 @@
             // 
             this.btNextE.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btNextE.Location = new System.Drawing.Point(232, 260);
-            this.btNextE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btNextE.Margin = new System.Windows.Forms.Padding(2);
             this.btNextE.Name = "btNextE";
             this.btNextE.Size = new System.Drawing.Size(127, 29);
             this.btNextE.TabIndex = 6;
@@ -100,7 +100,7 @@
             // 
             this.btEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btEnd.Location = new System.Drawing.Point(514, 323);
-            this.btEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btEnd.Margin = new System.Windows.Forms.Padding(2);
             this.btEnd.Name = "btEnd";
             this.btEnd.Size = new System.Drawing.Size(77, 33);
             this.btEnd.TabIndex = 7;
@@ -121,10 +121,12 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.Menu_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Menu_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

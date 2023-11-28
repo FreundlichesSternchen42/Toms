@@ -44,5 +44,37 @@ namespace Toms
             Categories categories = new Categories();
             categories.Show();
         }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Menu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.Z)
+            {
+                if (Popup.everythingYouEverDidOnThisProject.Count > 0)
+                {
+                    object lastModification = Popup.everythingYouEverDidOnThisProject.Pop();
+                    if (lastModification.GetType() == typeof(Categories))
+                    {
+                        Categories.undoCategory(lastModification);
+                    }
+                    else if (lastModification.GetType() == typeof(Event))
+                    {
+                        Event.undoEvent(lastModification);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: Unusually Change! \n Please ignore that, it's probably code caused!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You don`t changed anything!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

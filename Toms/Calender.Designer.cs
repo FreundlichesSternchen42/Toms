@@ -777,11 +777,13 @@
             this.Controls.Add(this.lbCDate);
             this.Controls.Add(this.tlpCalendar);
             this.Controls.Add(this.btBackToMenu);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1000, 750);
             this.Name = "Calendar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calender";
             this.Load += new System.EventHandler(this.Calendar_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Calendar_KeyDown);
             this.tlpCalendar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

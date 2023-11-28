@@ -141,36 +141,65 @@ namespace Toms
         {
             if (e.Control && e.KeyCode == Keys.Z)
             {
-                undoCategory(Popup.everythingYouEverDidOnThisProject.Pop());
-            }
-        }
-        public void undoCategory(object lastModification)
-        {
-                if (lastModification != null)
+                if (Popup.everythingYouEverDidOnThisProject.Count > 0)
                 {
+                    object lastModification = Popup.everythingYouEverDidOnThisProject.Pop();
                     if (lastModification.GetType() == typeof(Categories))
                     {
-                        Categories cat = (Categories)lastModification;
-                        if (cat.action == "create category")
-                        {
-                            Popup.savedCategories.Remove(cat);
-                            MessageBox.Show("Undo: Your Category: " + tbName.Text + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else if (cat.action == "delete category")
-                        {
-                            Popup.savedCategories.AddLast(cat);
-                            MessageBox.Show("Undo: Your Category: " + tbName.Text + " was successfully recreated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    } 
+                        Categories.undoCategory(lastModification);
+                    }
+                    else if (lastModification.GetType() == typeof(Event))
+                    {
+                        Event.undoEvent(lastModification);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: Unusually Change! \n Please ignore that, it's probably code caused!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("You don`t changed anything!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+        
+        public static void undoCategory(object lastModification)
+        {
+            if (lastModification != null)
+            {
+                if (lastModification.GetType() == typeof(Categories))
+                {
+                    Categories cat = (Categories)lastModification;
+                    if (cat.action == "create category")
+                    {
+                        MessageBox.Show("Undo: Your Category: '" + cat.categoryName + "' was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Popup.savedCategories.Remove(cat);                    }
+                    else if (cat.action == "delete category")
+                    {
+                        MessageBox.Show("Undo: Your Category: '" + cat.categoryName + "' was successfully recreated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Popup.savedCategories.AddLast(cat); 
+                    }
+                } 
+            }
+        }
+
         private void btDeleteC_Click(object sender, EventArgs e)
         {
-            Categories cat = Calendar.getCategoryofName(tbName.Text);
-            cat.action = "delete category";
-            Popup.everythingYouEverDidOnThisProject.Push(cat);
-            Popup.savedCategories.Remove(Calendar.getCategoryofName(tbName.Text));
-            MessageBox.Show("Your Category: " + tbName.Text + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);  
+            if (Calendar.getCategoryofName(tbName.Text) != null)
+            {
+                Categories cat = Calendar.getCategoryofName(tbName.Text);
+                cat.action = "delete category";
+                Popup.everythingYouEverDidOnThisProject.Push(cat);
+                Popup.savedCategories.Remove(Calendar.getCategoryofName(tbName.Text));
+                MessageBox.Show("Your Category: '" + tbName.Text + "' was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+            }
+            else
+            {
+                MessageBox.Show("No Category with the name: '" + tbName.Text + "' found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
+        
+    
 }

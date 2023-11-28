@@ -94,9 +94,9 @@
             this.label2.Location = new System.Drawing.Point(27, 145);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Event";
+            this.label2.Text = "Title";
             // 
             // label1
             // 
@@ -179,6 +179,7 @@
             this.btDelete.TabIndex = 22;
             this.btDelete.Text = "Delete";
             this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
             // 
             // Event
             // 
@@ -199,11 +200,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbEvent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Event";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event";
             this.Load += new System.EventHandler(this.Event_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Event_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

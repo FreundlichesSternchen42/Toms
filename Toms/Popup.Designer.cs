@@ -37,10 +37,9 @@
             this.btCancelP.BackColor = System.Drawing.Color.Transparent;
             this.btCancelP.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancelP.ForeColor = System.Drawing.Color.Black;
-            this.btCancelP.Location = new System.Drawing.Point(908, 627);
-            this.btCancelP.Margin = new System.Windows.Forms.Padding(6);
+            this.btCancelP.Location = new System.Drawing.Point(454, 326);
             this.btCancelP.Name = "btCancelP";
-            this.btCancelP.Size = new System.Drawing.Size(274, 56);
+            this.btCancelP.Size = new System.Drawing.Size(137, 29);
             this.btCancelP.TabIndex = 1;
             this.btCancelP.Text = "Cancel";
             this.btCancelP.UseVisualStyleBackColor = false;
@@ -50,24 +49,26 @@
             // 
             this.lbSafe.AutoSize = true;
             this.lbSafe.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSafe.Location = new System.Drawing.Point(506, 13);
-            this.lbSafe.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSafe.Location = new System.Drawing.Point(253, 7);
+            this.lbSafe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSafe.Name = "lbSafe";
-            this.lbSafe.Size = new System.Drawing.Size(242, 73);
+            this.lbSafe.Size = new System.Drawing.Size(125, 37);
             this.lbSafe.TabIndex = 3;
             this.lbSafe.Text = "Popup ";
             // 
             // Popup
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 704);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.lbSafe);
             this.Controls.Add(this.btCancelP);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Popup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Safe_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Popup_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
