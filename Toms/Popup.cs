@@ -94,7 +94,7 @@ namespace Toms
                 savedDates.Remove(delEvent);
                 delEvent.action = "delete event";
                 everythingYouEverDidOnThisProject.Push(delEvent);
-                MessageBox.Show("Your Category: " + tbIDInput.Text + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your Event: " + delEvent.eventtitle + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)
             {
