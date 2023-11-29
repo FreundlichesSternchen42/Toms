@@ -72,7 +72,7 @@ namespace Toms
             for (int i = 0; i < savedDates.Count; i++)
             {
                 Event ev = Popup.savedDates.ElementAt(i);
-                rtbPopup.Text = rtbPopup.Text + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + getRepeationAsString(ev.repeation) + "\n";
+                rtbPopup.Text = rtbPopup.Text + (i+1) + ": " + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + getRepeationAsString(ev.repeation) + "\n";
             }
         }
 
@@ -84,6 +84,23 @@ namespace Toms
                 case 1: return "yearly repeation"; break;
                 case 2: return "monthly repeation"; break;
             }
+        }
+
+        private void btDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Event delEvent = Popup.savedDates.ElementAt(int.Parse(tbIDInput.Text)-1);
+                savedDates.Remove(delEvent);
+                delEvent.action = "delete event";
+                everythingYouEverDidOnThisProject.Push(delEvent);
+                MessageBox.Show("Your Category: " + tbIDInput.Text + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No valid index number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }   
 }

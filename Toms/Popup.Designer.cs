@@ -31,10 +31,14 @@
             this.btCancelP = new System.Windows.Forms.Button();
             this.lbSafe = new System.Windows.Forms.Label();
             this.rtbPopup = new System.Windows.Forms.RichTextBox();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.tbIDInput = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btCancelP
             // 
+            this.btCancelP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btCancelP.BackColor = System.Drawing.Color.Transparent;
             this.btCancelP.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btCancelP.ForeColor = System.Drawing.Color.Black;
@@ -61,15 +65,45 @@
             // 
             this.rtbPopup.Location = new System.Drawing.Point(38, 47);
             this.rtbPopup.Name = "rtbPopup";
+            this.rtbPopup.ReadOnly = true;
             this.rtbPopup.Size = new System.Drawing.Size(521, 252);
             this.rtbPopup.TabIndex = 4;
             this.rtbPopup.Text = "";
+            // 
+            // btDelete
+            // 
+            this.btDelete.Location = new System.Drawing.Point(287, 330);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(87, 23);
+            this.btDelete.TabIndex = 5;
+            this.btDelete.Text = "delete event";
+            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // tbIDInput
+            // 
+            this.tbIDInput.Location = new System.Drawing.Point(234, 333);
+            this.tbIDInput.Name = "tbIDInput";
+            this.tbIDInput.Size = new System.Drawing.Size(28, 20);
+            this.tbIDInput.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(149, 336);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Index Number: ";
             // 
             // Popup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbIDInput);
+            this.Controls.Add(this.btDelete);
             this.Controls.Add(this.rtbPopup);
             this.Controls.Add(this.lbSafe);
             this.Controls.Add(this.btCancelP);
@@ -89,5 +123,8 @@
         private System.Windows.Forms.Button btCancelP;
         private System.Windows.Forms.Label lbSafe;
         private System.Windows.Forms.RichTextBox rtbPopup;
+        private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.TextBox tbIDInput;
+        private System.Windows.Forms.Label label1;
     }
 }
