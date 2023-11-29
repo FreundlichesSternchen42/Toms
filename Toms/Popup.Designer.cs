@@ -30,6 +30,7 @@
         {
             this.btCancelP = new System.Windows.Forms.Button();
             this.lbSafe = new System.Windows.Forms.Label();
+            this.rtbPopup = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btCancelP
@@ -49,24 +50,34 @@
             // 
             this.lbSafe.AutoSize = true;
             this.lbSafe.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSafe.Location = new System.Drawing.Point(253, 7);
+            this.lbSafe.Location = new System.Drawing.Point(249, 7);
             this.lbSafe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbSafe.Name = "lbSafe";
             this.lbSafe.Size = new System.Drawing.Size(125, 37);
             this.lbSafe.TabIndex = 3;
             this.lbSafe.Text = "Popup ";
             // 
+            // rtbPopup
+            // 
+            this.rtbPopup.Location = new System.Drawing.Point(38, 47);
+            this.rtbPopup.Name = "rtbPopup";
+            this.rtbPopup.Size = new System.Drawing.Size(521, 252);
+            this.rtbPopup.TabIndex = 4;
+            this.rtbPopup.Text = "";
+            // 
             // Popup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.rtbPopup);
             this.Controls.Add(this.lbSafe);
             this.Controls.Add(this.btCancelP);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Popup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Popup_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Popup_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -77,5 +88,6 @@
 
         private System.Windows.Forms.Button btCancelP;
         private System.Windows.Forms.Label lbSafe;
+        private System.Windows.Forms.RichTextBox rtbPopup;
     }
 }

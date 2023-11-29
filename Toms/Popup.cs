@@ -65,5 +65,25 @@ namespace Toms
                 MessageBox.Show("You don`t changed anything!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Popup_Load(object sender, EventArgs e)
+        {
+            rtbPopup.Text = "Momentan gibt es folgende Events: \n \n";
+            for (int i = 0; i < savedDates.Count; i++)
+            {
+                Event ev = Popup.savedDates.ElementAt(i);
+                rtbPopup.Text = rtbPopup.Text + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + getRepeationAsString(ev.repeation) + "\n";
+            }
+        }
+
+        public string getRepeationAsString(int integer)
+        {
+            switch (integer)
+            {
+                default: return "no repeation";  break;
+                case 1: return "yearly repeation"; break;
+                case 2: return "monthly repeation"; break;
+            }
+        }
     }   
 }
