@@ -12,7 +12,8 @@ namespace Toms
 {
     public partial class Event : Form
     {
-        public DateTime date;
+        public string date;
+        public string time;
         public string eventtitle;
         public string category;
         public int repeation;
@@ -34,7 +35,7 @@ namespace Toms
             cbCategory.SelectedIndex = 0;
             if(eventtitle == "from Calendar")
             {
-                dtbDate.Value = date;
+                dtbDate.Value = Convert.ToDateTime(date);
             }
             for (int i = 0; i < Popup.savedCategories.Count; i++)
             {
@@ -46,7 +47,7 @@ namespace Toms
         {
             if (tbEvent.Text != "")
             {
-                if(getTime() == DateTime.MinValue)
+                if(Convert.ToDateTime(getTime()) == DateTime.MinValue)
                 {
                     MessageBox.Show("Your Event has no correct time. \nTime should be devorced with ':' or '.'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -58,7 +59,8 @@ namespace Toms
                 {
                     Event ev = new Event();
                     ev.eventtitle = tbEvent.Text;
-                    ev.date = dtbDate.Value.Date + getTime().TimeOfDay;
+                    ev.date = dtbDate.Value.Date.ToString("dd.MM.yyyy");
+                    ev.time = getTime();
                     ev.category = cbCategory.SelectedItem.ToString();
                     ev.repeation = cbRepeat.SelectedIndex;
                     Popup.savedDates.AddLast(ev);
@@ -89,7 +91,7 @@ namespace Toms
             }
         }
 
-        public DateTime getTime()
+        public string getTime()
         {
             string[] value = tbTime.Text.Split(new char[] {'.',':'});
             DateTime dt;
@@ -101,7 +103,7 @@ namespace Toms
             {
                 dt = DateTime.MinValue;
             }
-            return dt;
+            return dt.ToString();
         }
 
         public static void undoEvent(object lastModification)
@@ -147,6 +149,11 @@ namespace Toms
             {
                 Popup.navigateUndo();
             }
+        }
+
+        public DateTime getDateTime()
+        {
+            return Convert.ToDateTime(date);
         }
     }
 }

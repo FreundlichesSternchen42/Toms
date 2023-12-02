@@ -104,7 +104,7 @@ namespace Toms
                 // Anzeige der Events (Termine)
                 if(events.Count > 0)
                 {
-                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n " + events.First().date.ToString("hh:mm") + " " + events.First().eventtitle;
+                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n " + events.First().date + " " + events.First().eventtitle;
                     if(events.Count > 1)
                     {
                         giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n +" + (events.Count - 1) + " more";
@@ -119,27 +119,6 @@ namespace Toms
             }
         }
 
-        // zeigt Wochenansicht an
-        public void showWeekCalendarView(int day)
-        {
-            view = true;
-            week = day - ((day + startDay - 1) % 7) - 1;
-            for (int x = 1; x < 8; x++)
-            {                int date = week + x;
-                giveCalendarObject(-x).Text = giveCalendarObject(-x).Text + ", " + date.ToString() + "." + month.ToString();
-                for (int y = 0; y < 5; y++)
-                {
-                    give2DCalendarObject(x, y).Text = (y*5) + "-" + (y*5 + 5) + " Uhr";
-                    give2DCalendarObject(x, y).Visible = true;
-                    if (date <= 0 || date > lastDay)
-                    {
-                        give2DCalendarObject(x,y).Visible = false;
-                    }
-                }
-                give2DCalendarObject(x, 5).Visible = false;
-            }
-        }
-
         // übersetzt Koordinaten zu id
         public RichTextBox give2DCalendarObject(int x, int y)
         {
@@ -151,56 +130,56 @@ namespace Toms
         {
             switch (id)
             {
-                default: return rtbCalendar01; break;
-                case -7: return rtbHead7; break;
-                case -6: return rtbHead6; break;
-                case -5: return rtbHead5; break;
-                case -4: return rtbHead4; break;
-                case -3: return rtbHead3; break;
-                case -2: return rtbHead2; break;
-                case -1: return rtbHead1; break;
-                case 01: return rtbCalendar01; break;
-                case 02: return rtbCalendar02; break;
-                case 03: return rtbCalendar03; break;
-                case 04: return rtbCalendar04; break;
-                case 05: return rtbCalendar05; break;
-                case 06: return rtbCalendar06; break;
-                case 07: return rtbCalendar07; break;
-                case 08: return rtbCalendar08; break;
-                case 09: return rtbCalendar09; break;
-                case 10: return rtbCalendar10; break;
-                case 11: return rtbCalendar11; break;
-                case 12: return rtbCalendar12; break;
-                case 13: return rtbCalendar13; break;
-                case 14: return rtbCalendar14; break;
-                case 15: return rtbCalendar15; break;
-                case 16: return rtbCalendar16; break;
-                case 17: return rtbCalendar17; break;
-                case 18: return rtbCalendar18; break;
-                case 19: return rtbCalendar19; break;
-                case 20: return rtbCalendar20; break;
-                case 21: return rtbCalendar21; break;
-                case 22: return rtbCalendar22; break;
-                case 23: return rtbCalendar23; break;
-                case 24: return rtbCalendar24; break;
-                case 25: return rtbCalendar25; break;
-                case 26: return rtbCalendar26; break;
-                case 27: return rtbCalendar27; break;
-                case 28: return rtbCalendar28; break;
-                case 29: return rtbCalendar29; break;
-                case 30: return rtbCalendar30; break;
-                case 31: return rtbCalendar31; break;
-                case 32: return rtbCalendar32; break;
-                case 33: return rtbCalendar33; break;
-                case 34: return rtbCalendar34; break;
-                case 35: return rtbCalendar35; break;
-                case 36: return rtbCalendar36; break;
-                case 37: return rtbCalendar37; break;
-                case 38: return rtbCalendar38; break;
-                case 39: return rtbCalendar39; break;
-                case 40: return rtbCalendar40; break;
-                case 41: return rtbCalendar41; break;
-                case 42: return rtbCalendar42; break;
+                default: return rtbCalendar01;
+                case -7: return rtbHead7;
+                case -6: return rtbHead6;
+                case -5: return rtbHead5;
+                case -4: return rtbHead4;
+                case -3: return rtbHead3;
+                case -2: return rtbHead2;
+                case -1: return rtbHead1;
+                case 01: return rtbCalendar01;
+                case 02: return rtbCalendar02;
+                case 03: return rtbCalendar03;
+                case 04: return rtbCalendar04;
+                case 05: return rtbCalendar05;
+                case 06: return rtbCalendar06;
+                case 07: return rtbCalendar07;
+                case 08: return rtbCalendar08;
+                case 09: return rtbCalendar09;
+                case 10: return rtbCalendar10;
+                case 11: return rtbCalendar11;
+                case 12: return rtbCalendar12;
+                case 13: return rtbCalendar13;
+                case 14: return rtbCalendar14;
+                case 15: return rtbCalendar15;
+                case 16: return rtbCalendar16;
+                case 17: return rtbCalendar17;
+                case 18: return rtbCalendar18;
+                case 19: return rtbCalendar19;
+                case 20: return rtbCalendar20;
+                case 21: return rtbCalendar21;
+                case 22: return rtbCalendar22;
+                case 23: return rtbCalendar23;
+                case 24: return rtbCalendar24;
+                case 25: return rtbCalendar25;
+                case 26: return rtbCalendar26;
+                case 27: return rtbCalendar27;
+                case 28: return rtbCalendar28;
+                case 29: return rtbCalendar29;
+                case 30: return rtbCalendar30;
+                case 31: return rtbCalendar31;
+                case 32: return rtbCalendar32;
+                case 33: return rtbCalendar33;
+                case 34: return rtbCalendar34;
+                case 35: return rtbCalendar35;
+                case 36: return rtbCalendar36;
+                case 37: return rtbCalendar37;
+                case 38: return rtbCalendar38;
+                case 39: return rtbCalendar39;
+                case 40: return rtbCalendar40;
+                case 41: return rtbCalendar41;
+                case 42: return rtbCalendar42;
             }
         }
 
@@ -227,17 +206,17 @@ namespace Toms
             for (int i = 0; i < Popup.savedDates.Count; i++)
             {
                 // keine Wiederholung (repeation == 0)
-                if(Popup.savedDates.ElementAt(i).repeation == 0 && date == Popup.savedDates.ElementAt(i).date.Date)
+                if(Popup.savedDates.ElementAt(i).repeation == 0 && date == Popup.savedDates.ElementAt(i).getDateTime().Date)
                 {
                     events.AddLast(Popup.savedDates.ElementAt(i));
                 }
                 // Jährliche Wiederholung (repeation == 1)
-                else if(Popup.savedDates.ElementAt(i).repeation == 1 && Popup.savedDates.ElementAt(i).date.Day == date.Day && Popup.savedDates.ElementAt(i).date.Month == date.Month)
+                else if(Popup.savedDates.ElementAt(i).repeation == 1 && Popup.savedDates.ElementAt(i).getDateTime().Day == date.Day && Popup.savedDates.ElementAt(i).getDateTime().Month == date.Month)
                 {
                     events.AddLast(Popup.savedDates.ElementAt(i));
                 }
                 // Monatliche Wiederholung (repeation == 2)
-                else if (Popup.savedDates.ElementAt(i).repeation == 2 && Popup.savedDates.ElementAt(i).date.Day == date.Day)
+                else if (Popup.savedDates.ElementAt(i).repeation == 2 && Popup.savedDates.ElementAt(i).getDateTime().Day == date.Day)
                 {
                     events.AddLast(Popup.savedDates.ElementAt(i));
                 }
@@ -292,19 +271,12 @@ namespace Toms
                 DateTime dt = getDate(id);
                 Event @event = new Event();
                 @event.eventtitle = "from Calendar";
-                @event.date = dt;
+                @event.date = dt.ToString("dd.MM.yyyy");
                 @event.Show();
             }
             else 
-            { // Wechselt Ansicht
-                if (view)
-                {
-                    showMonthCalendarView();
-                }
-                else
-                {
-                    showWeekCalendarView(id - startDay);
-                }
+            { 
+                // hier Platz für zukünftige Feature
             }
         }
 
@@ -501,6 +473,5 @@ namespace Toms
                 Popup.navigateUndo();
             }
         }
-    
     }
 }
