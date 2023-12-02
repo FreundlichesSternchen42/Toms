@@ -17,7 +17,10 @@ namespace Toms
         public string eventtitle;
         public string category;
         public int repeation;
-        public string action;
+        public string action;  
+        public bool DeleteFlag;
+
+
         public Event()
         {
             InitializeComponent();

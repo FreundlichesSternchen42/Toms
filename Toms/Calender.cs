@@ -26,7 +26,8 @@ namespace Toms
 
         public Calendar()
         {
-            InitializeComponent();           
+            InitializeComponent();     
+            
         }
 
         // Schließt diese Methode

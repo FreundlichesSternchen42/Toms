@@ -68,11 +68,25 @@ namespace Toms
 
         private void Popup_Load(object sender, EventArgs e)
         {
-            rtbPopup.Text = "Momentan gibt es folgende Events: \n \n";
-            for (int i = 0; i < savedDates.Count; i++)
+            updateUserInterface();
+        }
+        public void updateUserInterface()
+        {
+            if (savedDates.Count > 0)
             {
-                Event ev = Popup.savedDates.ElementAt(i);
-                rtbPopup.Text = rtbPopup.Text + (i+1) + ": " + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + getRepeationAsString(ev.repeation) + "\n";
+                rtbPopup.Text = "Event list: \n \n";
+                for (int i = 0; i < savedDates.Count; i++)
+                {
+                    Event ev = Popup.savedDates.ElementAt(i);
+                    rtbPopup.Text = rtbPopup.Text + (i+1) + ": " + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + getRepeationAsString(ev.repeation) + "\n";
+                }
+            }
+            else
+            {
+                rtbPopup.Text = "No Event listed! \n \nPlease add something in the Event-Form!";
+                label1.Visible = false;
+                tbIDInput.Visible = false;
+                btDelete.Visible = false;
             }
         }
 
@@ -80,9 +94,9 @@ namespace Toms
         {
             switch (integer)
             {
-                default: return "no repeation";  break;
-                case 1: return "yearly repeation"; break;
-                case 2: return "monthly repeation"; break;
+                default: return "no repeation"; 
+                case 1: return "yearly repeation"; 
+                case 2: return "monthly repeation"; 
             }
         }
 
@@ -95,6 +109,7 @@ namespace Toms
                 delEvent.action = "delete event";
                 everythingYouEverDidOnThisProject.Push(delEvent);
                 MessageBox.Show("Your Event: " + delEvent.eventtitle + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                updateUserInterface();
             }
             catch (Exception)
             {
