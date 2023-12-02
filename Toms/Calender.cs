@@ -105,7 +105,7 @@ namespace Toms
                 // Anzeige der Events (Termine)
                 if(events.Count > 0)
                 {
-                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n " + events.First().date + " " + events.First().eventtitle;
+                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n " + events.First().time.Replace(".",":") + " " + events.First().eventtitle;
                     if(events.Count > 1)
                     {
                         giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n +" + (events.Count - 1) + " more";
@@ -272,7 +272,7 @@ namespace Toms
                 DateTime dt = getDate(id);
                 Event @event = new Event();
                 @event.eventtitle = "from Calendar";
-                @event.date = dt.ToString("dd.MM.yyyy");
+                @event.date = Convert.ToInt16(dt.ToString("yyyyMMdd"));
                 @event.Show();
             }
             else 

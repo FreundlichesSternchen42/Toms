@@ -78,7 +78,7 @@ namespace Toms
                 for (int i = 0; i < savedDates.Count; i++)
                 {
                     Event ev = Popup.savedDates.ElementAt(i);
-                    rtbPopup.Text = rtbPopup.Text + (i+1) + ": " + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + getRepeationAsString(ev.repeation) + "\n";
+                    rtbPopup.Text = rtbPopup.Text + (i+1) + ": " + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + ev.time.Replace(".",":") + getRepeationAsString(ev.repeation) + "\n";
                 }
             }
             else

@@ -12,7 +12,7 @@ namespace Toms
 {
     public partial class Event : Form
     {
-        public string date;
+        public int date;
         public string time;
         public string eventtitle;
         public string category;
@@ -62,7 +62,7 @@ namespace Toms
                 {
                     Event ev = new Event();
                     ev.eventtitle = tbEvent.Text;
-                    ev.date = dtbDate.Value.Date.ToString("dd.MM.yyyy");
+                    ev.date = Convert.ToInt32(dtbDate.Value.Date.ToString("yyyyMMdd"));
                     ev.time = getTime();
                     ev.category = cbCategory.SelectedItem.ToString();
                     ev.repeation = cbRepeat.SelectedIndex;
@@ -106,7 +106,7 @@ namespace Toms
             {
                 dt = DateTime.MinValue;
             }
-            return dt.ToString();
+            return dt.ToString("hh.mm");
         }
 
         public static void undoEvent(object lastModification)
@@ -156,7 +156,14 @@ namespace Toms
 
         public DateTime getDateTime()
         {
-            return Convert.ToDateTime(date);
+            int _date = date;
+            List<int> cuttedDate = new List<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                cuttedDate.Add(_date % 100);
+                _date = _date / 100;
+            }
+            return Convert.ToDateTime(cuttedDate[0]+"."+cuttedDate[1]+"."+cuttedDate[3]+cuttedDate[2]);
         }
     }
 }
