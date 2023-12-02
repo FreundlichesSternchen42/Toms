@@ -2,32 +2,28 @@
 <data>
     <events>
         <event>
-            <ID>1</ID>
-            <eventName>BeispielEvent</eventName>
-            <time>
-                <hour>14</hour>
-                <minute>30</minute>
-            </time>
-            <date>
-                <year>2023</year>
-                <month>11</month>
-                <day>26</day>
-            </date>
-            <deleteflag>true</deleteflag>
+            
+            <eventtitle>BeispielEvent</eventtitle>
+            <time>14:00</time>
+            <date>19800419</date>
+             <repeation>0</repeation>
+             <category>Feiertage</category>
+            <action></action>
+            <DeleteFlag>true</DeleteFlag>
         </event>
         <!-- Weitere Events können hier hinzugefügt werden -->
     </events>
 
     <categories>
         <category>
-            <ID>1</ID>
-            <name>Kategorie A</name>
+            
+            <name>Feiertage</name>
             <color>
                 <R>255</R>
                 <G>0</G>
                 <B>0</B>
             </color>
-            <deleteFlag>true</deleteFlag>
+            <DeleteFlag>false</DeleteFlag>
         </category>
         <!-- Weitere Kategorien können hier hinzugefügt werden -->
     </categories>

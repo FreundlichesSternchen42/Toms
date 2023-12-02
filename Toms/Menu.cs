@@ -27,6 +27,7 @@ namespace Toms
         // Beendigung des gesamten Programms
         private void btEnd_Click(object sender, EventArgs e)
         {
+            // hier speichern einfügen !!!
             Application.Exit();
         }
 
@@ -34,6 +35,7 @@ namespace Toms
         private void BtCalender_Click(object sender, EventArgs e)
         {
             Calendar calender = new Calendar();
+            // prüfen ob save.xml vorhanden. Wenn nicht, init.xml laden und mit Feiertgen befüllen. 
             calender.Show();
         }
 

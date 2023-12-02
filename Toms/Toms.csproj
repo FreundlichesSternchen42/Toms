@@ -58,6 +58,7 @@
     <Compile Include="Categories.Designer.cs">
       <DependentUpon>Categories.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataLoader.cs" />
     <Compile Include="Event.cs">
       <SubType>Form</SubType>
     </Compile>
