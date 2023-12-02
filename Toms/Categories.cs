@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +21,8 @@ namespace Toms
         public Color categoryColor;
         public string categoryName;
         public string action;
+        public bool DeleteFlag;
+
 
         private void BtBackToMenu_Click(object sender, EventArgs e)
         {

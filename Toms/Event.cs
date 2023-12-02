@@ -13,10 +13,14 @@ namespace Toms
     public partial class Event : Form
     {
         public DateTime date;
+        public string time;
         public string eventtitle;
         public string category;
         public int repeation;
-        public string action;
+        public string action;  
+        public bool DeleteFlag;
+
+
         public Event()
         {
             InitializeComponent();
