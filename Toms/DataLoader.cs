@@ -33,45 +33,15 @@ namespace Toms
         }
 
         public void LoadICS() { }
-        List<Event> ParseFeiertageFromICS(string filePath)
-        {
+        
   
-            
-            List<Event> feiertage = new List<Event>();
-            string[] lines = File.ReadAllLines(filePath);
-            Event currentEvent = null;
-  
-            foreach (var line in lines)
-            {
-                if (line.StartsWith("BEGIN:VEVENT"))
-                {
-                    currentEvent = new Event();
-                }
-                else if (line.StartsWith("SUMMARY:"))
-                {
-                    currentEvent.Name = line.Substring("SUMMARY:".Length).Trim();
-                }
-                else if (line.StartsWith("DTSTART;"))
-                {
-                    string dateString = line.Substring(line.IndexOf(":") + 1).Trim();
-                    currentEvent.Date = DateTime.ParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture);
-                }
-                else if (line.StartsWith("END:VEVENT"))
-                {
-                    feiertage.Add(currentEvent);
-                }
-            }
-  
-            return feiertage;
-        }
-  
-        private void AddFeiertage(ref List<Category> categories, ref List<Event> events)
+        private void AddFeiertage(ref List<Categories> categories, ref List<Event> events)
         {
             // Feiertage-Kategorie hinzufügen, falls noch nicht vorhanden
             var feiertageCategory = categories.FirstOrDefault(c => c.Name == "Feiertage");
             if (feiertageCategory == null)
             {
-                feiertageCategory = new Category { Name = "Feiertage", Color = Color.Red };
+                feiertageCategory = new Categories { Name = "Feiertage", categoryColor = Color.Red }; // Lilly
                 categories.Add(feiertageCategory);
             }
   
@@ -110,68 +80,66 @@ namespace Toms
   
 /*
             public DateTime date;
-        public string time;
-        public string eventtitle;
-        public string category;
-        public int repeation;
-        public string action;
-        public bool DeleteFlag;
+            public string time;
+            public string eventtitle;
+            public string category;
+            public int repeation;
+            public string action;
+            public bool DeleteFlag;
 */
   
-     List<Event> feiertage = new List<Event>();
-         string[] lines = File.ReadAllLines(filePath);
-         Event currentEvent = null;
-    
-         foreach (var line in lines)
-         {
-             if (line.StartsWith("BEGIN:VEVENT"))
-             {
-                 currentEvent = new Event();
-             }
-             else if (line.StartsWith("SUMMARY:"))
-             {
-                 currentEvent.eventtitle = line.Substring("SUMMARY:".Length).Trim();
-                 if (filePath == "FeiertageBW2024.ics") currentEvent.eventtitle = currentEvent.eventtitle + " 24";
-    
-             }
-             else if (line.StartsWith("DTSTART;"))
-             {
-                 string dateString = line.Substring(line.IndexOf(":") + 1).Trim();
-                 currentEvent.date = DateTime.ParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture);
-                 currentEvent.time = "00:01";
-                 currentEvent.repeation = 0;
-                 currentEvent.action = "";
-                 currentEvent.DeleteFlag = 0;
-                 currentEvent.category = "Feiertage";
-    
-             }
-             else if (line.StartsWith("END:VEVENT"))
-             {
-                 feiertage.Add(currentEvent);
-             }
-         }
-    
-         return feiertage;
-     }
+            List<Event> feiertage = new List<Event>();
+            string[] lines = File.ReadAllLines(filePath);
+            Event currentEvent = null;
+
+            foreach (var line in lines)
+            {
+                if (line.StartsWith("BEGIN:VEVENT"))
+                {
+                    currentEvent = new Event();
+                }
+                else if (line.StartsWith("SUMMARY:"))
+                {
+                    currentEvent.eventtitle = line.Substring("SUMMARY:".Length).Trim();
+                    if (filePath == "FeiertageBW2024.ics") currentEvent.eventtitle = currentEvent.eventtitle + " 24";
+
+                }
+                else if (line.StartsWith("DTSTART;"))
+                {
+                    string dateString = line.Substring(line.IndexOf(":") + 1).Trim();
+                    currentEvent.date = DateTime.ParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture); // Lilly-XML
+                    currentEvent.time = "00:01";
+                    currentEvent.repeation = 0;
+                    currentEvent.action = "";
+                    currentEvent.DeleteFlag = false;
+                    currentEvent.category = "Feiertage";
+
+                }
+                else if (line.StartsWith("END:VEVENT"))
+                {
+                    feiertage.Add(currentEvent);
+                }
+            }
+        return feiertage;
+        }
   
          private List<Event> LoadEvents(XDocument doc)
          {
-             var events = from evt in doc.Descendants("event")
-                          select new Event
-                          {
-                              eventtitle = (string)evt.Element("eventtitle"),
-                              date = (string)evt.Element("date"),
-                              time = (string)evt.Element("time"),
-                              repeation = (int)evt.Element("repeation"),
-                              category = (string)evt.Element("category"),
-                              action = (string)evt.Element("action"),
-                              DeleteFlag = (bool)evt.Element("DeleteFlag"); 
-                           }
-        
-             return events.ToList();
+            var savedDates = from evt in doc.Descendants("event")
+                             select new Event
+                             {
+                                 eventtitle = (string)evt.Element("eventtitle"),
+                                 date = (int)evt.Element(""),
+                                 time = (string)evt.Element("time"),
+                                 repeation = (int)evt.Element("repeation"),
+                                 category = (string)evt.Element("category"),
+                                 action = (string)evt.Element("action"),
+                                 DeleteFlag = (bool)evt.Element("DeleteFlag")
+                             };
+             return savedDates.ToList();
          }
   
-       private void AddFeiertage(ref List<Categories> categories, ref List<Event> events)
+       private void AddFeiertag(ref List<Categories> categories, ref List<Event> events)
        {
            // Feiertage-Kategorie hinzufügen, falls noch nicht vorhanden
            var feiertageCategory = categories.FirstOrDefault(c => c.categoryName == "Feiertage");
@@ -191,17 +159,11 @@ namespace Toms
            events.AddRange(feiertage2024);
        }
       
-        private void SaveData(List<Categories> categories, List<Event> events)
-        {
-            // Implementierung zum Speichern der Daten in save.xml
-            // Dies würde das Erstellen eines XDocument und das Schreiben der Daten beinhalten
-        }
-  
-        // Platzhalter-Implementierung zum Parsen von .ics-Dateien
-        // Dies sollte durch eine tatsächliche Logik zum Parsen von .ics-Dateien ersetzt werden
-        private List<Event> ParseFeiertageFromICS(string filePath)
-        {
-            return new List<Event>();
-        }
+       private void SaveData(List<Categories> categories, List<Event> events)
+       {
+           // Implementierung zum Speichern der Daten in save.xml
+           // Dies würde das Erstellen eines XDocument und das Schreiben der Daten beinhalten
+       }
+
     }
 }
