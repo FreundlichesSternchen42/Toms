@@ -31,8 +31,8 @@ namespace Toms
             // Speichern in save.xml
             SaveData(categories, events);
         }
-  
-        public void LoadICS()
+
+        public void LoadICS() { }
         List<Event> ParseFeiertageFromICS(string filePath)
         {
   
