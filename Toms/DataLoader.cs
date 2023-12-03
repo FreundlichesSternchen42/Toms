@@ -202,19 +202,19 @@ namespace Toms
             {
                 var xDoc = new XDocument(
                     new XElement("data",
-                        new XElement("categories",
-                            savedCategories.Select(c =>
-                                new XElement("category",
-                                   
-                                    new XElement("categoryName", c.categoryName),
-                                    new XElement("categoryColor", c.categoryColor),
-                                        new XElement("R", c.categoryColor.R),
-                                        new XElement("G", c.categoryColor.G),
-                                        new XElement("B", c.categoryColor.B),
-                                    new XElement("DeleteFlag", c.DeleteFlag)
-                                )
-                            )
-                        ),
+                         new XElement("categories",
+                           savedCategories.Select(c =>
+                               new XElement("category",
+                                   new XElement("categoryName", c.categoryName),
+                                   new XElement("categoryColor", // Verwende 'categoryColor' als übergeordnetes Element
+                                       new XElement("R", c.categoryColor.R),
+                                       new XElement("G", c.categoryColor.G),
+                                       new XElement("B", c.categoryColor.B)
+                                   ),
+                                   new XElement("DeleteFlag", c.DeleteFlag)
+                                   )
+                               )
+                           ),
                         new XElement("events",
                             savedEvents.Select(e =>
                                 new XElement("event",
