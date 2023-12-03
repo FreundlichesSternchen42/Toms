@@ -23,6 +23,7 @@ namespace Toms
         public int week;
         public bool addmode;
         public bool view;
+        public bool showHolidays = true;
 
         public Calendar()
         {
@@ -104,7 +105,7 @@ namespace Toms
                 for (int h = 0; h < getEventofDate(dt).Count; h++)
                 {
                     List<Event> ev = getEventofDate(dt).ToList();
-                    if (ev[h].DeleteFlag == false)
+                    if (ev[h].DeleteFlag == false && (showHolidays == true))
                     {
                         events.Add(ev[h]);
                     }
@@ -124,10 +125,18 @@ namespace Toms
                         
                     }
                     
-                    if (getCategoryofName(events.First().category) != null)
+                    if (getCategoryofName(events.First().category) != null )
                     {
                         giveCalendarObject(id).ForeColor = getCategoryofName(events.First().category).categoryColor;
                     }
+                    else
+                    {
+                        giveCalendarObject(id).ForeColor = Color.Black;
+                    }
+                }
+                else
+                {
+                    giveCalendarObject(id).ForeColor = Color.Black;
                 }
             }
         }
@@ -284,12 +293,13 @@ namespace Toms
                 DateTime dt = getDate(id);
                 Event @event = new Event();
                 @event.eventtitle = "from Calendar";
-                @event.date = Convert.ToInt16(dt.ToString("yyyyMMdd"));
+                @event.date = Convert.ToInt32(dt.ToString("yyyyMMdd"));
                 @event.Show();
             }
             else 
-            { 
-                // hier Platz für zukünftige Feature
+            {
+                showHolidays = !showHolidays;
+                showMonthCalendarView();
             }
         }
 

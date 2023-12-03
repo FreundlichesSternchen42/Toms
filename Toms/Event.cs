@@ -38,7 +38,7 @@ namespace Toms
             cbCategory.SelectedIndex = 0;
             if(eventtitle == "from Calendar")
             {
-                dtbDate.Value = Convert.ToDateTime(date);
+                dtbDate.Value = getDateTime();
             }
             for (int i = 0; i < DataLoader.savedCategories.Count; i++)
             {
@@ -50,7 +50,7 @@ namespace Toms
         {
             if (tbEvent.Text != "")
             {
-                if(Convert.ToDateTime(getTime()) == DateTime.MinValue)
+                if(getTime() == (DateTime.MinValue).ToString("hh.mm"))
                 {
                     MessageBox.Show("Your Event has no correct time. \nTime should be devorced with ':' or '.'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
