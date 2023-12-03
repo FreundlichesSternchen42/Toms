@@ -8,10 +8,11 @@ using System.IO;
 using Toms; // Annahme, dass dies der Namespace aus den bereitgestellten Dateien ist
 using System.Drawing;
 using System.Globalization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Toms
 { 
-    internal class DataLoader
+    public class DataLoader
     {
   
         public void LoadData()
@@ -32,30 +33,48 @@ namespace Toms
             SaveData(categories, events);
         }
 
-        public void LoadICS() { }
-        
-  
+        public void LoadICS() { }  //??????????????????????????????????????????????????????????????????????????????
+
+
         private void AddFeiertage(ref List<Categories> categories, ref List<Event> events)
         {
             // Feiertage-Kategorie hinzufügen, falls noch nicht vorhanden
             var feiertageCategory = categories.FirstOrDefault(c => c.Name == "Feiertage");
             if (feiertageCategory == null)
             {
-                feiertageCategory = new Categories { Name = "Feiertage", categoryColor = Color.Red }; // Lilly
-                categories.Add(feiertageCategory);
+                // Lade die Kategorie aus init.xml
+                XDocument initDoc = XDocument.Load("init.xml");
+                var categoryElement = initDoc.Descendants("category").FirstOrDefault(c => c.Element("name")?.Value == "Feiertage");
+
+                if (categoryElement != null)
+                {
+                    int r = int.Parse(categoryElement.Element("color").Element("R").Value);
+                    int g = int.Parse(categoryElement.Element("color").Element("G").Value);
+                    int b = int.Parse(categoryElement.Element("color").Element("B").Value);
+                    bool deleteFlag = bool.Parse(categoryElement.Element("DeleteFlag").Value);
+
+                    feiertageCategory = new Categories
+                    {
+                        Name = "Feiertage",
+                        categoryColor = Color.FromArgb(r, g, b),
+                        DeleteFlag = deleteFlag
+                    };
+                    categories.Add(feiertageCategory);
+                }
             }
-  
-          // Ereignisse für Feiertage 2023 und 2024 hinzufügen
-          // Dies erfordert das Parsen der .ics-Dateien, um Feiertagsdaten und -namen zu extrahieren
-          // Hier wird eine Methode ParseFeiertageFromICS angenommen, die eine Liste von Event zurückgibt
+
+
+            // Ereignisse für Feiertage 2023 und 2024 hinzufügen
+            // Dies erfordert das Parsen der .ics-Dateien, um Feiertagsdaten und -namen zu extrahieren
+            // Hier wird eine Methode ParseFeiertageFromICS angenommen, die eine Liste von Event zurückgibt
             List<Event> feiertage2023 = ParseFeiertageFromICS("FeiertageBW2023.ics");
             List<Event> feiertage2024 = ParseFeiertageFromICS("FeiertageBW2024.ics");
-  
+
             events.AddRange(feiertage2023);
             events.AddRange(feiertage2024);
         }
-  
-  
+
+
         private List<Categories> LoadCategories(XDocument doc)
         {
             var categories = from cat in doc.Descendants("category")
@@ -78,15 +97,15 @@ namespace Toms
   
             //2024 Trigger einbauen. filr 
   
-/*
-            public DateTime date;
-            public string time;
-            public string eventtitle;
-            public string category;
-            public int repeation;
-            public string action;
-            public bool DeleteFlag;
-*/
+            /*
+                  public DateTime date;
+                  public string time;
+                  public string eventtitle;
+                  public string category;
+                  public int repeation;
+                  public string action;
+                  public bool DeleteFlag;
+            */
   
             List<Event> feiertage = new List<Event>();
             string[] lines = File.ReadAllLines(filePath);
@@ -107,7 +126,10 @@ namespace Toms
                 else if (line.StartsWith("DTSTART;"))
                 {
                     string dateString = line.Substring(line.IndexOf(":") + 1).Trim();
-                    currentEvent.date = DateTime.ParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture); // Lilly-XML
+                    DateTime parsedDate = DateTime.ParseExact(dateString, "yyyyMMdd", CultureInfo.InvariantCulture);
+
+                    // Konvertiere das Datum in das Format yyyyMMdd als Ganzzahl
+                    currentEvent.date = int.Parse(parsedDate.ToString("yyyyMMdd"));
                     currentEvent.time = "00:01";
                     currentEvent.repeation = 0;
                     currentEvent.action = "";
@@ -161,9 +183,44 @@ namespace Toms
       
        private void SaveData(List<Categories> categories, List<Event> events)
        {
-           // Implementierung zum Speichern der Daten in save.xml
-           // Dies würde das Erstellen eines XDocument und das Schreiben der Daten beinhalten
-       }
+
+            {
+                var xDoc = new XDocument(
+                    new XElement("data",
+                        new XElement("categories",
+                            categories.Select(c =>
+                                new XElement("category",
+                                   
+                                    new XElement("categoryName", c.categoryName),
+                                    new XElement("categoryColor", c.categoryColor),
+                                        new XElement("R", c.categoryColor.R),
+                                        new XElement("G", c.categoryColor.G),
+                                        new XElement("B", c.categoryColor.B),
+                                    new XElement("DeleteFlag", c.DeleteFlag)
+                                )
+                            )
+                        ),
+                        new XElement("events",
+                            events.Select(e =>
+                                new XElement("event",
+                              
+                                    new XElement("eventtitle", e.eventtitle),
+                                   new XElement("date", e.date),
+                                   new XElement("time", e.time),    
+                                    new XElement("repeation", e.repeation),
+                                        new XElement("category", e.category),
+                                        new XElement("action", e.action),                    
+                                    new XElement("DeleteFlag", e.DeleteFlag)
+                                )
+                            )
+                        )
+                    )
+                );
+
+                xDoc.Save("save.xml");
+            }
+
+        }
 
     }
 }

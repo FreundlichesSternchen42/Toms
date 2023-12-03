@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using Toms; //
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,12 @@ namespace Toms
 {
     public partial class Menu : Form
     {
+        
+        public static int GlobalInit = 0; // ist am anfang 0. Wird beim ersten Durchlauf im Menu aufruf auf 1 gesetzt.
+        public static LinkedList<Event> savedDates = new LinkedList<Event>();
+        public static LinkedList<Categories> savedCategories = new LinkedList<Categories>();
+        public static Stack<object> everythingYouEverDidOnThisProject = new Stack<object>();
+
         public Menu()
         {
             InitializeComponent();
@@ -35,8 +42,17 @@ namespace Toms
         private void BtCalender_Click(object sender, EventArgs e)
         {
             Calendar calender = new Calendar();
-            // prüfen ob save.xml vorhanden. Wenn nicht, init.xml laden und mit Feiertgen befüllen. 
-            calender.Show();
+            // prüfen ob save.xml vorhanden. Wenn nicht, init.xml laden und mit Feiertgen befüllen. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (GlobalInit == 0)
+                
+                {
+                    DataLoader loader = new DataLoader();
+                    loader.LoadData();
+                    GlobalInit = 1;
+
+                }
+            
+                calender.Show();
         }
 
         // Weiterleitung zur Event-Form
