@@ -33,7 +33,7 @@ namespace Toms
         private void btEnd_Click(object sender, EventArgs e)
         {
             DataLoader loader = new DataLoader();
-            loader.SaveData(DataLoader.savedCategories, DataLoader.savedDates);
+            loader.saveData(DataLoader.savedCategories, DataLoader.savedDates);
             // hier speichern
             Application.Exit();
         }
@@ -69,7 +69,7 @@ namespace Toms
             if (GlobalInit == 0)
             {
                 DataLoader loader = new DataLoader();
-                loader.LoadData();
+                loader.loadData();
                 GlobalInit = 1;
             }
         }

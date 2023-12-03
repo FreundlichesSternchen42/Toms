@@ -135,9 +135,6 @@ namespace Toms
         /// <summary>
         /// Methode um einen Wert ein Minimum und Maximum zu geben
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
         /// <returns></returns>
         public int limitInt(int value, int min, int max)
         {

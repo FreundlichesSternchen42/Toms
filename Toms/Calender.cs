@@ -38,28 +38,10 @@ namespace Toms
         }
 
         // Springt zum nächsten Monat
-        private void BtNext_Click(object sender, EventArgs e)
-        {
-            month++;
-            if (month == 13)
-            {
-                month = 1;
-                year++;
-            }
-            showMonthCalendarView();
-        }
+
 
         // Springt zum letzten Monat
-        private void BtPrevious_Click(object sender, EventArgs e)
-        {
-            month--;
-            if (month == 0)
-            {
-                month = 12;
-                year--;
-            }
-            showMonthCalendarView();
-        }
+
 
         // Methode für die Monatsansicht
         public void showMonthCalendarView()
@@ -495,6 +477,28 @@ namespace Toms
             {
                 Popup.navigateUndo();
             }
+        }
+
+        private void btNext_Click(object sender, EventArgs e)
+        {
+            month++;
+            if (month == 13)
+            {
+                month = 1;
+                year++;
+            }
+            showMonthCalendarView();
+        }
+
+        private void btPrevious_Click(object sender, EventArgs e)
+        {
+            month--;
+            if (month == 0)
+            {
+                month = 12;
+                year--;
+            }
+            showMonthCalendarView();
         }
     }
 }

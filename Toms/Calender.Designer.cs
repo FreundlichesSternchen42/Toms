@@ -107,9 +107,10 @@
             this.lbCDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbCDate.AutoSize = true;
-            this.lbCDate.Location = new System.Drawing.Point(562, 103);
+            this.lbCDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCDate.Location = new System.Drawing.Point(561, 98);
             this.lbCDate.Name = "lbCDate";
-            this.lbCDate.Size = new System.Drawing.Size(45, 13);
+            this.lbCDate.Size = new System.Drawing.Size(74, 20);
             this.lbCDate.TabIndex = 15;
             this.lbCDate.Text = "lbCDate";
             // 
@@ -735,7 +736,7 @@
             this.btPrevious.TabIndex = 16;
             this.btPrevious.Text = "<--- Previous";
             this.btPrevious.UseVisualStyleBackColor = true;
-            this.btPrevious.Click += new System.EventHandler(this.BtPrevious_Click);
+            this.btPrevious.Click += new System.EventHandler(this.btPrevious_Click);
             // 
             // btNext
             // 
@@ -747,7 +748,7 @@
             this.btNext.TabIndex = 17;
             this.btNext.Text = "Next --->";
             this.btNext.UseVisualStyleBackColor = true;
-            this.btNext.Click += new System.EventHandler(this.BtNext_Click);
+            this.btNext.Click += new System.EventHandler(this.btNext_Click);
             // 
             // tmUpdate
             // 

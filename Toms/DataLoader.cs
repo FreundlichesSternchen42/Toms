@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.IO;
-using Toms; // Annahme, dass dies der Namespace aus den bereitgestellten Dateien ist
+using Toms; 
 using System.Drawing;
 using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
@@ -19,18 +19,18 @@ namespace Toms
         public static LinkedList<Categories> savedCategories = new LinkedList<Categories>();
         public static Stack<object> everythingYouEverDidOnThisProject = new Stack<object>();
 
-        public void LoadData()
+        public void loadData()
         {
             string filePath = File.Exists("save1.xml") ? "save1.xml" : "init.xml";
             XDocument doc = XDocument.Load(filePath);
   
-            List<Categories> categories = LoadCategories(doc);
-            List<Event> events = LoadEvents(doc);
+            List<Categories> categories = loadCategories(doc);
+            List<Event> events = loadEvents(doc);
   
             if (filePath == "init.xml")
             {
                 // Feiertage für Baden-Württemberg hinzufügen
-                AddFeiertage(ref categories, ref events);
+                addFeiertage(ref categories, ref events);
             }
             for (int i = 0; i < events.Count; i++)
             {
@@ -42,10 +42,10 @@ namespace Toms
             }
 
             // Speichern in save.xml
-            SaveData(savedCategories, savedDates);
+            saveData(savedCategories, savedDates);
         }
 
-        private void AddFeiertage(ref List<Categories> categories, ref List<Event> events)
+        private void addFeiertage(ref List<Categories> categories, ref List<Event> events)
         {
             // Feiertage-Kategorie hinzufügen, falls noch nicht vorhanden
             var feiertageCategory = categories.FirstOrDefault(c => c.categoryName == "Feiertage");
@@ -75,14 +75,15 @@ namespace Toms
             // Ereignisse für Feiertage 2023 und 2024 hinzufügen
             // Dies erfordert das Parsen der .ics-Dateien, um Feiertagsdaten und -namen zu extrahieren
             // Hier wird eine Methode ParseFeiertageFromICS angenommen, die eine Liste von Event zurückgibt
-            List<Event> feiertage2023 = ParseFeiertageFromICS("FeiertageBW2023.ics");
-            List<Event> feiertage2024 = ParseFeiertageFromICS("FeiertageBW2024.ics");
+            List<Event> feiertage2023 = parseFeiertageFromICS("FeiertageBW2023.ics");
+            List<Event> feiertage2024 = parseFeiertageFromICS("FeiertageBW2024.ics");
 
             events.AddRange(feiertage2023);
             events.AddRange(feiertage2024);
         }
 
-        private List<Categories> LoadCategories(XDocument doc)
+        //Daten in Kalender einfügen
+        private List<Categories> loadCategories(XDocument doc)
         {
             var categories = from cat in doc.Descendants("category")
                              let nameElement = cat.Element("categoryName")
@@ -102,25 +103,11 @@ namespace Toms
                                  categoryColor = Color.FromArgb(r, g, b),
                                  DeleteFlag = bool.Parse(deleteFlagElement.Value)
                              };
-
             return categories.ToList();
         }
 
-        private List<Event> ParseFeiertageFromICS(string filePath)
+        private List<Event> parseFeiertageFromICS(string filePath)
         {
-  
-            //2024 Trigger einbauen. filr 
-  
-            /*
-                  public DateTime date;
-                  public string time;
-                  public string eventtitle;
-                  public string category;
-                  public int repeation;
-                  public string action;
-                  public bool DeleteFlag;
-            */
-  
             List<Event> feiertage = new List<Event>();
             string[] lines = File.ReadAllLines(filePath);
             Event currentEvent = null;
@@ -149,7 +136,6 @@ namespace Toms
                     currentEvent.action = "";
                     currentEvent.DeleteFlag = false;
                     currentEvent.category = "Feiertage";
-
                 }
                 else if (line.StartsWith("END:VEVENT"))
                 {
@@ -159,7 +145,7 @@ namespace Toms
         return feiertage;
         }
 
-        private List<Event> LoadEvents(XDocument doc)
+        private List<Event> loadEvents(XDocument doc)
         {
             var savedDates = from evt in doc.Descendants("event")
                              select new Event
@@ -175,30 +161,9 @@ namespace Toms
 
             return savedDates.ToList();
         }
-
-        private void AddFeiertag(ref List<Categories> categories, ref List<Event> events)
+      
+       public void saveData(LinkedList<Categories> savedCategories, LinkedList<Event> savedEvents)
        {
-           // Feiertage-Kategorie hinzufügen, falls noch nicht vorhanden
-           var feiertageCategory = categories.FirstOrDefault(c => c.categoryName == "Feiertage");
-           if (feiertageCategory == null)
-           {
-               feiertageCategory = new Categories { categoryName = "Feiertage", categoryColor = Color.Red };
-               categories.Add(feiertageCategory);
-           }
-      
-           // Ereignisse für Feiertage 2023 und 2024 hinzufügen
-           // Dies erfordert das Parsen der .ics-Dateien, um Feiertagsdaten und -namen zu extrahieren
-           // Hier wird eine Methode ParseFeiertageFromICS angenommen, die eine Liste von Event zurückgibt
-           List<Event> feiertage2023 = ParseFeiertageFromICS("FeiertageBW2023.ics");
-           List<Event> feiertage2024 = ParseFeiertageFromICS("FeiertageBW2024.ics");
-      
-           events.AddRange(feiertage2023);
-           events.AddRange(feiertage2024);
-       }
-      
-       public void SaveData(LinkedList<Categories> savedCategories, LinkedList<Event> savedEvents)
-       {
-
             {
                 var xDoc = new XDocument(
                     new XElement("data",
@@ -233,8 +198,6 @@ namespace Toms
                 );
                 xDoc.Save("save1.xml");
             }
-
         }
-
     }
 }

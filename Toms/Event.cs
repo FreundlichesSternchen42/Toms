@@ -20,7 +20,6 @@ namespace Toms
         public string action;  
         public bool DeleteFlag;
 
-
         public Event()
         {
             InitializeComponent();
