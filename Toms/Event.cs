@@ -64,6 +64,7 @@ namespace Toms
                     ev.eventtitle = tbEvent.Text;
                     ev.date = Convert.ToInt32(dtbDate.Value.Date.ToString("yyyyMMdd"));
                     ev.time = getTime();
+                    ev.DeleteFlag = false;
                     ev.category = cbCategory.SelectedItem.ToString();
                     ev.repeation = cbRepeat.SelectedIndex;
                     DataLoader.savedDates.AddLast(ev);
