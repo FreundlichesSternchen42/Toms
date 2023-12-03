@@ -85,7 +85,7 @@ namespace Toms
             {
                 btSave.Text = "Event needs a name!";
             }
-            else if(Calendar.getEventofName(tbEvent.Text) != null)
+            else if (Calendar.getEventofName(tbEvent.Text) != null)
             {
                 btSave.Text = "Event needs an unique name!";
             }

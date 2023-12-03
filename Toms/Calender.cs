@@ -112,7 +112,12 @@ namespace Toms
                 // Anzeige der Events (Termine)
                 if(events.Count() > 0)
                 {
-                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n " + events.First().time.Replace(".",":") + " " + events.First().eventtitle;
+                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n ";
+                    if (events.First().time != "00:01")
+                    {
+                        giveCalendarObject(id).Text = giveCalendarObject(id).Text + events.First().time.Replace(".", ":");
+                    }
+                    giveCalendarObject(id).Text = giveCalendarObject(id).Text + " " + events.First().eventtitle;
                     if(events.Count > 1)
                     {
                         giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n +" + (events.Count - 1) + " more";

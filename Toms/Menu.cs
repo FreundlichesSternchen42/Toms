@@ -40,18 +40,8 @@ namespace Toms
         private void BtCalender_Click(object sender, EventArgs e)
         {
             Calendar calender = new Calendar();
-            // prüfen ob save.xml vorhanden. Wenn nicht, init.xml laden und mit Feiertgen befüllen. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            if (GlobalInit == 0)
-                
-                {
 
-                    DataLoader loader = new DataLoader();
-                    loader.LoadData();
-                    GlobalInit = 1;
-
-                }
-            
-                calender.Show();
+            calender.Show();
         }
 
         // Weiterleitung zur Event-Form
@@ -74,6 +64,17 @@ namespace Toms
             if (e.Control && e.KeyCode == Keys.Z)
             {
                 Popup.navigateUndo();
+            }
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            // prüfen ob save.xml vorhanden. Wenn nicht, init.xml laden und mit Feiertgen befüllen. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (GlobalInit == 0)
+            {
+                DataLoader loader = new DataLoader();
+                loader.LoadData();
+                GlobalInit = 1;
             }
         }
     }

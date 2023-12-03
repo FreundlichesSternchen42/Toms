@@ -34,6 +34,7 @@
             this.btDelete = new System.Windows.Forms.Button();
             this.tbIDInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btNoHolidays = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btCancelP
@@ -72,7 +73,7 @@
             // 
             // btDelete
             // 
-            this.btDelete.Location = new System.Drawing.Point(287, 330);
+            this.btDelete.Location = new System.Drawing.Point(304, 330);
             this.btDelete.Name = "btDelete";
             this.btDelete.Size = new System.Drawing.Size(87, 23);
             this.btDelete.TabIndex = 5;
@@ -82,7 +83,7 @@
             // 
             // tbIDInput
             // 
-            this.tbIDInput.Location = new System.Drawing.Point(234, 333);
+            this.tbIDInput.Location = new System.Drawing.Point(256, 332);
             this.tbIDInput.Name = "tbIDInput";
             this.tbIDInput.Size = new System.Drawing.Size(28, 20);
             this.tbIDInput.TabIndex = 6;
@@ -90,17 +91,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(149, 336);
+            this.label1.Location = new System.Drawing.Point(171, 335);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Index Number: ";
+            // 
+            // btNoHolidays
+            // 
+            this.btNoHolidays.Location = new System.Drawing.Point(12, 329);
+            this.btNoHolidays.Name = "btNoHolidays";
+            this.btNoHolidays.Size = new System.Drawing.Size(127, 23);
+            this.btNoHolidays.TabIndex = 8;
+            this.btNoHolidays.Text = "Don\'t show Holidays";
+            this.btNoHolidays.UseVisualStyleBackColor = true;
+            this.btNoHolidays.Click += new System.EventHandler(this.btNoHolidays_Click);
             // 
             // Popup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.btNoHolidays);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbIDInput);
             this.Controls.Add(this.btDelete);
@@ -126,5 +138,6 @@
         private System.Windows.Forms.Button btDelete;
         private System.Windows.Forms.TextBox tbIDInput;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btNoHolidays;
     }
 }

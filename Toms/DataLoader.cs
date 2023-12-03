@@ -14,6 +14,7 @@ namespace Toms
 { 
     public class DataLoader
     {
+        // interner Speicher für nötige Daten
         public static LinkedList<Event> savedDates = new LinkedList<Event>();
         public static LinkedList<Categories> savedCategories = new LinkedList<Categories>();
         public static Stack<object> everythingYouEverDidOnThisProject = new Stack<object>();
@@ -31,11 +32,18 @@ namespace Toms
                 // Feiertage für Baden-Württemberg hinzufügen
                 AddFeiertage(ref categories, ref events);
             }
-  
+            for (int i = 0; i < events.Count; i++)
+            {
+                savedDates.AddLast(events[i]);
+            }
+            for (int i = 0; i < categories.Count; i++)
+            {
+                savedCategories.AddLast(categories[i]);
+            }
+
             // Speichern in save.xml
             SaveData(categories, events);
         }
-
 
         private void AddFeiertage(ref List<Categories> categories, ref List<Event> events)
         {
@@ -64,7 +72,6 @@ namespace Toms
                 }
             }
 
-
             // Ereignisse für Feiertage 2023 und 2024 hinzufügen
             // Dies erfordert das Parsen der .ics-Dateien, um Feiertagsdaten und -namen zu extrahieren
             // Hier wird eine Methode ParseFeiertageFromICS angenommen, die eine Liste von Event zurückgibt
@@ -74,7 +81,6 @@ namespace Toms
             events.AddRange(feiertage2023);
             events.AddRange(feiertage2024);
         }
-
 
         private List<Categories> LoadCategories(XDocument doc)
         {
@@ -225,7 +231,6 @@ namespace Toms
                         )
                     )
                 );
-
                 xDoc.Save("save1.xml");
             }
 

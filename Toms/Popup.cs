@@ -16,15 +16,11 @@ namespace Toms
 {
     public partial class Popup : Form
     {
+        bool view = false;
         public Popup()
         {
             InitializeComponent();
         }
-
-        // Verkettete Listen + Stacks zur Speicherung aller Daten (Events/Kategorien/Änderungen)
- //     public static LinkedList<Event> savedDates = new LinkedList<Event>();
- //     public static LinkedList<Categories> savedCategories = new LinkedList<Categories>();
- //     public static Stack<object> everythingYouEverDidOnThisProject = new Stack<object>();
 
         // Ende-Methode
         private void bt_backToMenu_Click(object sender, EventArgs e)
@@ -70,6 +66,7 @@ namespace Toms
         {
             updateUserInterface();
         }
+
         public void updateUserInterface()
         {
             if (DataLoader.savedDates.Count > 0)
@@ -78,7 +75,7 @@ namespace Toms
                 for (int i = 0; i < DataLoader.savedDates.Count; i++)
                 {
                     Event ev = DataLoader.savedDates.ElementAt(i);
-                    rtbPopup.Text = rtbPopup.Text + (i+1) + ": " + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + ev.time.Replace(".",":") + getRepeationAsString(ev.repeation) + "\n";
+                    rtbPopup.Text = rtbPopup.Text + (i+1) + ": " + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + ev.time.Replace(".",":") + "," + getRepeationAsString(ev.repeation) + "\n";
                 }
             }
             else
@@ -114,6 +111,34 @@ namespace Toms
             catch (Exception)
             {
                 MessageBox.Show("No valid index number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btNoHolidays_Click(object sender, EventArgs e)
+        {
+            if (view == false)
+            {
+                rtbPopup.Text = "Event list (without holidays): \n \n";
+                int h = 0;
+                for (int i = 0; i < DataLoader.savedDates.Count; i++)
+                {
+                    if (DataLoader.savedDates.ElementAt(i).category != "Feiertage")
+                    {
+                        h++;
+                        Event ev = DataLoader.savedDates.ElementAt(i);
+                        rtbPopup.Text = rtbPopup.Text + (i + 1) + ": " + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + ev.time.Replace(".", ":") + "," + getRepeationAsString(ev.repeation) + "\n";
+                    }
+                }
+                if (h == 0)
+                {
+                    rtbPopup.Text = "You only have holidays!";
+                }
+                view = true;
+            }
+            else
+            {
+                updateUserInterface();
+                view = false;
             }
         }
     }   
