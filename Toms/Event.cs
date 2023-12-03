@@ -42,7 +42,11 @@ namespace Toms
             }
             for (int i = 0; i < Popup.savedCategories.Count; i++)
             {
-                cbCategory.Items.Add(Popup.savedCategories.ElementAt(i).categoryName);
+                if (Popup.savedCategories.ElementAt(i).DeleteFlag == false)
+                {
+                    cbCategory.Items.Add(Popup.savedCategories.ElementAt(i).categoryName);
+                }
+                
             }
         }
 
@@ -64,6 +68,7 @@ namespace Toms
                     ev.eventtitle = tbEvent.Text;
                     ev.date = Convert.ToInt32(dtbDate.Value.Date.ToString("yyyyMMdd"));
                     ev.time = getTime();
+                    ev.DeleteFlag = false;
                     ev.category = cbCategory.SelectedItem.ToString();
                     ev.repeation = cbRepeat.SelectedIndex;
                     Popup.savedDates.AddLast(ev);
@@ -119,12 +124,12 @@ namespace Toms
                     if (ev.action == "create event")
                     {
                         MessageBox.Show("Undo: Your Category: " + ev.eventtitle + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Popup.savedDates.Remove(ev);
+                        ev.DeleteFlag = true;
                     }
                     else if (ev.action == "delete event")
                     {
                         MessageBox.Show("Undo: Your Category: " + ev.eventtitle + " was successfully recreated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Popup.savedDates.AddLast(ev);
+                        ev.DeleteFlag = false;
                     }
                 }
             }
@@ -136,7 +141,7 @@ namespace Toms
                 Event ev = Calendar.getEventofName(tbEvent.Text);
                 ev.action = "delete event";
                 Popup.everythingYouEverDidOnThisProject.Push(ev);
-                Popup.savedDates.Remove(Calendar.getEventofName(tbEvent.Text));
+                Calendar.getEventofName(tbEvent.Text).DeleteFlag = true;
                 MessageBox.Show("Your Category: " + tbEvent.Text + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

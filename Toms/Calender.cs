@@ -100,10 +100,17 @@ namespace Toms
                 DateTime dt = Convert.ToDateTime(i.ToString() + "." + month.ToString() + "." + year.ToString());
                 giveCalendarObject(id).SelectionFont = new Font(giveCalendarObject(id).Font, FontStyle.Bold);
                 giveCalendarObject(id).Text = i.ToString();
-                LinkedList<Event> events = getEventofDate(dt);
-
+                List<Event> events = new List<Event>();
+                for (int h = 0; h < getEventofDate(dt).Count; h++)
+                {
+                    List<Event> ev = getEventofDate(dt).ToList();
+                    if (ev[h].DeleteFlag == false)
+                    {
+                        events.Add(ev[h]);
+                    }
+                }
                 // Anzeige der Events (Termine)
-                if(events.Count > 0)
+                if(events.Count() > 0)
                 {
                     giveCalendarObject(id).Text = giveCalendarObject(id).Text + "\n\n " + events.First().time.Replace(".",":") + " " + events.First().eventtitle;
                     if(events.Count > 1)
@@ -230,7 +237,7 @@ namespace Toms
         {
             for (int i = 0; i < Popup.savedCategories.Count; i++)
             {
-                if (name == Popup.savedCategories.ElementAt(i).categoryName)
+                if (name == Popup.savedCategories.ElementAt(i).categoryName && Popup.savedCategories.ElementAt(i).DeleteFlag == false)
                 {
                     return Popup.savedCategories.ElementAt(i);
                 }
@@ -243,7 +250,7 @@ namespace Toms
         {
             for (int i = 0; i < Popup.savedDates.Count; i++)
             {
-                if (name == Popup.savedDates.ElementAt(i).eventtitle)
+                if (name == Popup.savedDates.ElementAt(i).eventtitle && Popup.savedDates.ElementAt(i).DeleteFlag == false)
                 {
                     return Popup.savedDates.ElementAt(i);
                 }

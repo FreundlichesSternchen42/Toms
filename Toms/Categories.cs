@@ -68,6 +68,7 @@ namespace Toms
                     Categories cat = new Categories();
                     cat.categoryName = tbName.Text;
                     cat.categoryColor = categoryColor;
+                    cat.DeleteFlag = false;
                     Popup.savedCategories.AddLast(cat);
                     cat.action = "create category";
                     Popup.everythingYouEverDidOnThisProject.Push(cat);
@@ -175,11 +176,12 @@ namespace Toms
                     if (cat.action == "create category")
                     {
                         MessageBox.Show("Undo: Your Category: '" + cat.categoryName + "' was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Popup.savedCategories.Remove(cat);                    }
+                        cat.DeleteFlag = true;                    
+                    }
                     else if (cat.action == "delete category")
                     {
                         MessageBox.Show("Undo: Your Category: '" + cat.categoryName + "' was successfully recreated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Popup.savedCategories.AddLast(cat); 
+                        cat.DeleteFlag = false; 
                     }
                 } 
             }
@@ -193,7 +195,7 @@ namespace Toms
                 Categories cat = Calendar.getCategoryofName(tbName.Text);
                 cat.action = "delete category";
                 Popup.everythingYouEverDidOnThisProject.Push(cat);
-                Popup.savedCategories.Remove(Calendar.getCategoryofName(tbName.Text));
+                Calendar.getCategoryofName(tbName.Text).DeleteFlag = true; ;
                 MessageBox.Show("Your Category: '" + tbName.Text + "' was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information); 
             }
             else
