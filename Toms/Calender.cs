@@ -105,7 +105,7 @@ namespace Toms
                 for (int h = 0; h < getEventofDate(dt).Count; h++)
                 {
                     List<Event> ev = getEventofDate(dt).ToList();
-                    if (ev[h].DeleteFlag == false && (showHolidays == true))
+                    if (ev[h].DeleteFlag == false && (showHolidays == true ))
                     {
                         events.Add(ev[h]);
                     }

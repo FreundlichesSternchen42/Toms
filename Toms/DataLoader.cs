@@ -21,7 +21,7 @@ namespace Toms
 
         public void LoadData()
         {
-            string filePath = File.Exists("save.xml") ? "save.xml" : "init.xml";
+            string filePath = File.Exists("save1.xml") ? "save1.xml" : "init.xml";
             XDocument doc = XDocument.Load(filePath);
   
             List<Categories> categories = LoadCategories(doc);
@@ -42,7 +42,7 @@ namespace Toms
             }
 
             // Speichern in save.xml
-            SaveData(categories, events);
+            SaveData(savedCategories, savedDates);
         }
 
         private void AddFeiertage(ref List<Categories> categories, ref List<Event> events)
@@ -85,8 +85,8 @@ namespace Toms
         private List<Categories> LoadCategories(XDocument doc)
         {
             var categories = from cat in doc.Descendants("category")
-                             let nameElement = cat.Element("name")
-                             let colorElement = cat.Element("color")
+                             let nameElement = cat.Element("categoryName")
+                             let colorElement = cat.Element("categoryColor")
                              let deleteFlagElement = cat.Element("DeleteFlag")
                              where nameElement != null && colorElement != null &&
                                    colorElement.Element("R") != null &&
@@ -196,14 +196,14 @@ namespace Toms
            events.AddRange(feiertage2024);
        }
       
-       private void SaveData(List<Categories> categories, List<Event> events)
+       public void SaveData(LinkedList<Categories> savedCategories, LinkedList<Event> savedEvents)
        {
 
             {
                 var xDoc = new XDocument(
                     new XElement("data",
                         new XElement("categories",
-                            categories.Select(c =>
+                            savedCategories.Select(c =>
                                 new XElement("category",
                                    
                                     new XElement("categoryName", c.categoryName),
@@ -216,7 +216,7 @@ namespace Toms
                             )
                         ),
                         new XElement("events",
-                            events.Select(e =>
+                            savedEvents.Select(e =>
                                 new XElement("event",
                               
                                     new XElement("eventtitle", e.eventtitle),

@@ -58,7 +58,7 @@
             this.btCalender.TabIndex = 3;
             this.btCalender.Text = "Calender ";
             this.btCalender.UseVisualStyleBackColor = true;
-            this.btCalender.Click += new System.EventHandler(this.BtCalender_Click);
+            this.btCalender.Click += new System.EventHandler(this.btCalender_Click);
             // 
             // btEvents
             // 

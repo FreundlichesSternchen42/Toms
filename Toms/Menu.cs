@@ -32,17 +32,13 @@ namespace Toms
         // Beendigung des gesamten Programms
         private void btEnd_Click(object sender, EventArgs e)
         {
-            // hier speichern einfügen !!!
+            DataLoader loader = new DataLoader();
+            loader.SaveData(DataLoader.savedCategories, DataLoader.savedDates);
+            // hier speichern
             Application.Exit();
         }
 
-        // Weiterleitung zur Kalendar-Form
-        private void BtCalender_Click(object sender, EventArgs e)
-        {
-            Calendar calender = new Calendar();
-
-            calender.Show();
-        }
+        
 
         // Weiterleitung zur Event-Form
         private void BtEvent_Click(object sender, EventArgs e)
@@ -76,6 +72,13 @@ namespace Toms
                 loader.LoadData();
                 GlobalInit = 1;
             }
+        }
+
+        // Weiterleitung zur Kalendar-Form
+        private void btCalender_Click(object sender, EventArgs e)
+        {
+            Calendar calender = new Calendar();
+            calender.Show();
         }
     }
 }
