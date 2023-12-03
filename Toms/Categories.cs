@@ -18,10 +18,10 @@ namespace Toms
             InitializeComponent();
         }
 
-        public Color categoryColor;
-        public string categoryName;
-        public string action;
-        public bool DeleteFlag;
+        public Color categoryColor { get; set; }
+        public string categoryName { get; set; }
+        public string action { get; set; }
+        public bool DeleteFlag { get; set; }
 
 
         private void BtBackToMenu_Click(object sender, EventArgs e)
@@ -68,9 +68,9 @@ namespace Toms
                     Categories cat = new Categories();
                     cat.categoryName = tbName.Text;
                     cat.categoryColor = categoryColor;
-                    Popup.savedCategories.AddLast(cat);
+                    DataLoader.savedCategories.AddLast(cat);
                     cat.action = "create category";
-                    Popup.everythingYouEverDidOnThisProject.Push(cat);
+                    DataLoader.everythingYouEverDidOnThisProject.Push(cat);
                     MessageBox.Show("Your category has been created", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -175,11 +175,11 @@ namespace Toms
                     if (cat.action == "create category")
                     {
                         MessageBox.Show("Undo: Your Category: '" + cat.categoryName + "' was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Popup.savedCategories.Remove(cat);                    }
+                        DataLoader.savedCategories.Remove(cat);                    }
                     else if (cat.action == "delete category")
                     {
                         MessageBox.Show("Undo: Your Category: '" + cat.categoryName + "' was successfully recreated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Popup.savedCategories.AddLast(cat); 
+                        DataLoader.savedCategories.AddLast(cat); 
                     }
                 } 
             }
@@ -192,8 +192,8 @@ namespace Toms
             {
                 Categories cat = Calendar.getCategoryofName(tbName.Text);
                 cat.action = "delete category";
-                Popup.everythingYouEverDidOnThisProject.Push(cat);
-                Popup.savedCategories.Remove(Calendar.getCategoryofName(tbName.Text));
+                DataLoader.everythingYouEverDidOnThisProject.Push(cat);
+                DataLoader.savedCategories.Remove(Calendar.getCategoryofName(tbName.Text));
                 MessageBox.Show("Your Category: '" + tbName.Text + "' was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information); 
             }
             else

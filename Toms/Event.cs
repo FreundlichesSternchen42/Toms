@@ -40,9 +40,9 @@ namespace Toms
             {
                 dtbDate.Value = Convert.ToDateTime(date);
             }
-            for (int i = 0; i < Popup.savedCategories.Count; i++)
+            for (int i = 0; i < DataLoader.savedCategories.Count; i++)
             {
-                cbCategory.Items.Add(Popup.savedCategories.ElementAt(i).categoryName);
+                cbCategory.Items.Add(DataLoader.savedCategories.ElementAt(i).categoryName);
             }
         }
 
@@ -66,9 +66,9 @@ namespace Toms
                     ev.time = getTime();
                     ev.category = cbCategory.SelectedItem.ToString();
                     ev.repeation = cbRepeat.SelectedIndex;
-                    Popup.savedDates.AddLast(ev);
+                    DataLoader.savedDates.AddLast(ev);
                     ev.action = "create event";
-                    Popup.everythingYouEverDidOnThisProject.Push(ev);
+                    DataLoader.everythingYouEverDidOnThisProject.Push(ev);
                     MessageBox.Show("Your Event has been created", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -119,12 +119,12 @@ namespace Toms
                     if (ev.action == "create event")
                     {
                         MessageBox.Show("Undo: Your Category: " + ev.eventtitle + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Popup.savedDates.Remove(ev);
+                        DataLoader.savedDates.Remove(ev);
                     }
                     else if (ev.action == "delete event")
                     {
                         MessageBox.Show("Undo: Your Category: " + ev.eventtitle + " was successfully recreated!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Popup.savedDates.AddLast(ev);
+                        DataLoader.savedDates.AddLast(ev);
                     }
                 }
             }
@@ -135,8 +135,8 @@ namespace Toms
             {
                 Event ev = Calendar.getEventofName(tbEvent.Text);
                 ev.action = "delete event";
-                Popup.everythingYouEverDidOnThisProject.Push(ev);
-                Popup.savedDates.Remove(Calendar.getEventofName(tbEvent.Text));
+                DataLoader.everythingYouEverDidOnThisProject.Push(ev);
+                DataLoader.savedDates.Remove(Calendar.getEventofName(tbEvent.Text));
                 MessageBox.Show("Your Category: " + tbEvent.Text + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

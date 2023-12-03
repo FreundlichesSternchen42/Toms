@@ -22,9 +22,9 @@ namespace Toms
         }
 
         // Verkettete Listen + Stacks zur Speicherung aller Daten (Events/Kategorien/Änderungen)
-        public static LinkedList<Event> savedDates = new LinkedList<Event>();
-        public static LinkedList<Categories> savedCategories = new LinkedList<Categories>();
-        public static Stack<object> everythingYouEverDidOnThisProject = new Stack<object>();
+ //     public static LinkedList<Event> savedDates = new LinkedList<Event>();
+ //     public static LinkedList<Categories> savedCategories = new LinkedList<Categories>();
+ //     public static Stack<object> everythingYouEverDidOnThisProject = new Stack<object>();
 
         // Ende-Methode
         private void bt_backToMenu_Click(object sender, EventArgs e)
@@ -44,9 +44,9 @@ namespace Toms
         // Zentrale Zuordnungsmethode aller Undo-Methoden
         public static void navigateUndo()
         {
-            if (Popup.everythingYouEverDidOnThisProject.Count > 0)
+            if (DataLoader.everythingYouEverDidOnThisProject.Count > 0)
             {
-                object lastModification = Popup.everythingYouEverDidOnThisProject.Pop();
+                object lastModification = DataLoader.everythingYouEverDidOnThisProject.Pop();
                 if (lastModification.GetType() == typeof(Categories))
                 {
                     Categories.undoCategory(lastModification);
@@ -72,12 +72,12 @@ namespace Toms
         }
         public void updateUserInterface()
         {
-            if (savedDates.Count > 0)
+            if (DataLoader.savedDates.Count > 0)
             {
                 rtbPopup.Text = "Event list: \n \n";
-                for (int i = 0; i < savedDates.Count; i++)
+                for (int i = 0; i < DataLoader.savedDates.Count; i++)
                 {
-                    Event ev = Popup.savedDates.ElementAt(i);
+                    Event ev = DataLoader.savedDates.ElementAt(i);
                     rtbPopup.Text = rtbPopup.Text + (i+1) + ": " + ev.eventtitle + ", " + ev.category + ", " + ev.date + ", " + ev.time.Replace(".",":") + getRepeationAsString(ev.repeation) + "\n";
                 }
             }
@@ -104,10 +104,10 @@ namespace Toms
         {
             try
             {
-                Event delEvent = Popup.savedDates.ElementAt(int.Parse(tbIDInput.Text)-1);
-                savedDates.Remove(delEvent);
+                Event delEvent = DataLoader.savedDates.ElementAt(int.Parse(tbIDInput.Text)-1);
+                DataLoader.savedDates.Remove(delEvent);
                 delEvent.action = "delete event";
-                everythingYouEverDidOnThisProject.Push(delEvent);
+                DataLoader.everythingYouEverDidOnThisProject.Push(delEvent);
                 MessageBox.Show("Your Event: " + delEvent.eventtitle + " was successfully deleted!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 updateUserInterface();
             }

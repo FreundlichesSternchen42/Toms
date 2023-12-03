@@ -204,22 +204,22 @@ namespace Toms
         public LinkedList<Event> getEventofDate(DateTime date)
         {
             LinkedList<Event> events = new LinkedList<Event>();
-            for (int i = 0; i < Popup.savedDates.Count; i++)
+            for (int i = 0; i < DataLoader.savedDates.Count; i++)
             {
                 // keine Wiederholung (repeation == 0)
-                if(Popup.savedDates.ElementAt(i).repeation == 0 && date == Popup.savedDates.ElementAt(i).getDateTime().Date)
+                if(DataLoader.savedDates.ElementAt(i).repeation == 0 && date == DataLoader.savedDates.ElementAt(i).getDateTime().Date)
                 {
-                    events.AddLast(Popup.savedDates.ElementAt(i));
+                    events.AddLast(DataLoader.savedDates.ElementAt(i));
                 }
                 // Jährliche Wiederholung (repeation == 1)
-                else if(Popup.savedDates.ElementAt(i).repeation == 1 && Popup.savedDates.ElementAt(i).getDateTime().Day == date.Day && Popup.savedDates.ElementAt(i).getDateTime().Month == date.Month)
+                else if(DataLoader.savedDates.ElementAt(i).repeation == 1 && DataLoader.savedDates.ElementAt(i).getDateTime().Day == date.Day && DataLoader.savedDates.ElementAt(i).getDateTime().Month == date.Month)
                 {
-                    events.AddLast(Popup.savedDates.ElementAt(i));
+                    events.AddLast(DataLoader.savedDates.ElementAt(i));
                 }
                 // Monatliche Wiederholung (repeation == 2)
-                else if (Popup.savedDates.ElementAt(i).repeation == 2 && Popup.savedDates.ElementAt(i).getDateTime().Day == date.Day)
+                else if (DataLoader.savedDates.ElementAt(i).repeation == 2 && DataLoader.savedDates.ElementAt(i).getDateTime().Day == date.Day)
                 {
-                    events.AddLast(Popup.savedDates.ElementAt(i));
+                    events.AddLast(DataLoader.savedDates.ElementAt(i));
                 }
             }
             return events;
@@ -228,11 +228,11 @@ namespace Toms
         // findet Kategorie mit gesuchtem Namen
         public static Categories getCategoryofName(string name)
         {
-            for (int i = 0; i < Popup.savedCategories.Count; i++)
+            for (int i = 0; i < DataLoader.savedCategories.Count; i++)
             {
-                if (name == Popup.savedCategories.ElementAt(i).categoryName)
+                if (name == DataLoader.savedCategories.ElementAt(i).categoryName)
                 {
-                    return Popup.savedCategories.ElementAt(i);
+                    return DataLoader.savedCategories.ElementAt(i);
                 }
             }
             return null;
@@ -241,11 +241,11 @@ namespace Toms
         // findet Event mit gesuchtem Namen
         public static Event getEventofName(string name)
         {
-            for (int i = 0; i < Popup.savedDates.Count; i++)
+            for (int i = 0; i < DataLoader.savedDates.Count; i++)
             {
-                if (name == Popup.savedDates.ElementAt(i).eventtitle)
+                if (name == DataLoader.savedDates.ElementAt(i).eventtitle)
                 {
-                    return Popup.savedDates.ElementAt(i);
+                    return DataLoader.savedDates.ElementAt(i);
                 }
             }
             return null;

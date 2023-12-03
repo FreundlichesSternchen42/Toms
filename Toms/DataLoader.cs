@@ -14,7 +14,10 @@ namespace Toms
 { 
     public class DataLoader
     {
-  
+        public static LinkedList<Event> savedDates = new LinkedList<Event>();
+        public static LinkedList<Categories> savedCategories = new LinkedList<Categories>();
+        public static Stack<object> everythingYouEverDidOnThisProject = new Stack<object>();
+
         public void LoadData()
         {
             string filePath = File.Exists("save.xml") ? "save.xml" : "init.xml";
@@ -33,13 +36,11 @@ namespace Toms
             SaveData(categories, events);
         }
 
-        public void LoadICS() { }  //??????????????????????????????????????????????????????????????????????????????
-
 
         private void AddFeiertage(ref List<Categories> categories, ref List<Event> events)
         {
             // Feiertage-Kategorie hinzufügen, falls noch nicht vorhanden
-            var feiertageCategory = categories.FirstOrDefault(c => c.Name == "Feiertage");
+            var feiertageCategory = categories.FirstOrDefault(c => c.categoryName == "Feiertage");
             if (feiertageCategory == null)
             {
                 // Lade die Kategorie aus init.xml
@@ -55,7 +56,7 @@ namespace Toms
 
                     feiertageCategory = new Categories
                     {
-                        Name = "Feiertage",
+                        categoryName = "Feiertage",
                         categoryColor = Color.FromArgb(r, g, b),
                         DeleteFlag = deleteFlag
                     };
@@ -78,20 +79,27 @@ namespace Toms
         private List<Categories> LoadCategories(XDocument doc)
         {
             var categories = from cat in doc.Descendants("category")
+                             let nameElement = cat.Element("name")
+                             let colorElement = cat.Element("color")
+                             let deleteFlagElement = cat.Element("DeleteFlag")
+                             where nameElement != null && colorElement != null &&
+                                   colorElement.Element("R") != null &&
+                                   colorElement.Element("G") != null &&
+                                   colorElement.Element("B") != null &&
+                                   deleteFlagElement != null
+                             let r = int.Parse(colorElement.Element("R").Value)
+                             let g = int.Parse(colorElement.Element("G").Value)
+                             let b = int.Parse(colorElement.Element("B").Value)
                              select new Categories
                              {
-                                
-                                 categoryName = (string)cat.Element("name"),
-                                 categoryColor = Color.FromArgb(
-                                     (int)cat.Element("color").Element("R"),
-                                     (int)cat.Element("color").Element("G"),
-                                     (int)cat.Element("color").Element("B")),
-                                 DeleteFlag = (bool)cat.Element("deleteFlag")
+                                 categoryName = nameElement.Value,
+                                 categoryColor = Color.FromArgb(r, g, b),
+                                 DeleteFlag = bool.Parse(deleteFlagElement.Value)
                              };
-  
+
             return categories.ToList();
         }
-  
+
         private List<Event> ParseFeiertageFromICS(string filePath)
         {
   
@@ -144,24 +152,25 @@ namespace Toms
             }
         return feiertage;
         }
-  
-         private List<Event> LoadEvents(XDocument doc)
-         {
+
+        private List<Event> LoadEvents(XDocument doc)
+        {
             var savedDates = from evt in doc.Descendants("event")
                              select new Event
                              {
                                  eventtitle = (string)evt.Element("eventtitle"),
-                                 date = (int)evt.Element(""),
+                                 date = int.Parse(DateTime.ParseExact((string)evt.Element("date"), "yyyyMMdd", CultureInfo.InvariantCulture).ToString("yyyyMMdd")),
                                  time = (string)evt.Element("time"),
-                                 repeation = (int)evt.Element("repeation"),
+                                 repeation = int.Parse(evt.Element("repeation").Value),
                                  category = (string)evt.Element("category"),
                                  action = (string)evt.Element("action"),
-                                 DeleteFlag = (bool)evt.Element("DeleteFlag")
+                                 DeleteFlag = bool.Parse(evt.Element("DeleteFlag").Value)
                              };
-             return savedDates.ToList();
-         }
-  
-       private void AddFeiertag(ref List<Categories> categories, ref List<Event> events)
+
+            return savedDates.ToList();
+        }
+
+        private void AddFeiertag(ref List<Categories> categories, ref List<Event> events)
        {
            // Feiertage-Kategorie hinzufügen, falls noch nicht vorhanden
            var feiertageCategory = categories.FirstOrDefault(c => c.categoryName == "Feiertage");
@@ -217,7 +226,7 @@ namespace Toms
                     )
                 );
 
-                xDoc.Save("save.xml");
+                xDoc.Save("save1.xml");
             }
 
         }
